@@ -15,5 +15,6 @@ Backend for Moodli
 |-app.js => Main app file
 |-package.json => Contains app info. + dependencies
 |-README.md
-|-ecosystem.config.js => Deployment script for use with AWS
+|-ecosystem.config.js => Deployment to run automatically and remotely by the VM [AWS]
+|-ecosystem.json => Deployment script to run locally to deploy the app [AWS]
 ```

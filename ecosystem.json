@@ -1,0 +1,22 @@
+{
+    "apps": [
+        {
+            "name": "moodliBackend",
+            "script": "app.js"
+        }
+    ],
+    "deploy": {
+        // "production" is the environment name
+        "production": {
+            "user": "ubuntu",
+            "host": [
+                "35.181.0.148"
+            ],
+            "ref": "origin/master",
+            "repo": "git@github.com:Moodli/codevscovid19_moodli_backend.git",
+            "path": "/var/www/moodli",
+            "key": "~/.ssh/knctDev1.pem",
+            "post-deploy": "npm install && npm audit && pm2 startOrRestart ecosystem.config.js --env production",
+        },
+    }
+}
