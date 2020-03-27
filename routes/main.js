@@ -7,9 +7,10 @@ const router = express.Router();
 
 
 //GET Routes
-router.get('/', (req, res) => {
+router.get('/hello', (req, res) => {
     res.json({
-        status: 'Alles Gut!'
+        status: 'Alles Gut!',
+        greeting: 'Hello World!'
     })
 });
 
