@@ -19,6 +19,7 @@ Backend for Moodli
 |-README.md
 |-ecosystem.config.js => Deployment to run automatically and remotely by the VM [AWS]
 |-ecosystem.json => Deployment script to run locally to deploy the app [AWS]
+|-twiter.data => twitter data sample
 ```
 
 ## File Structure

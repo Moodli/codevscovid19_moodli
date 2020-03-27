@@ -62,9 +62,10 @@ app.all('*', function (req, res, next) {
 
 //Load Routes
 const main = require('./routes/main');
-
+const tweet = require('./routes/tweet');
 //Use Routes
 app.use('/', main);
+app.use('/tweet', tweet)
 
 //Start the app
 app.listen(port, () => {

@@ -25,11 +25,14 @@
   },
   "homepage": "https://github.com/Moodli/codevscovid19_moodli_backend#readme",
   "dependencies": {
+    "axios": "^0.19.2",
     "body-parser": "^1.19.0",
     "compression": "^1.7.4",
     "express": "^4.17.1",
     "method-override": "^3.0.0",
     "mongoose": "^5.9.6",
+    "request": "^2.88.2",
+    "twit": "^2.2.11",
     "winston": "^3.2.1"
   },
   "devDependencies": {
