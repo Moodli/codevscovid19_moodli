@@ -16,6 +16,7 @@
             "repo": "git@github.com:Moodli/codevscovid19_moodli_backend.git",
             "path": "/var/www/moodli",
             "key": "~/.ssh/knctDev1.pem",
+            "pre-setup": "rm -rf /var/www/moodli",
             "post-deploy": "npm install && npm audit && pm2 startOrRestart ecosystem.config.js --env production"
         },
         "development": {
@@ -27,6 +28,7 @@
             "repo": "git@github.com:Moodli/codevscovid19_moodli_backend.git",
             "path": "/var/www/moodli",
             "key": "~/.ssh/knctDev1.pem",
+            "pre-setup": "rm -rf /var/www/moodli",
             "post-deploy": "npm install && npm audit && pm2 startOrRestart ecosystem.config.js --env production"
         }
     }

@@ -25,10 +25,20 @@ Backend for Moodli
 
 #### Requires:
 
+##### Local:
+
 1. Node (LTS)
 2. NPM
 3. PM2 (Install via NPM)
 4. Server SSH KEY
+
+##### Server:
+
+1. Node (LTS)
+2. NPM
+3. PM2 (Install via NPM)
+4. Git
+5. /var/www/\* must be owned not by root but the default [or specified user]
 
 ```javascript
 //Initialize the Remote Folder:
