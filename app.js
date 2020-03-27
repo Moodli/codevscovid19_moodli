@@ -34,9 +34,6 @@ app.use(BodyParser.json({
 }));
 
 
-
-
-
 //Method Override Middleware
 app.use(methodOverride('_method'));
 
