@@ -10,6 +10,8 @@ Backend for Moodli
 | |-dbConnection.js => Module that handles MongoDB conection.
 | |=logs.js => Custom loggers
 |-creds =>  MongoDB Credentials
+|-routes => API routes
+| |-main.js => Test routes
 |-app.js => Main app file
 |-package.json => Contains app info. + dependencies
 |-README.md

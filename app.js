@@ -60,11 +60,11 @@ app.all('*', function (req, res, next) {
     next();
 });
 
-// //Load Routes
-// const Error_Msg = require('./routes/errors');
+//Load Routes
+const main = require('./routes/main');
 
-// //Use Routes
-// app.use('/', Error_Msg);
+//Use Routes
+app.use('/', main);
 
 //Start the app
 app.listen(port, () => {
