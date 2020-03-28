@@ -31,9 +31,7 @@
     "express": "^4.17.1",
     "method-override": "^3.0.0",
     "mongoose": "^5.9.6",
-    "request": "^2.88.2",
     "twit": "^2.2.11",
-    "twit-wrapper": "^1.0.5",
     "winston": "^3.2.1"
   },
   "devDependencies": {
