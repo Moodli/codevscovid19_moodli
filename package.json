@@ -33,6 +33,7 @@
     "mongoose": "^5.9.6",
     "request": "^2.88.2",
     "twit": "^2.2.11",
+    "twit-wrapper": "^1.0.5",
     "winston": "^3.2.1"
   },
   "devDependencies": {

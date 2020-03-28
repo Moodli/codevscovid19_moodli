@@ -12,12 +12,24 @@ const creds = require('../creds/tweetapiKey');
 
 //Create a new Twitter crawler instancec
 const T = new Twit(creds);
+const stream = T.stream('statuses/filter', { track: ['covid19', 'coronavirus'], language: 'en' })
 
-T.get('search/tweets', { q: 'covid19 since:2020-03-11', count: 100 }, function (err, data, response) {
-    console.log(data.statuses)
+// stream.on('message', (msg) => {
+//     console.log(msg)
+// })
+
+stream.on('tweet', (twt) => {
+    // console.log(twt.created_at)
+    // console.log(twt.text)
+    // console.log(twt.lang)
+    // console.log(twt.user.location)
+    console.log(twt)
 })
+// T.get('search/tweets', { q: 'covid19', count: 1000 }, function (err, data, response) {
+//     console.log(data.statuses.length)
+// })
 
-T.stream
+
 
 
 //Export the Module
