@@ -7,7 +7,6 @@ const natural = require('natural');
 const stWord = require('stopword');
 const { WordTokenizer } = natural;
 const tokenizer = new WordTokenizer;
-
 const toLexlow = (text) => {
     //Convert string to standard lexicons
     const toLex = standardLex(text);
@@ -19,8 +18,10 @@ const toLexlow = (text) => {
     const toLex2 = standardLex(alphaOnly)
     //Tokenize strings
     const tokenized = tokenizer.tokenize(toLex2)
+    //Remove stopwords
+    const remSw = stWord.removeStopwords(tokenized);
     //return the final result
-    return tokenized
+    return remSw
 }
 
-console.log(toLexlow("dat's mine 2 apples"))
+console.log(toLexlow("some apples please"))
