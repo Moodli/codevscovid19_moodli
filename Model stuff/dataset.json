@@ -1,0 +1,245 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "date": "2020-03-27T18:25:43.511Z",
+        "text": "covid 19 is terrible and bad",
+        "sentiment": -0.8499999999999999
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "38.8951",
+          "77.0364"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "date": "2020-03-27T18:25:43.511Z",
+        "text": "i love quarantaine",
+        "sentiment": 0.5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "34.8951",
+          "77.0364"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "date": "2020-03-27T18:25:43.511Z",
+        "text": "who the hack is merkel",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "38.8951",
+          "75.0364"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "date": "2020-03-27T18:25:43.511Z",
+        "text": "i use my phone too much",
+        "sentiment": 0.2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "40.8951",
+          "74.0364"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "date": "2020-03-27T18:25:43.511Z",
+        "text": "who doesnt love sitting at home and doing nothing",
+        "sentiment": 0.5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "date": "2020-03-26T18:25:43.511Z",
+        "text": "covid 19 is nice",
+        "sentiment": 0.6
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "38.8951",
+          "75.0364"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "date": "2020-03-26T18:25:43.511Z",
+        "text": "random stuff is good",
+        "sentiment": 0.09999999999999998
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "37.8951",
+          "76.0364"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "date": "2020-03-26T18:25:43.511Z",
+        "text": "random stuff is bad",
+        "sentiment": -0.5999999999999999
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "38.8951",
+          "77.0364"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "date": "2020-03-26T18:25:43.511Z",
+        "text": "lalala",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "38.8951",
+          "77.0364"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "date": "2020-03-26T18:25:43.511Z",
+        "text": "cute cats are cute",
+        "sentiment": 0.5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          " 7.542333",
+          "46.372394"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "date": "2020-03-26T18:25:43.511Z",
+        "text": "what is called, bless you",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          " 6.542333",
+          "47.372394"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "date": "2020-03-26T18:25:43.511Z",
+        "text": "cute cats are cute",
+        "sentiment": 0.5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          " 8.542333",
+          "48.372394"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "date": "2020-03-26T18:25:43.511Z",
+        "text": "random1 good",
+        "sentiment": 0.7
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          " 9.542333",
+          "49.372394"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "date": "2020-03-26T18:25:43.511Z",
+        "text": "random2 bad",
+        "sentiment": -0.6999999999999998
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          " 10.542333",
+          "47.372394"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "date": "2020-03-26T18:25:43.511Z",
+        "text": "cute cats are cute",
+        "sentiment": 0.5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          " 11.542333",
+          "47.372394"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "date": "2020-03-26T18:25:43.511Z",
+        "text": "random not sure but ok",
+        "sentiment": -0.08333333333333333
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          " 8.542333",
+          "47.372394"
+        ]
+      }
+    }
+  ]
+}
