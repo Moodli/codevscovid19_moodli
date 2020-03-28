@@ -71,8 +71,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          0,
-          0
+          "38.8951",
+          "75.0364"
         ]
       }
     },
@@ -232,6 +232,51 @@
         "date": "2020-03-26T18:25:43.511Z",
         "text": "random not sure but ok",
         "sentiment": -0.08333333333333333
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          " 8.542333",
+          "47.372394"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "date": "2020-03-26T18:25:43.511Z",
+        "text": "the president is not sure but ok",
+        "sentiment": 0.125
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          " 8.542333",
+          "47.372394"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "date": "2020-03-26T18:25:43.511Z",
+        "text": "a house not sure but ok",
+        "sentiment": 0.125
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          " 8.542333",
+          "47.372394"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "date": "2020-03-26T18:25:43.511Z",
+        "text": "we found Facebook",
+        "sentiment": 0.0
       },
       "geometry": {
         "type": "Point",
