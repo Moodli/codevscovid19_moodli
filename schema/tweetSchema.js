@@ -11,7 +11,7 @@ const tweetSchema = new Schema({
 
     },
     text: {
-        type: String,
+        type:Array,
     },
     location: {
         type: String

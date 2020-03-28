@@ -21,6 +21,20 @@ const dict= require('../config/dict.js').data;
 //     console.log(element)
 // }
 
+//BestMatch
+
+const bestMatch=(array)=>{
+
+    let finalArray=[]
+    for (let index = 0; index < array.length; index++) {
+        const element = array[index];
+        const a =strSim.findBestMatch(element,dict)
+        finalArray.push(a.bestMatch.target)
+    
+    }
+    return finalArray
+}
+
 //Define the function
 const dataPrep = (text) => {
     //Convert string to standard lexicons
@@ -35,24 +49,16 @@ const dataPrep = (text) => {
     const tokenized = tokenizer.tokenize(toLex2)
     //Remove stopwords
     const remSw = stWord.removeStopwords(tokenized);
+
+    
     // return the final result
-    return remSw
+ return bestMatch(remSw)
 }
 
 
 module.exports={dataPrep}
-// let ab=[]
 
-// const preA=dataPrep("some apples please sx asd ");
 
-// for (let index = 0; index < preA.length; index++) {
-//     const element = preA[index];
-//     const a =strSim.findBestMatch(element,dict)
-//    ab.push(a.bestMatch.target) 
-
-// }
-// console.log(preA)
-// console.log(ab)
 
 
 
