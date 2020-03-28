@@ -6,20 +6,20 @@ import json
 import csv
 import pandas as pd
 import geojson
+import numpy as np
 
-#blob = TextBlob("Corona is bad, we are learning media")
-#print(blob.sentiment)
+from textblob.np_extractors import ConllExtractor
+#from textblob.base import BaseNPExtractor
+#from textblob.en.np_extractors import ConllExtractor, FastNPExtractor
 
 #incoming ?
 
 #outgoing geojson with sentiment and datetime
-#
-##train_data = pd.read_json (r'C:/Users/jonih/Desktop/emotion-detection-trn.json')
-#print(train_data)
 
 class blobclass:
     blob = TextBlob("")
-    
+    extractor = ConllExtractor()
+    noun_collector = list()
     #def __init__(self):
     #    blob = TextBlob("")
         
@@ -27,6 +27,17 @@ class blobclass:
         self.blob = TextBlob(text)
         sentiment = self.blob.sentiment
         return sentiment
+    
+    def get_nouns(self,text):
+        blob = TextBlob(text, np_extractor=self.extractor)
+        for words in blob.noun_phrases:
+            self.noun_collector.append(words)
+        #if(len(blob.noun_phrases)>=1):
+        #    print(blob.noun_phrases[0])
+
+    def print_nouns(self):
+        print(self.noun_collector)
+
     
 
 def df_to_geojson(df, properties, lat='latitude', lon='longitude'):
@@ -53,6 +64,7 @@ for index,row in data.iterrows():
 
         dict1 = {}
         this_sentiment = model_sentiment.write_text_get_sentiment(row["text"])
+        model_sentiment.get_nouns(row["text"])
         d = {"sentiment": this_sentiment.polarity}
         dict1.update(d) 
 
@@ -63,17 +75,6 @@ data1 = pd.DataFrame(rows_list)
 data["sentiment"] = data1
 
 
-print(data)
-
-
-'''
-sentiment_data = pd.DataFrame(columns=("sentiment"))
-for index,row in data.iterrows():
-    this_sentiment = model_sentiment.write_text_get_sentiment(row["text"])
-    sentiment_data["sentiment"] = this_sentiment.polarity
-    
-data = pd.concat([data,sentiment_data])
-'''
 lat = []
 lon = []
 # For each row in a varible,
@@ -91,15 +92,31 @@ for row in data["location"]:
         #lon.append(np.NaN) old
 
 # Create two new columns from lat and lon
-data['latitude'] = lat
-data['longitude'] = lon
+try:
+    data['latitude'] = float(lat)
+    data['longitude'] = float(lon)
+except:
+    data['latitude'] = lat
+    data['longitude'] = lon 
+
 
 print(data)
+model_sentiment.print_nouns()
+
+'''
+dummydata = pd.DataFrame(np.random.randint(0,100,size=(10000, 2)), columns=list(['latitude','longitude']))
+dummydata["text"]="some text"
+dummydata["date"]="2020-03-27T18:25:43.511Z"
+random_sentiment = np.random.uniform(low=-1.0, high=1.0, size=(10000))
+dummydata["sentiment"]=random_sentiment
+print(dummydata)
+data = dummydata
+'''
 
 cols = ['date', 'text', 'sentiment']
 geojson = df_to_geojson(data, cols)
 
-print(geojson)
+
 
 output_filename = 'dataset.js'
 with open('dataset.json', 'w') as output_file:
