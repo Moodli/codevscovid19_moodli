@@ -72,3 +72,11 @@ app.use('/tweet', tweet)
 app.listen(port, () => {
     appLog.info(`Server is listening on port ${port}`);
 });
+
+//Array conversion
+// const fs = require("fs");
+// let text = fs.readFileSync("./x.txt").toString('utf-8');
+// let array = text.split("\r\n");
+// // console.log();
+// // console.log(json.stringufi)
+// fs.writeFileSync("./array",  JSON.stringify(array))

@@ -12,6 +12,7 @@ const creds = require('../creds/tweetapiKey');
 
 //Custom Modules
 const dbConnection = require('../config/dbConnection').DB_Connection;
+const dataPrep = require('../config/textProcess.js').dataPrep
 
 //Load Model for tweetDB
 require('../schema/tweetSchema');
@@ -23,18 +24,25 @@ const stream = T.stream('statuses/filter', { track: ['covid19', 'coronavirus'], 
 
 
 //Tweet Stream On
+// stream.on('tweet', (twt) => {
+//     //Tweet Object to be stored in the db
+//     let twitObg = {
+//         date: twt.created_at,
+//         text: twt.text,
+//         location: twt.user.location
+//     }
+
+//     //Save the object into the db
+//     new tweetDB(twitObg)
+//         .save()
+//         .then(rs => console.log(rs))
+// })
+
+// Tweet Stream On
+
 stream.on('tweet', (twt) => {
     //Tweet Object to be stored in the db
-    let twitObg = {
-        date: twt.created_at,
-        text: twt.text,
-        location: twt.user.location
-    }
-
-    //Save the object into the db
-    new tweetDB(twitObg)
-        .save()
-        .then(rs => console.log(rs))
+console.log(dataPrep(twt.text))
 })
 
 

@@ -34,6 +34,7 @@
     "mongoose": "^5.9.6",
     "natural": "^0.6.3",
     "stopword": "^1.0.0",
+    "string-similarity": "^4.0.1",
     "twit": "^2.2.11",
     "winston": "^3.2.1"
   },
