@@ -8,37 +8,41 @@ const { exec } = require('child_process');
 
 //Define the spawn function
 const childSpawn = () => {
-    //MongoDB dump child process
+    // MongoDB dump child process
     const mongoDump = exec(`mongoexport --host Cluster0-shard-0/cluster0-shard-00-00-osoe0.mongodb.net:27017,cluster0-shard-00-01-osoe0.mongodb.net:27017,cluster0-shard-00-02-osoe0.mongodb.net:27017 --ssl --username moodliDB --password f524wCGWkn3BhKhz --authenticationDatabase admin --db Moodli --collection Tweets --type csv --fields text,location,date,textHuman --out ../mlModel/tweets.csv
-`, (error, stdout, stderr) => {
+    `, (error, stdout, stderr) => {
         if (error) {
             subprocessLog.info(error.stack);
-            subprocessLog.info('Error code: ' + error.code);
-            subprocessLog.info('Signal received: ' + error.signal);
+            subprocessLog.info('MONGO Error code: ' + error.code);
+            subprocessLog.info('MONGO Signal received: ' + error.signal);
         }
-        subprocessLog.info('Child Process STDOUT: ' + stdout);
-        subprocessLog.info('Child Process STDERR: ' + stderr);
+        subprocessLog.info('Child MONGO Process STDOUT: ' + stdout);
+        subprocessLog.info('Child MONGO Process STDERR: ' + stderr);
 
         //ML child process
-        const mlOutput = exec(`python3 ../mlModel/sentiment_model_english.py`, (error, stdout, stderr) => {
+        const mlOutput = exec(`python3 ./mlModel/sentiment_model_english.py`, (error, stdout, stderr) => {
             if (error) {
                 subprocessLog.info(error.stack);
-                subprocessLog.info('Error code: ' + error.code);
-                subprocessLog.info('Signal received: ' + error.signal);
+                subprocessLog.info('ML Error code: ' + error.code);
+                subprocessLog.info('ML Signal received: ' + error.signal);
             }
-            subprocessLog.info('Child Process STDOUT: ' + stdout);
-            subprocessLog.info('Child Process STDERR: ' + stderr);
+            subprocessLog.info('ML Child Process STDOUT: ' + stdout);
+            subprocessLog.info('ML Child Process STDERR: ' + stderr);
         });
 
         mlOutput.on('exit', (code) => {
-            subprocessLog.info('Child process exited with exit code ' + code);
+            subprocessLog.info('ML Child process exited with exit code ' + code);
         });
 
     });
 
     mongoDump.on('exit', (code) => {
-        subprocessLog.info('Child process exited with exit code ' + code);
+        subprocessLog.info('MONGO Child process exited with exit code ' + code);
     });
+
+
+
+
 };
 
 module.exports = { childSpawn }

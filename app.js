@@ -61,7 +61,7 @@ app.all('*', function (req, res, next) {
 //Dump data from MongoDB
 setInterval(() => {
     childSpawn()
-}, 100 * 1200);
+}, 300 * 400);
 
 //Load Routes
 const tweet = require('./routes/tweet');

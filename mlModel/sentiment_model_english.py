@@ -9,7 +9,7 @@ import geojson
 import numpy as np
 import sys
 
-from textblob.np_extractors import ConllExtractor
+# from textblob.np_extractors import ConllExtractor
 #from textblob.base import BaseNPExtractor
 #from textblob.en.np_extractors import ConllExtractor, FastNPExtractor
 
@@ -28,7 +28,7 @@ output_filename = 'dataset.js'
 
 class blobclass:
     blob = TextBlob("")
-    extractor = ConllExtractor()
+    # extractor = ConllExtractor()
     # noun_collector = list()
     # def __init__(self):
     #    blob = TextBlob("")
@@ -131,6 +131,7 @@ cols = ['date', 'textHuman', 'sentiment']  # text
 geojson = df_to_geojson(data, cols)
 
 # save geojson
-with open('../productionData/dataset.json', 'w') as output_file:
+with open('./productionData/dataset.json', 'w') as output_file:
     #output_file.write('var dataset = ')
     json.dump(geojson, output_file, indent=2)
+    print("Damn look at this!!! Model Finished!!")

@@ -10,7 +10,7 @@ const Twit = require('twit')
 
 //Gloabl variables
 const creds = require('../creds/tweetapiKey');
-const productionData = require('../productionData/dataset.json')
+// const productionData = require('../productionData/dataset.json')
 
 //Custom Modules
 const dataPrep = require('../config/textProcess.js').dataPrep;
@@ -28,43 +28,43 @@ const dblog = logger.get('dbCon');
 
 
 //Initialize DB Connection
-dbConnection
-    .once('open', () => {
-        dblog.info('DB Connected')
-        //Load Model for tweetDB
-        require('../schema/tweetSchema');
-        const tweetDB = dbConnection.model('tweet');
-        //MongoDB Change Stream
-        const changeStream = tweetDB.watch()
-        //Tweet Stream On
-        stream.on('tweet', (twt) => {
+// dbConnection
+//     .once('open', () => {
+//         dblog.info('DB Connected')
+//         //Load Model for tweetDB
+//         require('../schema/tweetSchema');
+//         const tweetDB = dbConnection.model('tweet');
+//         //MongoDB Change Stream
+//         const changeStream = tweetDB.watch()
+//         //Tweet Stream On
+//         stream.on('tweet', (twt) => {
 
-            //Get rid of all the undef
-            if ((locationFilter(twt.user.location)) != 'fup') {
+//             //Get rid of all the undef
+//             if ((locationFilter(twt.user.location)) != 'fup') {
 
-                //Tweet Object to be stored in the db
-                //Tweet Object to be stored in the db
-                let twitObj = {
-                    date: twt.created_at,
-                    text: dataPrep(twt.text),
-                    textHuman: twt.text.replace('RT', ''),
-                    location: locationFilter(twt.user.location)
-                }
-                //Save the object into the db
-                new tweetDB(twitObj)
-                    .save()
-                    // .then(() => dblog.info('Data saved!'))
-                    .catch(err => dblog.error(err))
-            }
-        })
+//                 //Tweet Object to be stored in the db
+//                 //Tweet Object to be stored in the db
+//                 let twitObj = {
+//                     date: twt.created_at,
+//                     text: dataPrep(twt.text),
+//                     textHuman: twt.text.replace('RT', ''),
+//                     location: locationFilter(twt.user.location)
+//                 }
+//                 //Save the object into the db
+//                 new tweetDB(twitObj)
+//                     .save()
+//                     // .then(() => dblog.info('Data saved!'))
+//                     .catch(err => dblog.error(err))
+//             }
+//         })
 
-        //Monitoring
-        let counter = 0
-        changeStream.on('change', (change) => {
-            dblog.info(change.operationType + " " + `${counter = counter + 1}`)
-        })
-    })
-    .catch(err => dblog.error('Error Connecting to DB' + ' ' + err));
+//         //Monitoring
+//         let counter = 0
+//         changeStream.on('change', (change) => {
+//             dblog.info(change.operationType + " " + `${counter = counter + 1}`)
+//         })
+//     })
+//     .catch(err => dblog.error('Error Connecting to DB' + ' ' + err));
 
 //API send geoJson
 router.get('/geo', (req, res) => {
@@ -83,6 +83,6 @@ module.exports = router;
 
 
 
-fs.watchFile('../productionData/dataset.json', (curr, prev) => {
+fs.watchFile('./a.txt', { interval: 1000 }, (curr, prev) => {
     console.log(`file Changed`);
 });
