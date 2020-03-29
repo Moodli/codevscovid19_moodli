@@ -48,7 +48,7 @@ class blobclass:
 
     def print_nouns(self):
         print(self.noun_collector)
-        with open("nouns_english.txt", "w") as output:
+        with open("../productionData/nouns_english.txt", "w") as output:
             output.write(str(self.noun_collector))
 
 
