@@ -1,6 +1,7 @@
 
 'use strict';
 /*eslint-env node*/
+
 //Dependencies
 const winston = require('winston');
 //Custom Log Format
@@ -51,9 +52,9 @@ container.add('appLog', {
 });
 
 //Logging Category for passport-local.js
-container.add('passportLog', {
+container.add('subprocessLog', {
     format: winston.format.combine(
-        winston.format.label({ label: 'PASSPORT AUTH' }),
+        winston.format.label({ label: 'CHILD' }),
         logFormat
     ),
     transports: [new winston.transports.Console()],
