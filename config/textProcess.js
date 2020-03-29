@@ -127,7 +127,7 @@ const locationFilter = (location) => {
 
 
 
-module.exports = { dataPrep, locationFilter };
+module.exports = { dataPrep, locationFilter, standardLex };
 
 
 

@@ -14,6 +14,7 @@ const creds = require('../creds/tweetapiKey');
 const dbConnection = require('../config/dbConnection').DB_Connection;
 const dataPrep = require('../config/textProcess.js').dataPrep;
 const locationFilter = require('../config/textProcess').locationFilter;
+const stLex = require('../config/textProcess').standardLex;
 
 //Winston Logger
 const logger = require('../config/logs');
@@ -22,7 +23,6 @@ const dblog = logger.get('dbCon');
 //Create a new Twitter crawler instance
 const T = new Twit(creds);
 
-//Create a stream with specified keywords
 const stream = T.stream('statuses/filter', { track: ['covid19', 'coronavirus', 'CoronaVirusUpdates', 'COVIDー19', 'QuaratineLife', 'Quaratine', 'lockdown', 'self-isolate', 'social-distancing'] })
 
 //Initialize DB Connection
@@ -41,9 +41,11 @@ dbConnection
             if ((locationFilter(twt.user.location)) != 'fup') {
 
                 //Tweet Object to be stored in the db
+                //Tweet Object to be stored in the db
                 let twitObj = {
                     date: twt.created_at,
                     text: dataPrep(twt.text),
+                    textHuman: twt.text.replace('RT', ''),
                     location: locationFilter(twt.user.location)
                 }
                 //Save the object into the db
@@ -61,6 +63,8 @@ dbConnection
         })
     })
     .catch(err => dblog.error('Error Connecting to DB' + ' ' + err));
+
+
 
 
 
