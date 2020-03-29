@@ -1,4 +1,4 @@
-#sentiment model
+# sentiment model
 
 from textblob import TextBlob
 from textblob.sentiments import NaiveBayesAnalyzer
@@ -13,34 +13,35 @@ from textblob.np_extractors import ConllExtractor
 #from textblob.base import BaseNPExtractor
 #from textblob.en.np_extractors import ConllExtractor, FastNPExtractor
 
-#incoming 
-#in case the path is different include path here path
-incoming_path = 'C:/Users/jonih/OneDrive/Documents/Freizeit/Hackathon/codevscovid19_moodli_backend/mongodump/tweets.csv'
+# incoming
+# in case the path is different include path here path
+incoming_path = 'C:/Users/Windows/Desktop/moodli2/codevscovid19_moodli_backend/productionData/tweet.csv'
 
-#outgoing geojson with sentiment,datetime, humanText, coordinates
+# outgoing geojson with sentiment,datetime, humanText, coordinates
 output_filename = 'dataset.js'
 
-print ('path:', str(sys.argv))
-path = str(sys.argv)
+# print ('path:', str(sys.argv))
+# path = str(sys.argv)
+
 
 class blobclass:
     blob = TextBlob("")
     extractor = ConllExtractor()
     noun_collector = list()
-    #def __init__(self):
+    # def __init__(self):
     #    blob = TextBlob("")
-        
-    def write_text_get_sentiment(self,text):
+
+    def write_text_get_sentiment(self, text):
         self.blob = TextBlob(text)
         sentiment = self.blob.sentiment
         return sentiment
-    
-    def get_nouns(self,text):
+
+    def get_nouns(self, text):
         blob = TextBlob(text, np_extractor=self.extractor)
         for words in blob.noun_phrases:
-            if(len(words)>=4):
+            if(len(words) >= 4):
                 self.noun_collector.append(words)
-        #if(len(blob.noun_phrases)>=1):
+        # if(len(blob.noun_phrases)>=1):
         #    print(blob.noun_phrases[0])
 
     def print_nouns(self):
@@ -48,37 +49,38 @@ class blobclass:
         with open("nouns_english.txt", "w") as output:
             output.write(str(self.noun_collector))
 
-    
 
 def df_to_geojson(df, properties, lat='latitude', lon='longitude'):
-    geojson = {'type':'FeatureCollection', 'features':[]}
+    geojson = {'type': 'FeatureCollection', 'features': []}
     for _, row in df.iterrows():
-        feature = {'type':'Feature','properties':{},'geometry':{'type':'Point','coordinates':[]}}
-        feature['geometry']['coordinates'] = [row[lon],row[lat]]
+        feature = {'type': 'Feature', 'properties': {},
+                   'geometry': {'type': 'Point', 'coordinates': []}}
+        feature['geometry']['coordinates'] = [row[lon], row[lat]]
         for prop in properties:
             feature['properties'][prop] = row[prop]
         geojson['features'].append(feature)
     return geojson
 
-#with open("C:/Users/jonih/OneDrive/Documents/Freizeit/Hackathon/codevscovid19_moodli_backend/Model stuff/test.json") as f:
+# with open("C:/Users/jonih/OneDrive/Documents/Freizeit/Hackathon/codevscovid19_moodli_backend/Model stuff/test.json") as f:
 #  data = json.load(f)
 
-data = pd.read_csv(incoming_path) 
+
+data = pd.read_csv(incoming_path)
 
 model_sentiment = blobclass()
 
 rows_list = []
-for index,row in data.iterrows():
+for index, row in data.iterrows():
 
-        dict1 = {}
-        this_sentiment = model_sentiment.write_text_get_sentiment(row["text"])
-        model_sentiment.get_nouns(row["text"])
-        d = {"sentiment": this_sentiment.polarity}
-        dict1.update(d) 
+    dict1 = {}
+    this_sentiment = model_sentiment.write_text_get_sentiment(row["text"])
+    model_sentiment.get_nouns(row["text"])
+    d = {"sentiment": this_sentiment.polarity}
+    dict1.update(d)
 
-        rows_list.append(dict1)
+    rows_list.append(dict1)
 
-data1 = pd.DataFrame(rows_list)   
+data1 = pd.DataFrame(rows_list)
 
 data["sentiment"] = data1
 
@@ -97,7 +99,7 @@ for row in data["location"]:
         lat.append(0)
         # append a missing value to lon
         lon.append(0)
-        #lon.append(np.NaN) old
+        # lon.append(np.NaN) old
 
 
 # Create two new columns from lat and lon
@@ -106,10 +108,10 @@ try:
     data['longitude'] = float(lat)
 except:
     data['latitude'] = lon
-    data['longitude'] = lat 
+    data['longitude'] = lat
 
 
-#print(data)
+# print(data)
 model_sentiment.print_nouns()
 
 '''
@@ -122,12 +124,11 @@ print(dummydata)
 data = dummydata
 '''
 
-#make geojson
-cols = ['date','textHuman', 'sentiment']#text
+# make geojson
+cols = ['date', 'textHuman', 'sentiment']  # text
 geojson = df_to_geojson(data, cols)
 
-#save geojson
+# save geojson
 with open('dataset.json', 'w') as output_file:
     #output_file.write('var dataset = ')
-    json.dump(geojson, output_file, indent=2) #
-
+    json.dump(geojson, output_file, indent=2)
