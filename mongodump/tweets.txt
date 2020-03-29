@@ -1,4 +1,3 @@
-_id
 text
 location
 date
