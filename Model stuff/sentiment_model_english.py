@@ -7,14 +7,21 @@ import csv
 import pandas as pd
 import geojson
 import numpy as np
+import sys
 
 from textblob.np_extractors import ConllExtractor
 #from textblob.base import BaseNPExtractor
 #from textblob.en.np_extractors import ConllExtractor, FastNPExtractor
 
-#incoming ?
+#incoming 
+#in case the path is different include path here path
+incoming_path = 'C:/Users/jonih/OneDrive/Documents/Freizeit/Hackathon/codevscovid19_moodli_backend/mongodump/tweets.csv'
 
-#outgoing geojson with sentiment and datetime
+#outgoing geojson with sentiment,datetime, humanText, coordinates
+output_filename = 'dataset.js'
+
+print ('path:', str(sys.argv))
+path = str(sys.argv)
 
 class blobclass:
     blob = TextBlob("")
@@ -31,7 +38,8 @@ class blobclass:
     def get_nouns(self,text):
         blob = TextBlob(text, np_extractor=self.extractor)
         for words in blob.noun_phrases:
-            self.noun_collector.append(words)
+            if(len(words)>=4):
+                self.noun_collector.append(words)
         #if(len(blob.noun_phrases)>=1):
         #    print(blob.noun_phrases[0])
 
@@ -55,9 +63,7 @@ def df_to_geojson(df, properties, lat='latitude', lon='longitude'):
 #with open("C:/Users/jonih/OneDrive/Documents/Freizeit/Hackathon/codevscovid19_moodli_backend/Model stuff/test.json") as f:
 #  data = json.load(f)
 
-
-
-data = pd.read_csv('C:/Users/jonih/OneDrive/Documents/Freizeit/Hackathon/codevscovid19_moodli_backend/Model stuff/dataExample.csv') 
+data = pd.read_csv(incoming_path) 
 
 model_sentiment = blobclass()
 
@@ -83,8 +89,8 @@ lon = []
 for row in data["location"]:
     # Try to,
     try:
-        lat.append(row.split(',')[0])
-        lon.append(row.split(',')[1])
+        lat.append(row.split(',')[0][1:])
+        lon.append(row.split(',')[1][:-1])
     # But if you get an error
     except:
         # append a missing value to lat
@@ -93,13 +99,14 @@ for row in data["location"]:
         lon.append(0)
         #lon.append(np.NaN) old
 
+
 # Create two new columns from lat and lon
 try:
-    data['latitude'] = float(lat)
-    data['longitude'] = float(lon)
+    data['latitude'] = float(lon)
+    data['longitude'] = float(lat)
 except:
-    data['latitude'] = lat
-    data['longitude'] = lon 
+    data['latitude'] = lon
+    data['longitude'] = lat 
 
 
 print(data)
@@ -115,12 +122,12 @@ print(dummydata)
 data = dummydata
 '''
 
-cols = ['date', 'text', 'sentiment']
+cols = ['date','text', 'sentiment']#text
 geojson = df_to_geojson(data, cols)
 
 
 
-output_filename = 'dataset.js'
+
 with open('dataset.json', 'w') as output_file:
     #output_file.write('var dataset = ')
     json.dump(geojson, output_file, indent=2) #
