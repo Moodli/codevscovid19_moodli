@@ -4,8 +4,8 @@
 //Dependencies
 const standardLex = require('apos-to-lex-form');
 const natural = require('natural');
-const stWord = require('stopword');
-const strSim = require('string-similarity');
+// const stWord = require('stopword');
+// const strSim = require('string-similarity');
 const localtionDB = require('all-the-cities');
 const cL = require('country-list');
 const { overwrite } = require('country-list');
@@ -15,21 +15,6 @@ overwrite([{
 }])
 const { WordTokenizer } = natural;
 const tokenizer = new WordTokenizer;
-
-//Load dictionary file
-// const dict = require('../config/dict.js').data;
-
-//BestMatch
-// const bestMatch = (array) => {
-
-//     let finalArray = []
-//     for (let index = 0; index < array.length; index++) {
-//         const element = array[index];
-//         const a = strSim.findBestMatch(element, dict)
-//         finalArray.push(a.bestMatch.target)
-//     }
-//     return finalArray
-// };
 
 //Data pre-processing
 const dataPrep = (text) => {
@@ -134,6 +119,30 @@ module.exports = { dataPrep, locationFilter, standardLex };
 
 
 
+//Load dictionary file
+// const dict = require('../config/dict.js').data;
+
+//BestMatch
+// const bestMatch = (array) => {
+
+//     let finalArray = []
+//     for (let index = 0; index < array.length; index++) {
+//         const element = array[index];
+//         const a = strSim.findBestMatch(element, dict)
+//         finalArray.push(a.bestMatch.target)
+//     }
+//     return finalArray
+// };
+
+
+
+// //Execution time measurement
+// let hrstarts = process.hrtime()
+// let hrends = process.hrtime(hrstarts)
+// simcompLog.info('Execution time[L]: ' + hrends[0] + 's ' + hrends[1] / 1000000 + 'ms')
+
+
+
 
 // var filtered = array.filter((el)=> {
 //   return el != null;
@@ -141,14 +150,15 @@ module.exports = { dataPrep, locationFilter, standardLex };
 
 // console.log(filtered);
 
-        //  //Search locality DB for country[0] and city [1]
-        //                     //If the result is not undefined return the exact coordinate
-        //                     if (localtionDB.filter(data => data.country.match(countryCode) && data.name.match(locality[1]))[0] != undefined) {
+//  //Search locality DB for country[0] and city [1]
+//                     //If the result is not undefined return the exact coordinate
+//                     if (localtionDB.filter(data => data.country.match(countryCode) && data.name.match(locality[1]))[0] != undefined) {
 
-        //                         return [countryCode, locality]
-        //                         // return [localtionDB.filter(data => data.country.match(countryCode) && data.name.match(locality[1]))[0], locality]
-        //                         //otherwise just return the country's coordinate
-        //                     } else {
-        //                         return [countryCode, locality]
-        //                         // return [localtionDB.filter(data => data.country.match(countryCode))[0], locality]
-        //                     }
+//                         return [countryCode, locality]
+//                         // return [localtionDB.filter(data => data.country.match(countryCode) && data.name.match(locality[1]))[0], locality]
+//                         //otherwise just return the country's coordinate
+//                     } else {
+//                         return [countryCode, locality]
+//                         // return [localtionDB.filter(data => data.country.match(countryCode))[0], locality]
+//                     }
+

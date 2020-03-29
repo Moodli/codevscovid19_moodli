@@ -14,7 +14,6 @@ const creds = require('../creds/tweetapiKey');
 const dbConnection = require('../config/dbConnection').DB_Connection;
 const dataPrep = require('../config/textProcess.js').dataPrep;
 const locationFilter = require('../config/textProcess').locationFilter;
-const stLex = require('../config/textProcess').standardLex;
 
 //Winston Logger
 const logger = require('../config/logs');
