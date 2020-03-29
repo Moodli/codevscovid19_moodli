@@ -122,7 +122,7 @@ print(dummydata)
 data = dummydata
 '''
 
-cols = ['date','text', 'sentiment']#text
+cols = ['date','textHuman', 'sentiment']#text
 geojson = df_to_geojson(data, cols)
 
 
