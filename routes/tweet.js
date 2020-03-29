@@ -29,34 +29,38 @@ const stream = T.stream('statuses/filter', { track: ['covid19', 'coronavirus', '
 
 // console.log(('Tasd England').match(/[^ ,]+/g).join(',').split(','))
 //Tweet Stream On
-// stream.on('tweet', (twt) => {
-// if(twt.user.location!=null){
-//         //Tweet Object to be stored in the db
-//         let twitObj = {
-//             date: twt.created_at,
-//             text: dataPrep(twt.text),
-//             location: twt.user.location
-//         }
-//     console.log(twitObj.location)
-//         // //Save the object into the db
-//         //  new tweetDB(twitObj)
-//         //     .save()
-//         //      .then(rs => console.log(rs))
-// }
-// })
+stream.on('tweet', (twt) => {
+
+    if ((locationFilter(twt.user.location)) != 'fup') {
+        //Tweet Object to be stored in the db
+        let twitObj = {
+            date: twt.created_at,
+            text: dataPrep(twt.text),
+            location: locationFilter(twt.user.location)
+        }
+        console.log(twitObj)
+        //Save the object into the db
+        new tweetDB(twitObj)
+            .save()
+            .then()
+    }
+
+
+
+})
 
 // Tweet Stream On
-try {
-    stream.on('tweet', (twt) => {
+// try {
+//     stream.on('tweet', (twt) => {
 
-        if ((locationFilter(twt.user.location)) != 'fup') {
-            console.log(locationFilter(twt.user.location))
-        }
-    })
+//         if ((locationFilter(twt.user.location)) != 'fup') {
+//             console.log(locationFilter(twt.user.location))
+//         }
+//     })
 
-} catch (error) {
-    console.log(error)
-}
+// } catch (error) {
+//     console.log(error)
+// }
 
 
 //Export the Module

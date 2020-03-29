@@ -13,7 +13,6 @@ overwrite([{
     code: 'US',
     name: 'USA'
 }])
-
 const { WordTokenizer } = natural;
 const tokenizer = new WordTokenizer;
 
@@ -70,60 +69,45 @@ const locationFilter = (location) => {
                 const locality = alphaOnly.match(/[^ ,]+/g).join(',').split(',');
 
                 // Take in array with the length of 1
-                // if (locality.length === 1) {
-                //     //Check fo corresponding country code
-                //     const countryCode = cL.getCode(locality[0]);
-                //     if (countryCode != undefined) {
-                //         // return [localtionDB.filter(city => city.country.match(countryCode))[0], countryCode, 'Country']
-                //         return localtionDB.filter(data => data.country.match(countryCode))[0].loc
-                //         //Otherwise check for the city
-                //     } else {
-                //         //If the city is not found
-                //         if (localtionDB.filter(data => data.name.match(locality[0]))[0] === undefined) {
-                //             return undefined
-                //             //Otherwise return the coordinate
-                //         } else {
-                //             // return [localtionDB.filter(city => city.name.match(locality[0]))[0], locality, "City"]
-                //             return localtionDB.filter(data => data.name.match(locality[0]))[0].loc
-                //         }
+                if (locality.length === 1) {
+                    //Check fo corresponding country code
+                    const countryCode = cL.getCode(locality[0]);
+                    if (countryCode != undefined) {
+                        return localtionDB.filter(data => data.country.match(countryCode))[0].loc
+                        //Otherwise check for the city
+                    } else {
+                        //If the city is not found
+                        if (localtionDB.filter(data => data.name.match(locality[0]))[0] === undefined) {
+                            return undefined
+                            //Otherwise return the coordinate
+                        } else {
+                            return localtionDB.filter(data => data.name.match(locality[0]))[0].loc
+                        }
 
-                //     }
+                    }
 
-                // }
+                }
 
                 // Take in array with the length of 2 
                 if (locality.length === 2) {
                     //Check both elements of the array for country code
                     const countryCode = cL.getCode(locality[1]);
-
                     //Country code found for the 1 element
                     if (countryCode != undefined) {
+
                         //Search locality DB for country[1] and city [0]
                         //If the result is not undefined return the exact coordinate
                         if (localtionDB.filter(data => data.country.match(countryCode) && data.name.match(locality[0]))[0] != undefined) {
 
-                            // return localtionDB.filter(data => data.country.match(countryCode2) && data.name.match(locality[0]))[0].loc
-                            return [localtionDB.filter(data => data.country.match(countryCode) && data.name.match(locality[0]))[0], locality, 'MM']
-
+                            return localtionDB.filter(data => data.country.match(countryCode) && data.name.match(locality[0]))[0].loc
                             //otherwise just return the country's coordinate
                         } else {
-                            // return localtionDB.filter(data => data.country.match(countryCode2))[0].loc
-                            return [localtionDB.filter(data => data.country.match(countryCode))[0], locality]
+
+                            return localtionDB.filter(data => data.country.match(countryCode))[0].loc
                         }
                         //Check for the 2 element
                     } else {
-                        //Search locality DB for country[0] and city [1]
-                        //If the result is not undefined return the exact coordinate
-                        // if (localtionDB.filter(data => data.country.match(countryCode) && data.name.match(locality[1]))[0] != undefined) {
 
-                        //     // return localtionDB.filter(data => data.country.match(countryCode) && data.name.match(locality[1]))[0].loc
-                        //     return [localtionDB.filter(data => data.country.match(countryCode) && data.name.match(locality[1]))[0], locality, "MM"]
-
-                        //     //otherwise just return the country's coordinate
-                        // } else {
-                        //     // return localtionDB.filter(data => data.country.match(countryCode))[0].loc
-                        //     return [localtionDB.filter(data => data.country.match(countryCode))[0], locality]
-                        // }
                         return undefined
                     }
 

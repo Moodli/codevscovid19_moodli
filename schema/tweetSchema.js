@@ -11,10 +11,10 @@ const tweetSchema = new Schema({
 
     },
     text: {
-        type:Array,
+        type: Array,
     },
     location: {
-        type: String
+
     }
 
 }, {
