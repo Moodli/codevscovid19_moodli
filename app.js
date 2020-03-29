@@ -5,9 +5,10 @@
 const express = require('express');
 const BodyParser = require('body-parser');
 const path = require('path');
-
 const compression = require('compression');
 
+//Custom modules
+const childSpawn = require('./config/childSpawn').childSpawn
 // Winston Logger
 const logger = require('./config/logs');
 const appLog = logger.get('appLog');
@@ -56,6 +57,11 @@ app.all('*', function (req, res, next) {
 
     next();
 });
+
+//Dump data from MongoDB
+setInterval(() => {
+    childSpawn()
+}, 100 * 1200);
 
 //Load Routes
 const tweet = require('./routes/tweet');
