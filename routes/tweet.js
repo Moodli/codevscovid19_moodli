@@ -15,6 +15,10 @@ const dbConnection = require('../config/dbConnection').DB_Connection;
 const dataPrep = require('../config/textProcess.js').dataPrep;
 const locationFilter = require('../config/textProcess').locationFilter;
 
+//Winston Logger
+const logger = require('../config/logs');
+const dblog = logger.get('dbCon');
+
 //Load Model for tweetDB
 require('../schema/tweetSchema');
 const tweetDB = dbConnection.model('tweet');
@@ -25,65 +29,37 @@ const T = new Twit(creds);
 //Create a stream with specified keywords
 const stream = T.stream('statuses/filter', { track: ['covid19', 'coronavirus', 'CoronaVirusUpdates', 'COVIDー19', 'QuaratineLife', 'Quaratine', 'lockdown', 'self-isolate', 'social-distancing'] })
 
+//Initialize DB Connection
+dbConnection
+    .once('open', () => {
+        dblog.info('DB Connected')
 
-//Tweet Stream On
-stream.on('tweet', (twt) => {
+        //Tweet Stream On
+        stream.on('tweet', (twt) => {
 
-    if ((locationFilter(twt.user.location)) != 'fup') {
-        //Tweet Object to be stored in the db
-        let twitObj = {
-            date: twt.created_at,
-            text: dataPrep(twt.text),
-            location: locationFilter(twt.user.location)
-        }
-        //Save the object into the db
-        new tweetDB(twitObj)
-            .save()
-            .catch(err => console.log(err))
-    }
+            //Get rid of all the undef
+            if ((locationFilter(twt.user.location)) != 'fup') {
 
-})
+                //Tweet Object to be stored in the db
+                let twitObj = {
+                    date: twt.created_at,
+                    text: dataPrep(twt.text),
+                    location: locationFilter(twt.user.location)
+                }
+
+                //Save the object into the db
+                new tweetDB(twitObj)
+                    .save()
+                    .then(() => dblog.info('Data saved!'))
+                    .catch(err => dblog.error(err))
+            }
+        })
+    })
+    .catch(err => dblog.error('Error Connecting to DB' + ' ' + err));
+
+
 
 
 
 //Export the Module
 module.exports = router;
-
-
-
-// T.get('search/tweets', { q: 'covid19', count: 1000 }, function (err, data, response) {
-//     console.log(data.statuses.length)
-// })
-
-
-
-// tweetDB.find({})
-//     .explain()
-//     .then(rs => console.log(rs))
-
-// stream.on('message', (msg) => {
-//     console.log(msg)
-// })
-
-
-    // console.log(twt.created_at)
-    // console.log(twt.text)
-    // console.log(twt.lang)
-    // console.log(twt.user.location)
-    // console.log(twt)
-
-    // '肺炎','新冠病毒','新冠肺炎','病毒','新型冠状病毒'
-
-
-    // Tweet Stream On
-// try {
-//     stream.on('tweet', (twt) => {
-
-//         if ((locationFilter(twt.user.location)) != 'fup') {
-//             console.log(locationFilter(twt.user.location))
-//         }
-//     })
-
-// } catch (error) {
-//     console.log(error)
-// }
