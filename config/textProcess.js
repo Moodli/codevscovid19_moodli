@@ -15,8 +15,9 @@ overwrite([{
 }])
 const { WordTokenizer } = natural;
 const tokenizer = new WordTokenizer;
+
 //Load dictionary file
-const dict = require('../config/dict.js').data;
+// const dict = require('../config/dict.js').data;
 
 //BestMatch
 // const bestMatch = (array) => {
