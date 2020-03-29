@@ -6,13 +6,17 @@ const standardLex = require('apos-to-lex-form');
 const natural = require('natural');
 const stWord = require('stopword');
 const strSim = require('string-similarity');
-const cL = require('country-list');
 const localtionDB = require('all-the-cities');
+const cL = require('country-list');
+const { overwrite } = require('country-list');
+overwrite([{
+    code: 'US',
+    name: 'USA'
+}])
+
 const { WordTokenizer } = natural;
 const tokenizer = new WordTokenizer;
-// console.log(localtionDB.filter(data => data.country.match('Mexico') && data.name.match('City'))[0])
-// console.log(localtionDB.filter(data => data.country.match('US'))[0])
-console.log(standardLex('USA'))
+
 //Load dictionary file
 const dict = require('../config/dict.js').data;
 
@@ -63,24 +67,24 @@ const locationFilter = (location) => {
             //Take in value that's not null after normalization
             if (alphaOnly.match(/[^ ,]+/g) != null) {
                 //Replace space with comma than turn the string into array using comma as a separator
-                const locality = alphaOnly.match(/[^ ,]+/g).join(',').split(',')
+                const locality = alphaOnly.match(/[^ ,]+/g).join(',').split(',');
 
-                // // Take in array with the length of 1
+                // Take in array with the length of 1
                 // if (locality.length === 1) {
                 //     //Check fo corresponding country code
-                //     const countryCode = cL.getCode(locality[0])
+                //     const countryCode = cL.getCode(locality[0]);
                 //     if (countryCode != undefined) {
-                //         // return [localtionDB.filter(city => city.country.match(countryCode))[0].loc, countryCode, 'Country']
+                //         // return [localtionDB.filter(city => city.country.match(countryCode))[0], countryCode, 'Country']
                 //         return localtionDB.filter(data => data.country.match(countryCode))[0].loc
                 //         //Otherwise check for the city
                 //     } else {
                 //         //If the city is not found
-                //         if (localtionDB.filter(data => data.name.match(locality))[0] === undefined) {
+                //         if (localtionDB.filter(data => data.name.match(locality[0]))[0] === undefined) {
                 //             return undefined
-                //             //Otherwise return the coordinat
+                //             //Otherwise return the coordinate
                 //         } else {
-                //             // return [ localtionDB.filter(city => city.name.match(locality))[0].loc, locality, "City"]
-                //             localtionDB.filter(data => data.name.match(locality))[0].loc
+                //             // return [localtionDB.filter(city => city.name.match(locality[0]))[0], locality, "City"]
+                //             return localtionDB.filter(data => data.name.match(locality[0]))[0].loc
                 //         }
 
                 //     }
@@ -90,35 +94,39 @@ const locationFilter = (location) => {
                 // Take in array with the length of 2 
                 if (locality.length === 2) {
                     //Check both elements of the array for country code
-                    const countryCode2 = cL.getCode(locality[1])
-                    const countryCode = cL.getCode(locality[0])
-                    //Country code found for the 1 element
-                    if (countryCode2 != undefined) {
-                        //Search locality DB for country[1] and city [0]
+                    const countryCode = cL.getCode(locality[1]);
 
+                    //Country code found for the 1 element
+                    if (countryCode != undefined) {
+                        //Search locality DB for country[1] and city [0]
                         //If the result is not undefined return the exact coordinate
-                        if (localtionDB.filter(data => data.country.match(countryCode2) && data.name.match(locality[0]))[0] != undefined) {
-                            // return [localtionDB.filter(data => data.country.match(countryCode2) && data.name.match(locality[0]))[0].loc, locality]
+                        if (localtionDB.filter(data => data.country.match(countryCode) && data.name.match(locality[0]))[0] != undefined) {
+
+                            // return localtionDB.filter(data => data.country.match(countryCode2) && data.name.match(locality[0]))[0].loc
+                            return [localtionDB.filter(data => data.country.match(countryCode) && data.name.match(locality[0]))[0], locality, 'MM']
 
                             //otherwise just return the country's coordinate
                         } else {
-                            // return [localtionDB.filter(data => data.country.match(countryCode2))[0].loc, locality]
+                            // return localtionDB.filter(data => data.country.match(countryCode2))[0].loc
+                            return [localtionDB.filter(data => data.country.match(countryCode))[0], locality]
                         }
                         //Check for the 2 element
                     } else {
-                        if (countryCode != undefined) {
-                            //Search locality DB for country[0] and city [1]
-                            //If the result is not undefined return the exact coordinate
-                            if (localtionDB.filter(data => data.country.match(countryCode) && data.name.match(locality[1]))[0] != undefined) {
+                        //Search locality DB for country[0] and city [1]
+                        //If the result is not undefined return the exact coordinate
+                        // if (localtionDB.filter(data => data.country.match(countryCode) && data.name.match(locality[1]))[0] != undefined) {
 
-                                // return [localtionDB.filter(data => data.country.match(countryCode) && data.name.match(locality[1]))[0], locality]
-                                //otherwise just return the country's coordinate
-                            } else {
-                                const fixUSA = standardLex(countryCode)
-                                return [localtionDB.filter(data => data.country.match(fixUSA))[0], locality]
-                            }
-                        }
+                        //     // return localtionDB.filter(data => data.country.match(countryCode) && data.name.match(locality[1]))[0].loc
+                        //     return [localtionDB.filter(data => data.country.match(countryCode) && data.name.match(locality[1]))[0], locality, "MM"]
+
+                        //     //otherwise just return the country's coordinate
+                        // } else {
+                        //     // return localtionDB.filter(data => data.country.match(countryCode))[0].loc
+                        //     return [localtionDB.filter(data => data.country.match(countryCode))[0], locality]
+                        // }
+                        return undefined
                     }
+
                 }
             }
         }
@@ -147,3 +155,15 @@ module.exports = { dataPrep, locationFilter };
 // });
 
 // console.log(filtered);
+
+        //  //Search locality DB for country[0] and city [1]
+        //                     //If the result is not undefined return the exact coordinate
+        //                     if (localtionDB.filter(data => data.country.match(countryCode) && data.name.match(locality[1]))[0] != undefined) {
+
+        //                         return [countryCode, locality]
+        //                         // return [localtionDB.filter(data => data.country.match(countryCode) && data.name.match(locality[1]))[0], locality]
+        //                         //otherwise just return the country's coordinate
+        //                     } else {
+        //                         return [countryCode, locality]
+        //                         // return [localtionDB.filter(data => data.country.match(countryCode))[0], locality]
+        //                     }
