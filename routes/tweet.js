@@ -6,13 +6,10 @@
 const express = require('express');
 const router = express.Router();
 const Twit = require('twit')
-const { Transform } = require("json2csv");
-const { Readable } = require('stream');
-const { createWriteStream } = require('fs');
-const fs = require('fs')
 
 //Gloabl variables
 const creds = require('../creds/tweetapiKey');
+const productionData = require('../productionData/dataset.json')
 
 //Custom Modules
 const dataPrep = require('../config/textProcess.js').dataPrep;
@@ -23,8 +20,6 @@ const dbConnection = require('../config/dbConnection').DB_Connection;
 const T = new Twit(creds);
 
 const stream = T.stream('statuses/filter', { track: ['covid19', 'coronavirus', 'CoronaVirusUpdates', 'COVIDー19', 'QuaratineLife', 'Quaratine', 'lockdown', 'self-isolate', 'social-distancing'] })
-
-
 
 //Winston Logger
 const logger = require('../config/logs');
@@ -70,8 +65,11 @@ dbConnection
     })
     .catch(err => dblog.error('Error Connecting to DB' + ' ' + err));
 
-
-
+//API send geoJson
+router.get('/geo', (req, res) => {
+    // res.json(productionData)
+    res.send(JSON.stringify(productionData))
+});
 
 //Export the Module
 module.exports = router;
