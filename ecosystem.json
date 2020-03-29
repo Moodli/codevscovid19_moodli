@@ -17,8 +17,8 @@
             "path": "/var/www/moodli",
             "key": "~/.ssh/knctDev1.pem",
             "pre-setup": "rm -rf /var/www/moodli",
-            "post-setup": "cd nodeModuleconfig && ./nodeCus.sh",
-            "post-deploy": "pm2 startOrRestart ecosystem.config.js --env production"
+            // "post-setup": "cd nodeModuleconfig && ./nodeCus.sh",
+            "post-deploy": "npm install && npm audit && pm2 startOrRestart ecosystem.config.js --env production && cd nodeModuleconfig && ./nodeCus.sh"
         },
         "development": {
             "user": "ubuntu",
@@ -30,8 +30,8 @@
             "path": "/var/www/moodli",
             "key": "~/.ssh/knctDev1.pem",
             "pre-setup": "rm -rf /var/www/moodli",
-            "post-setup": "cd nodeModuleconfig && ./nodeCus.sh",
-            "post-deploy": "pm2 startOrRestart ecosystem.config.js --env production"
+            // "post-setup": "cd nodeModuleconfig && ./nodeCus.sh",
+            "post-deploy": "npm install && npm audit && pm2 startOrRestart ecosystem.config.js --env production && cd nodeModuleconfig && ./nodeCus.sh"
         }
     }
 }
