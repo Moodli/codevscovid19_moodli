@@ -15,7 +15,6 @@ overwrite([{
 }])
 const { WordTokenizer } = natural;
 const tokenizer = new WordTokenizer;
-
 //Load dictionary file
 const dict = require('../config/dict.js').data;
 
@@ -73,7 +72,7 @@ const locationFilter = (location) => {
                     //Check fo corresponding country code
                     const countryCode = cL.getCode(locality[0]);
                     if (countryCode != undefined) {
-                        return localtionDB.filter(data => data.country.match(countryCode))[0].loc
+                        return localtionDB.filter(data => data.country.match(countryCode))[0].loc.coordinates
                         //Otherwise check for the city
                     } else {
                         //If the city is not found
@@ -81,7 +80,7 @@ const locationFilter = (location) => {
                             return undefined
                             //Otherwise return the coordinate
                         } else {
-                            return localtionDB.filter(data => data.name.match(locality[0]))[0].loc
+                            return localtionDB.filter(data => data.name.match(locality[0]))[0].loc.coordinates
                         }
 
                     }
@@ -99,11 +98,11 @@ const locationFilter = (location) => {
                         //If the result is not undefined return the exact coordinate
                         if (localtionDB.filter(data => data.country.match(countryCode) && data.name.match(locality[0]))[0] != undefined) {
 
-                            return localtionDB.filter(data => data.country.match(countryCode) && data.name.match(locality[0]))[0].loc
+                            return localtionDB.filter(data => data.country.match(countryCode) && data.name.match(locality[0]))[0].loc.coordinates
                             //otherwise just return the country's coordinate
                         } else {
 
-                            return localtionDB.filter(data => data.country.match(countryCode))[0].loc
+                            return localtionDB.filter(data => data.country.match(countryCode))[0].loc.coordinates
                         }
                         //Check for the 2 element
                     } else {

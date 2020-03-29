@@ -19,10 +19,6 @@ const locationFilter = require('../config/textProcess').locationFilter;
 const logger = require('../config/logs');
 const dblog = logger.get('dbCon');
 
-//Load Model for tweetDB
-require('../schema/tweetSchema');
-const tweetDB = dbConnection.model('tweet');
-
 //Create a new Twitter crawler instance
 const T = new Twit(creds);
 
@@ -33,7 +29,11 @@ const stream = T.stream('statuses/filter', { track: ['covid19', 'coronavirus', '
 dbConnection
     .once('open', () => {
         dblog.info('DB Connected')
-
+        //Load Model for tweetDB
+        require('../schema/tweetSchema');
+        const tweetDB = dbConnection.model('tweet');
+        //MongoDB Change Stream
+        const changeStream = tweetDB.watch()
         //Tweet Stream On
         stream.on('tweet', (twt) => {
 
@@ -46,13 +46,18 @@ dbConnection
                     text: dataPrep(twt.text),
                     location: locationFilter(twt.user.location)
                 }
-
                 //Save the object into the db
                 new tweetDB(twitObj)
                     .save()
-                    .then(() => dblog.info('Data saved!'))
+                    // .then(() => dblog.info('Data saved!'))
                     .catch(err => dblog.error(err))
             }
+        })
+
+        //Monitoring
+        let counter = 0
+        changeStream.on('change', (change) => {
+            dblog.info(change.operationType + " " + `${counter = counter + 1}`)
         })
     })
     .catch(err => dblog.error('Error Connecting to DB' + ' ' + err));
