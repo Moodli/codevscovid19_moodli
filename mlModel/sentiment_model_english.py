@@ -127,7 +127,7 @@ data = dummydata
 '''
 
 # make geojson
-cols = ['date', 'text', 'sentiment']  # text
+cols = ['date', 'textHuman', 'sentiment']  # text
 geojson = df_to_geojson(data, cols)
 
 # save geojson
