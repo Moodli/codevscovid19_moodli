@@ -6,8 +6,6 @@
 const express = require('express');
 const router = express.Router();
 const Twit = require('twit')
-const cL = require('country-list');
-const cities = require('all-the-cities');
 
 //Gloabl variables
 const creds = require('../creds/tweetapiKey');
