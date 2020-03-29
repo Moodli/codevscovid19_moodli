@@ -10,7 +10,7 @@ const Twit = require('twit')
 
 //Gloabl variables
 const creds = require('../creds/tweetapiKey');
-// const productionData = require('../productionData/dataset.json')
+const productionData = require('../productionData/dataset.json')
 
 //Custom Modules
 const dataPrep = require('../config/textProcess.js').dataPrep;
