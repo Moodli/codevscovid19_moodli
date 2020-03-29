@@ -5,7 +5,7 @@
 const express = require('express');
 const BodyParser = require('body-parser');
 const path = require('path');
-const methodOverride = require('method-override');
+
 const compression = require('compression');
 
 // Winston Logger
@@ -34,9 +34,6 @@ app.use(BodyParser.json({
 }));
 
 
-//Method Override Middleware
-app.use(methodOverride('_method'));
-
 //Set Static Folder (Absolute)
 app.use('/', express.static(path.join(__dirname, '/assets')));
 
@@ -64,7 +61,6 @@ app.all('*', function (req, res, next) {
 const tweet = require('./routes/tweet');
 //Use Routes
 app.use('/tweet', tweet)
-
 
 //Start the app
 app.listen(port, () => {
