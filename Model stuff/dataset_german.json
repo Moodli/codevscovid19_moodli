@@ -1,0 +1,290 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "date": "2020-03-27T18:25:43.511Z",
+        "text": "covid 19 ist schlimm",
+        "sentiment": -1.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "38.8951",
+          "77.0364"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "date": "2020-03-27T18:25:43.511Z",
+        "text": "ich hasse quarantiane",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "34.8951",
+          "77.0364"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "date": "2020-03-27T18:25:43.511Z",
+        "text": "wo zum geier ist merkel",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "38.8951",
+          "75.0364"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "date": "2020-03-27T18:25:43.511Z",
+        "text": "ich bin die ganze zeit am handy",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "40.8951",
+          "74.0364"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "date": "2020-03-27T18:25:43.511Z",
+        "text": "ich liebe es zuhause zu sitzen",
+        "sentiment": 1.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "38.8951",
+          "75.0364"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "date": "2020-03-26T18:25:43.511Z",
+        "text": "covid 19 ist gut",
+        "sentiment": 1.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "38.8951",
+          "75.0364"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "date": "2020-03-26T18:25:43.511Z",
+        "text": "random stuff is gut",
+        "sentiment": 1.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "37.8951",
+          "76.0364"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "date": "2020-03-26T18:25:43.511Z",
+        "text": "random stuff is schlecht",
+        "sentiment": -1.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "38.8951",
+          "77.0364"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "date": "2020-03-26T18:25:43.511Z",
+        "text": "lalala",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "38.8951",
+          "77.0364"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "date": "2020-03-26T18:25:43.511Z",
+        "text": "s\u00fc\u00dfe katzen sind s\u00fc\u00df",
+        "sentiment": 0.7
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          " 7.542333",
+          "46.372394"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "date": "2020-03-26T18:25:43.511Z",
+        "text": "what is called, bless you",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          " 6.542333",
+          "47.372394"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "date": "2020-03-26T18:25:43.511Z",
+        "text": "cute cats are cute",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          " 8.542333",
+          "48.372394"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "date": "2020-03-26T18:25:43.511Z",
+        "text": "random1 good",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          " 9.542333",
+          "49.372394"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "date": "2020-03-26T18:25:43.511Z",
+        "text": "random2 bad",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          " 10.542333",
+          "47.372394"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "date": "2020-03-26T18:25:43.511Z",
+        "text": "cute cats are cute",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          " 11.542333",
+          "47.372394"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "date": "2020-03-26T18:25:43.511Z",
+        "text": "random not sure but ok",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          " 8.542333",
+          "47.372394"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "date": "2020-03-26T18:25:43.511Z",
+        "text": "the president is not sure but ok",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          " 8.542333",
+          "47.372394"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "date": "2020-03-26T18:25:43.511Z",
+        "text": "a house not sure but ok",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          " 8.542333",
+          "47.372394"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "date": "2020-03-26T18:25:43.511Z",
+        "text": "we found Facebook",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          " 8.542333",
+          "47.372394"
+        ]
+      }
+    }
+  ]
+}
