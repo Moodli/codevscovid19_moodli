@@ -29,7 +29,7 @@ output_filename = 'dataset.js'
 class blobclass:
     blob = TextBlob("")
     extractor = ConllExtractor()
-    noun_collector = list()
+    # noun_collector = list()
     # def __init__(self):
     #    blob = TextBlob("")
 
@@ -38,18 +38,18 @@ class blobclass:
         sentiment = self.blob.sentiment
         return sentiment
 
-    def get_nouns(self, text):
-        blob = TextBlob(text, np_extractor=self.extractor)
-        for words in blob.noun_phrases:
-            if(len(words) >= 4):
-                self.noun_collector.append(words)
+    # def get_nouns(self, text):
+    #     blob = TextBlob(text, np_extractor=self.extractor)
+    #     for words in blob.noun_phrases:
+    #         if(len(words) >= 4):
+    #             self.noun_collector.append(words)
         # if(len(blob.noun_phrases)>=1):
         #    print(blob.noun_phrases[0])
 
-    def print_nouns(self):
-        print(self.noun_collector)
-        with open("../productionData/nouns_english.txt", "w") as output:
-            output.write(str(self.noun_collector))
+    # def print_nouns(self):
+    #     print(self.noun_collector)
+    #     with open("../productionData/nouns_english.txt", "w") as output:
+    #         output.write(str(self.noun_collector))
 
 
 def df_to_geojson(df, properties, lat='latitude', lon='longitude'):
@@ -76,7 +76,7 @@ for index, row in data.iterrows():
 
     dict1 = {}
     this_sentiment = model_sentiment.write_text_get_sentiment(row["text"])
-    model_sentiment.get_nouns(row["text"])
+    # model_sentiment.get_nouns(row["text"])
     d = {"sentiment": this_sentiment.polarity}
     dict1.update(d)
 
@@ -114,7 +114,7 @@ except:
 
 
 # print(data)
-model_sentiment.print_nouns()
+# model_sentiment.print_nouns()
 
 '''
 dummydata = pd.DataFrame(np.random.randint(0,100,size=(10000, 2)), columns=list(['latitude','longitude']))

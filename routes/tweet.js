@@ -5,6 +5,7 @@
 //Dependencies
 const express = require('express');
 const router = express.Router();
+const fs = require('fs');
 const Twit = require('twit')
 
 //Gloabl variables
@@ -74,9 +75,14 @@ router.get('/geo', (req, res) => {
 //Export the Module
 module.exports = router;
 
-    // //End the write stream on exit
-    // process.on('exit', () => {
-    //     input.push(null)
-    // });
+// //End the write stream on exit
+// process.on('exit', () => {
+//     input.push(null)
+// });
 
 
+
+
+fs.watchFile('../productionData/dataset.json', (curr, prev) => {
+    console.log(`file Changed`);
+});
