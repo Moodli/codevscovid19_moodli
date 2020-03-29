@@ -19,17 +19,16 @@ const tokenizer = new WordTokenizer;
 const dict = require('../config/dict.js').data;
 
 //BestMatch
-const bestMatch = (array) => {
+// const bestMatch = (array) => {
 
-    let finalArray = []
-    for (let index = 0; index < array.length; index++) {
-        const element = array[index];
-        const a = strSim.findBestMatch(element, dict)
-        finalArray.push(a.bestMatch.target)
-
-    }
-    return finalArray
-};
+//     let finalArray = []
+//     for (let index = 0; index < array.length; index++) {
+//         const element = array[index];
+//         const a = strSim.findBestMatch(element, dict)
+//         finalArray.push(a.bestMatch.target)
+//     }
+//     return finalArray
+// };
 
 //Data pre-processing
 const dataPrep = (text) => {
@@ -45,10 +44,12 @@ const dataPrep = (text) => {
     const toLex2 = standardLex(alphaOnly);
     //Tokenize strings
     const tokenized = tokenizer.tokenize(toLex2);
-    //Remove stopwords
-    const remSw = stWord.removeStopwords(tokenized);
-    // Return the final result
-    return bestMatch(remSw);
+    return tokenized
+
+    // //Remove stopwords
+    // const remSw = stWord.removeStopwords(tokenized);
+    // // Return the final result
+    // return bestMatch(remSw);
 };
 
 
