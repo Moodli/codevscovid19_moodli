@@ -78,7 +78,8 @@ const wordDict = {
   "'re": " are",
   "wasn't": "was not",
   "we'll": " will",
-  "luv": "love"
+  "luv": "love",
+  "USA": 'US'
 
 }
 
