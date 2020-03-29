@@ -1,3 +1,3 @@
-stopwords_en.js => stopword module
-wordDict.js => apos-to-lex-form
-data.json => country-list
+stopwords_en.js => node_modules/stopword/lib/stopwords_en.js
+wordDict.js => node_modules/apos-to-lex-form/wordDict.js
+data.json => node+modules/country-list/data.json
