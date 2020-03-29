@@ -35,6 +35,7 @@
     "json2csv": "^5.0.0",
     "mongoose": "^5.9.6",
     "natural": "^0.6.3",
+    "shelljs": "^0.8.3",
     "stopword": "^1.0.0",
     "string-similarity": "^4.0.1",
     "twit": "^2.2.11",

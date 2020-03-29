@@ -15,7 +15,7 @@ from textblob.np_extractors import ConllExtractor
 
 # incoming
 # in case the path is different include path here path
-incoming_path = 'C:/Users/Windows/Desktop/moodli2/codevscovid19_moodli_backend/productionData/tweet.csv'
+incoming_path = 'C:/Users/Windows/Desktop/moodli2/codevscovid19_moodli_backend/mongodump/tweets.csv'
 
 # outgoing geojson with sentiment,datetime, humanText, coordinates
 output_filename = 'dataset.js'
