@@ -47,7 +47,7 @@ Backend for Moodli
 //Initialize the Remote Folder:
 //Syntax: pm2 deploy <configuration_file> <environment> setup
 //Example:
-pm2 deploy ecosystem.js development setup
+pm2 deploy ecosystem.json development setup
 
 //Deploy your code:
 //Syntax: pm2 deploy ecosystem.json development

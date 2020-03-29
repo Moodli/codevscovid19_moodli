@@ -17,6 +17,7 @@
             "path": "/var/www/moodli",
             "key": "~/.ssh/knctDev1.pem",
             "pre-setup": "rm -rf /var/www/moodli",
+            "post-setup": "ls -la",
             "post-deploy": "pm2 startOrRestart ecosystem.config.js --env production"
         },
         "development": {
@@ -29,6 +30,7 @@
             "path": "/var/www/moodli",
             "key": "~/.ssh/knctDev1.pem",
             "pre-setup": "rm -rf /var/www/moodli",
+            "post-setup": "ls -la",
             "post-deploy": "pm2 startOrRestart ecosystem.config.js --env production"
         }
     }
