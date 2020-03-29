@@ -1,0 +1,1 @@
+['negro', 'april', 'twitter', 'twitter', 'texas', 'twitter', 'twitter', 'twitter', 'english', 'april', 'april', 'english']
