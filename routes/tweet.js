@@ -25,42 +25,25 @@ const T = new Twit(creds);
 //Create a stream with specified keywords
 const stream = T.stream('statuses/filter', { track: ['covid19', 'coronavirus', 'CoronaVirusUpdates', 'COVIDー19', 'QuaratineLife', 'Quaratine', 'lockdown', 'self-isolate', 'social-distancing'] })
 
-// console.log(cities.filter(city => city.name.match('Amsterdam') && city.country.match('NL'))[0])
 
-// console.log(('Tasd England').match(/[^ ,]+/g).join(',').split(','))
 //Tweet Stream On
-// stream.on('tweet', (twt) => {
+stream.on('tweet', (twt) => {
 
-//     if ((locationFilter(twt.user.location)) != 'fup') {
-//         //Tweet Object to be stored in the db
-//         let twitObj = {
-//             date: twt.created_at,
-//             text: dataPrep(twt.text),
-//             location: locationFilter(twt.user.location)
-//         }
-//         console.log(twitObj)
-//         //Save the object into the db
-//         new tweetDB(twitObj)
-//             .save()
-//             .then()
-//     }
+    if ((locationFilter(twt.user.location)) != 'fup') {
+        //Tweet Object to be stored in the db
+        let twitObj = {
+            date: twt.created_at,
+            text: dataPrep(twt.text),
+            location: locationFilter(twt.user.location)
+        }
+        //Save the object into the db
+        new tweetDB(twitObj)
+            .save()
+            .catch(err => console.log(err))
+    }
 
+})
 
-
-// })
-
-// Tweet Stream On
-// try {
-//     stream.on('tweet', (twt) => {
-
-//         if ((locationFilter(twt.user.location)) != 'fup') {
-//             console.log(locationFilter(twt.user.location))
-//         }
-//     })
-
-// } catch (error) {
-//     console.log(error)
-// }
 
 
 //Export the Module
@@ -90,3 +73,17 @@ module.exports = router;
     // console.log(twt)
 
     // '肺炎','新冠病毒','新冠肺炎','病毒','新型冠状病毒'
+
+
+    // Tweet Stream On
+// try {
+//     stream.on('tweet', (twt) => {
+
+//         if ((locationFilter(twt.user.location)) != 'fup') {
+//             console.log(locationFilter(twt.user.location))
+//         }
+//     })
+
+// } catch (error) {
+//     console.log(error)
+// }
