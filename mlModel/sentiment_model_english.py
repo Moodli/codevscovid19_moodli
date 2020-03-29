@@ -131,6 +131,6 @@ cols = ['date', 'textHuman', 'sentiment']  # text
 geojson = df_to_geojson(data, cols)
 
 # save geojson
-with open('dataset.json', 'w') as output_file:
+with open('../productionData/dataset.json', 'w') as output_file:
     #output_file.write('var dataset = ')
     json.dump(geojson, output_file, indent=2)
