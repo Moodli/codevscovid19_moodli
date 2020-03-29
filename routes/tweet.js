@@ -29,25 +29,25 @@ const stream = T.stream('statuses/filter', { track: ['covid19', 'coronavirus', '
 
 // console.log(('Tasd England').match(/[^ ,]+/g).join(',').split(','))
 //Tweet Stream On
-stream.on('tweet', (twt) => {
+// stream.on('tweet', (twt) => {
 
-    if ((locationFilter(twt.user.location)) != 'fup') {
-        //Tweet Object to be stored in the db
-        let twitObj = {
-            date: twt.created_at,
-            text: dataPrep(twt.text),
-            location: locationFilter(twt.user.location)
-        }
-        console.log(twitObj)
-        //Save the object into the db
-        new tweetDB(twitObj)
-            .save()
-            .then()
-    }
+//     if ((locationFilter(twt.user.location)) != 'fup') {
+//         //Tweet Object to be stored in the db
+//         let twitObj = {
+//             date: twt.created_at,
+//             text: dataPrep(twt.text),
+//             location: locationFilter(twt.user.location)
+//         }
+//         console.log(twitObj)
+//         //Save the object into the db
+//         new tweetDB(twitObj)
+//             .save()
+//             .then()
+//     }
 
 
 
-})
+// })
 
 // Tweet Stream On
 // try {
