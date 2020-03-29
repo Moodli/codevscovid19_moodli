@@ -109,7 +109,7 @@ except:
     data['longitude'] = lat 
 
 
-print(data)
+#print(data)
 model_sentiment.print_nouns()
 
 '''
@@ -122,12 +122,11 @@ print(dummydata)
 data = dummydata
 '''
 
+#make geojson
 cols = ['date','textHuman', 'sentiment']#text
 geojson = df_to_geojson(data, cols)
 
-
-
-
+#save geojson
 with open('dataset.json', 'w') as output_file:
     #output_file.write('var dataset = ')
     json.dump(geojson, output_file, indent=2) #
