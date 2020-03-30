@@ -13,7 +13,7 @@
                 "35.246.139.42"
             ],
             "ref": "origin/master",
-            "repo": "git@github.com:Moodli/codevscovid19_moodli_backend.git",
+            "repo": "https://github.com/Moodli/codevscovid19_moodli_backend.git",
             "path": "/var/www/moodli",
             "key": "~/.ssh/moodli",
             "pre-setup": "rm -rf /var/www/moodli",
@@ -26,7 +26,7 @@
                 "35.246.139.42"
             ],
             "ref": "origin/master",
-            "repo": "git@github.com:Moodli/codevscovid19_moodli_backend.git",
+            "repo": "https://github.com/Moodli/codevscovid19_moodli_backend.git",
             "path": "/var/www/moodli",
             "key": "~/.ssh/moodli",
             "pre-setup": "rm -rf /var/www/moodli",
