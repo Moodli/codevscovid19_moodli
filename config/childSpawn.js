@@ -3,6 +3,7 @@
 
 //Dependencies
 const { exec } = require('child_process');
+const md5File = require('md5-file');
 
 //Custom Modules
 const dbConnection = require('../config/dbConnection').DB_Connection;
@@ -49,6 +50,8 @@ const childSpawn = () => {
 
                     mlOutput.on('exit', (code) => {
                         subprocessLog.info('ML Child process exited with exit code ' + code);
+                        //Log file checksum
+                        subprocessLog.info('File checksum: ' + md5File.sync('./productionData/dataset.json'))
                     });
                 }
 

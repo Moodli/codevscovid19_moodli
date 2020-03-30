@@ -6,11 +6,10 @@
 const express = require('express');
 const router = express.Router();
 const fs = require('fs');
-const Twit = require('twit')
+const Twit = require('twit');
 
 //Gloabl variables
 const creds = require('../creds/tweetapiKey');
-const productionData = require('../productionData/dataset.json')
 
 //Custom Modules
 const dataPrep = require('../config/textProcess.js').dataPrep;
@@ -76,8 +75,13 @@ dbConnection
 
 //API send geoJson [2min cache duration]
 router.get('/geo', (req, res) => {
-    // res.json(productionData)
-    res.send(JSON.stringify(productionData))
+
+    //Read from dataset.json the serve so it detects the file change
+    //Setting fix vars. will only read the file once upon startup
+    fs.readFile('./productionData/dataset.json', (err, data) => {
+        res.send(JSON.stringify(data))
+    })
+
 });
 
 // //Tweet raw flow monitoring:3000 constant

@@ -33,11 +33,7 @@ app.use(BodyParser.json({
     extended: true
 }));
 
-
-//Set Static Folder (Absolute)
-app.use('/', express.static(path.join(__dirname, '/assets')));
-
-app.all('*', function (req, res, next) {
+app.all('*', (req, res, next) => {
 
     // Website you wish to allow to connect
     // res.setHeader('Access-Control-Allow-Origin', 'https://moodli.xx');
@@ -78,6 +74,4 @@ app.listen(port, () => {
 // const fs = require("fs");
 // let text = fs.readFileSync("./x.txt").toString('utf-8');
 // let array = text.split("\r\n");
-// // console.log();
-// // console.log(json.stringufi)
 // fs.writeFileSync("./array",  JSON.stringify(array))
