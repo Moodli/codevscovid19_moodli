@@ -4,11 +4,11 @@ module.exports = {
     apps: [{
         name: 'moodliBackend',
         script: 'app.js',
-        instances: 0,
+        instances: 1,
         autorestart: true,
         watch: false,
-        max_memory_restart: '1G',
-        exec_mode: 'cluster',
+        max_memory_restart: '10G',
+        exec_mode: 'fork',
         env: {
             NODE_ENV: 'development'
         },
