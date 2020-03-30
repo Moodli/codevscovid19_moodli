@@ -63,7 +63,10 @@ Backend for Moodli
 5. /var/www/\* must be owned not by root but the default [or specified user]
 6. MongoDB
 7. Credentials (API KEY)
-8. The ML's Script Path is realtive to the location of which it's being called. [childSpawn / or manually using python3]
+8. Python3 and pip3
+9. Python Library: textblob,geojson,pandas
+
+Note: The ML's Script Path is realtive to the location of which it's being called. [childSpawn / or manually using python3]
 
 ```javascript
 //Initialize the Remote Folder:
