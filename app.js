@@ -24,6 +24,7 @@ app.use(compression());
 
 //Disable etag
 app.set('etag', false);
+app.set('x-powered-by', false);
 
 // BodyParser Middleware
 app.use(BodyParser.urlencoded({
