@@ -70,7 +70,7 @@ dbConnection
 
 
 //API send geoJson [2min cache duration]
-router.get('/geo', cacheMiddleware(600 * 200), (req, res) => {
+router.get('/geo', (req, res) => {
     // res.json(productionData)
     res.send(JSON.stringify(productionData))
 });
