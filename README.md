@@ -56,4 +56,7 @@ pm2 deploy ecosystem.json development setup
 //Syntax: pm2 deploy ecosystem.json development
 //Example:
 pm2 deploy ecosystem.json development
+
+//Update your code:
+pm2 deploy ecosystem.json development update
 ```
