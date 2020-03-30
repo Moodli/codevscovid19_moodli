@@ -62,13 +62,18 @@ dbConnection
         let counter = 0;
         let dbStats = 0;
         changeStream.on('change', (change) => {
-            dbStats = 'Tweet Analyzed Since Server Start:' + " " + `${counter = counter + 1}`;
+            dbStats = counter = counter + 1;
         })
 
-        //Return Stats every 5 sec
+        // Return Stats every 5 sec
         setInterval(() => {
-            dblog.info(dbStats)
+            dblog.info('Tweet Analyzed Since Started: ' + dbStats)
         }, 10 * 1000);
+
+        // Return Stats every min
+        setInterval(() => {
+            dblog.info('Tweet Analyzed per Min.: ' + dbStats)
+        }, 60 * 1000);
 
 
     })
@@ -80,6 +85,16 @@ router.get('/geo', cacheMiddleware(600 * 200), (req, res) => {
     // res.json(productionData)
     res.send(JSON.stringify(productionData))
 });
+
+// let count = [];
+// stream.on('tweet', (twt) => {
+//     count.push(twt.created_at)
+// });
+
+// setTimeout(() => {
+//     console.log(count.length)
+// }, 60000)
+
 
 //Export the Module
 module.exports = router;

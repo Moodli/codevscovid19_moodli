@@ -107,3 +107,4 @@ package-lock.json
 dep.sh
 creds/tweetapiKey.js
 node_modules
+productionData/dataset.json
