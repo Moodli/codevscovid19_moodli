@@ -34,6 +34,7 @@ dbConnection
         //Load Model for tweetDB
         require('../schema/tweetSchema');
         const tweetDB = dbConnection.model('tweet');
+
         //MongoDB Change Stream
         const changeStream = tweetDB.watch()
         //Tweet Stream On

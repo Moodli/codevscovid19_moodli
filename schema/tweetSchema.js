@@ -6,9 +6,10 @@ const Schema = mongoose.Schema;
 
 // Create Schema
 const tweetSchema = new Schema({
-    // date: {
-    //     type: String
-
+    date: {
+        type: Date,
+        default: Date.now()
+    },
     // },
     text: {
         type: Array

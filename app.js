@@ -52,15 +52,16 @@ app.all('*', function (req, res, next) {
     // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET');
     //No cache
-    res.setHeader('Cache-Control', 'max-age=120,private');
-
+    // res.setHeader('Cache-Control', 'max-age=120,private');
+    res.setHeader('Cache-Control', 'no-cache');
     next();
 });
 
-//Dump data from MongoDB
+// Dump data from MongoDB
 setInterval(() => {
     childSpawn()
 }, 300 * 400);
+
 
 //Load Routes
 const tweet = require('./routes/tweet');
