@@ -65,6 +65,11 @@ dbConnection
             dbStats = counter = counter + 1;
         })
 
+        // Return Stats every 5 sec	
+        setInterval(() => {
+            dblog.info('Tweet Analyzed Since Started: ' + dbStats)
+        }, 10 * 1000);
+
     })
     .catch(err => dblog.error('Error Connecting to DB' + ' ' + err));
 
