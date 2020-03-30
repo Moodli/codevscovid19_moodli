@@ -15,7 +15,7 @@ const creds = require('../creds/tweetapiKey');
 const dataPrep = require('../config/textProcess.js').dataPrep;
 const locationFilter = require('../config/textProcess').locationFilter;
 const dbConnection = require('../config/dbConnection').DB_Connection;
-const cacheMiddleware = require('../config/meCache').cacheMiddleware;
+// const cacheMiddleware = require('../config/meCache').cacheMiddleware;
 
 //Create a new Twitter crawler instance
 const T = new Twit(creds);
@@ -74,7 +74,7 @@ dbConnection
 
 
 //API send geoJson [1.5 min cache duration]
-router.get('/geo', cacheMiddleware(90 * 10000), (req, res) => {
+router.get('/geo', (req, res) => {
 
     //Read from dataset.json the serve so it detects the file change
     //Setting fix vars. will only read the file once upon startup

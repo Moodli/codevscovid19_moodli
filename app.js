@@ -22,6 +22,9 @@ const app = express();
 //Compression Module
 app.use(compression());
 
+//Disable etag
+app.set('etag', false);
+
 // BodyParser Middleware
 app.use(BodyParser.urlencoded({
     extended: true,
