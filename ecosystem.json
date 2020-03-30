@@ -18,7 +18,7 @@
             "key": "~/.ssh/moodli",
             "pre-setup": "rm -rf /var/www/moodli",
             // "post-setup": "cd nodeModuleconfig && ./nodeCus.sh",
-            "post-deploy": "npm install && npm audit && pm2 startOrRestart ecosystem.config.js --env production && cd nodeModuleconfig && ./nodeCus.sh"
+            "post-deploy": "npm install && pm2 startOrRestart ecosystem.config.js --env production && cd nodeModuleconfig && ./nodeCus.sh"
         },
         "development": {
             "user": "algorithm",
@@ -31,7 +31,7 @@
             "key": "~/.ssh/moodli",
             "pre-setup": "rm -rf /var/www/moodli",
             // "post-setup": "cd nodeModuleconfig && ./nodeCus.sh",
-            "post-deploy": "npm install && npm audit && pm2 startOrRestart ecosystem.config.js --env production && cd nodeModuleconfig && ./nodeCus.sh"
+            "post-deploy": "npm install && pm2 startOrRestart ecosystem.config.js --env production && cd nodeModuleconfig && ./nodeCus.sh"
         }
     }
 }
