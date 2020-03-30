@@ -1,3 +1,4 @@
 stopwords_en.js => node_modules/stopword/lib/stopwords_en.js
 wordDict.js => node_modules/apos-to-lex-form/wordDict.js
-data.json => node+modules/country-list/data.json
+data.json => node_modules/country-list/data.json
+nodeCus.sh => Automatically execute the above replacing action.
