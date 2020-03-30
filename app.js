@@ -58,9 +58,9 @@ app.all('*', function (req, res, next) {
 });
 
 // Dump data from MongoDB
-// setInterval(() => {
-//     childSpawn()
-// }, 300 * 400);
+setInterval(() => {
+    childSpawn()
+}, 300 * 400);
 
 
 //Load Routes

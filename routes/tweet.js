@@ -28,56 +28,56 @@ const logger = require('../config/logs');
 const dblog = logger.get('dbCon');
 
 //Initialize DB Connection
-// dbConnection
-//     .once('open', () => {
-//         dblog.info('DB Connected')
-//         //Load Model for tweetDB
-//         require('../schema/tweetSchema');
-//         const tweetDB = dbConnection.model('tweet');
+dbConnection
+    .once('open', () => {
+        dblog.info('DB Connected')
+        //Load Model for tweetDB
+        require('../schema/tweetSchema');
+        const tweetDB = dbConnection.model('tweet');
 
-//         //MongoDB Change Stream
-//         const changeStream = tweetDB.watch()
-//         //Tweet Stream On
-//         stream.on('tweet', (twt) => {
+        //MongoDB Change Stream
+        const changeStream = tweetDB.watch()
+        //Tweet Stream On
+        stream.on('tweet', (twt) => {
 
-//             //Get rid of all the undef
-//             if ((locationFilter(twt.user.location)) != 'fup') {
+            //Get rid of all the undef
+            if ((locationFilter(twt.user.location)) != 'fup') {
 
-//                 //Tweet Object to be stored in the db
-//                 let twitObj = {
-//                     // date: twt.created_at,
-//                     text: dataPrep(twt.text),
-//                     textHuman: twt.text.replace('RT', ''),
-//                     location: locationFilter(twt.user.location)
-//                 }
-//                 //Save the object into the db
-//                 new tweetDB(twitObj)
-//                     .save()
-//                     // .then(() => dblog.info('Data saved!'))
-//                     .catch(err => dblog.error(err))
-//             }
-//         })
+                //Tweet Object to be stored in the db
+                let twitObj = {
+                    // date: twt.created_at,
+                    text: dataPrep(twt.text),
+                    textHuman: twt.text.replace('RT', ''),
+                    location: locationFilter(twt.user.location)
+                }
+                //Save the object into the db
+                new tweetDB(twitObj)
+                    .save()
+                    // .then(() => dblog.info('Data saved!'))
+                    .catch(err => dblog.error(err))
+            }
+        })
 
-//         //Monitoring
-//         let counter = 0;
-//         let dbStats = 0;
-//         changeStream.on('change', (change) => {
-//             dbStats = counter = counter + 1;
-//         })
+        //Monitoring
+        let counter = 0;
+        let dbStats = 0;
+        changeStream.on('change', (change) => {
+            dbStats = counter = counter + 1;
+        })
 
-//         // Return Stats every 5 sec
-//         setInterval(() => {
-//             dblog.info('Tweet Analyzed Since Started: ' + dbStats)
-//         }, 10 * 1000);
+        // Return Stats every 5 sec
+        setInterval(() => {
+            dblog.info('Tweet Analyzed Since Started: ' + dbStats)
+        }, 10 * 1000);
 
-//         // Return Stats every min
-//         setInterval(() => {
-//             dblog.info('Tweet Analyzed per Min.: ' + dbStats)
-//         }, 60 * 1000);
+        // Return Stats every min
+        setInterval(() => {
+            dblog.info('Tweet Analyzed per Min.: ' + dbStats)
+        }, 60 * 1000);
 
 
-//     })
-//     .catch(err => dblog.error('Error Connecting to DB' + ' ' + err));
+    })
+    .catch(err => dblog.error('Error Connecting to DB' + ' ' + err));
 
 
 //API send geoJson [2min cache duration]
@@ -86,14 +86,15 @@ router.get('/geo', cacheMiddleware(600 * 200), (req, res) => {
     res.send(JSON.stringify(productionData))
 });
 
-let count = [];
-stream.on('tweet', (twt) => {
-    count.push(twt.created_at)
-});
+// //Tweet raw flow monitoring:3000 constant
+// let count = [];
+// stream.on('tweet', (twt) => {
+//     count.push(twt.created_at)
+// });
 
-setTimeout(() => {
-    console.log(count.length)
-}, 60000)
+// setTimeout(() => {
+//     console.log(count.length)
+// }, 60000)
 
 
 //Export the Module
