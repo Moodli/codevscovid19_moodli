@@ -16,6 +16,7 @@ const productionData = require('../productionData/dataset.json')
 const dataPrep = require('../config/textProcess.js').dataPrep;
 const locationFilter = require('../config/textProcess').locationFilter;
 const dbConnection = require('../config/dbConnection').DB_Connection;
+const cacheMiddleware = require('../config/meCache').cacheMiddleware;
 
 //Create a new Twitter crawler instance
 const T = new Twit(creds);
@@ -25,7 +26,6 @@ const stream = T.stream('statuses/filter', { track: ['covid19', 'coronavirus', '
 //Winston Logger
 const logger = require('../config/logs');
 const dblog = logger.get('dbCon');
-
 
 //Initialize DB Connection
 dbConnection
@@ -43,7 +43,6 @@ dbConnection
             if ((locationFilter(twt.user.location)) != 'fup') {
 
                 //Tweet Object to be stored in the db
-                //Tweet Object to be stored in the db
                 let twitObj = {
                     // date: twt.created_at,
                     text: dataPrep(twt.text),
@@ -59,15 +58,24 @@ dbConnection
         })
 
         //Monitoring
-        let counter = 0
+        let counter = 0;
+        let dbStats = 0;
         changeStream.on('change', (change) => {
-            dblog.info(change.operationType + " " + `${counter = counter + 1}`)
+            dbStats = 'Tweet Analyzed Since Server Start:' + " " + `${counter = counter + 1}`;
         })
+
+        //Return Stats every 5 sec
+        setInterval(() => {
+            dblog.info(dbStats)
+        }, 10 * 1000);
+
+
     })
     .catch(err => dblog.error('Error Connecting to DB' + ' ' + err));
 
-//API send geoJson
-router.get('/geo', (req, res) => {
+
+//API send geoJson [2min cache duration]
+router.get('/geo', cacheMiddleware(600 * 200), (req, res) => {
     // res.json(productionData)
     res.send(JSON.stringify(productionData))
 });
@@ -80,3 +88,4 @@ module.exports = router;
 //     input.push(null)
 // });
 
+// dbStats = change.operationType + " " + `${counter = counter + 1}`;

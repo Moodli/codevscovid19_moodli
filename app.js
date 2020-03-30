@@ -6,7 +6,6 @@ const express = require('express');
 const BodyParser = require('body-parser');
 const path = require('path');
 const compression = require('compression');
-
 //Custom modules
 const childSpawn = require('./config/childSpawn').childSpawn;
 // Winston Logger
@@ -67,6 +66,7 @@ setInterval(() => {
 const tweet = require('./routes/tweet');
 //Use Routes
 app.use('/tweet', tweet)
+
 
 //Start the app
 app.listen(port, () => {
