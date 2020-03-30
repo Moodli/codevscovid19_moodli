@@ -45,7 +45,7 @@ dbConnection
                 //Tweet Object to be stored in the db
                 //Tweet Object to be stored in the db
                 let twitObj = {
-                    date: twt.created_at,
+                    // date: twt.created_at,
                     text: dataPrep(twt.text),
                     textHuman: twt.text.replace('RT', ''),
                     location: locationFilter(twt.user.location)
