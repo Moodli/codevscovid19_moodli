@@ -44,15 +44,15 @@ app.all('*', function (req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     // Set to true if you need the website to include cookies in the requests sent
     // to the API (e.g. in case you use sessions)
-    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    res.setHeader('Access-Control-Allow-Credentials', 'false');
 
     // Request headers you wish to allow
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
     // Request methods you wish to allow
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Methods', 'GET');
     //No cache
-    res.setHeader('Cache-Control', 'no-cache');
+    res.setHeader('Cache-Control', 'max-age=120,private');
 
     next();
 });
