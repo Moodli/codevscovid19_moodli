@@ -73,8 +73,8 @@ dbConnection
     .catch(err => dblog.error('Error Connecting to DB' + ' ' + err));
 
 
-//API send geoJson [2min cache duration]
-router.get('/geo', (req, res) => {
+//API send geoJson [1.5 min cache duration]
+router.get('/geo', cacheMiddleware(90 * 10000), (req, res) => {
 
     //Read from dataset.json the serve so it detects the file change
     //Setting fix vars. will only read the file once upon startup
