@@ -2,7 +2,9 @@
 
 Backend for Moodli
 
-## API Doc: https://documenter.getpostman.com/view/4339786/SzYW2zTw?version=latest
+## API Doc: (missing)
+
+## API Endpoint: http://35.246.139.42/tweet/geo
 
 ## File Structure
 

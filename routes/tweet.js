@@ -72,7 +72,7 @@ dbConnection
 
         // Return Stats every min
         setInterval(() => {
-            dblog.info('Tweet Analyzed per Min.: ' + dbStats)
+            dblog.info('Tweet Analyzed per Min.: ' + (dbStats / 60).toFixed(20))
         }, 60 * 1000);
 
 
