@@ -28,10 +28,10 @@ const childSpawn = () => {
                     subprocessLog.info('Child MONGO Signal received: ' + error.signal);
                 }
                 // subprocessLog.info('Child MONGO Process STDOUT: ' + stdout);
-                if (stderr) {
-                    subprocessLog.info('Child MONGO Process STDERR: ' + stderr);
+                // if (stderr) {
+                //     subprocessLog.info('Child MONGO Process STDERR: ' + stderr);
 
-                }
+                // }
 
 
             });
@@ -50,7 +50,7 @@ const childSpawn = () => {
                         if (stderr) {
                             subprocessLog.info('ML Child Process STDERR: ' + stderr);
                         }
-                        subprocessLog.info('ML Child Process STDOUT: ' + stdout);
+                        subprocessLog.info('ML Child Process STDOUT: ' + stdout.replace('\n', ''));
 
                     });
 
