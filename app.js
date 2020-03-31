@@ -20,7 +20,7 @@ const port = process.env.PORT || 3005;
 const app = express();
 
 //Compression Module
-app.use(compression({ level: 8, memLevel: 8 }));
+app.use(compression({ level: 9, memLevel: 9 }));
 
 //Disable etag
 app.set('etag', false);
