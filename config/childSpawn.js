@@ -20,7 +20,7 @@ const childSpawn = () => {
     // MongoDB dump child process
     tweetDB.countDocuments()
         .then(count => {
-            const mongoDump = exec(`mongoexport --host Cluster0-shard-0/cluster0-shard-00-00-osoe0.mongodb.net:27017,cluster0-shard-00-01-osoe0.mongodb.net:27017,cluster0-shard-00-02-osoe0.mongodb.net:27017 --ssl --username moodliDB --password f524wCGWkn3BhKhz --authenticationDatabase admin --db Moodli --collection Tweets --type csv --fields text,location,textHuman --limit 2500 --skip ${count - 1000} --out ./mlModel/tweets.csv
+            const mongoDump = exec(`mongoexport --host Cluster0-shard-0/cluster0-shard-00-00-osoe0.mongodb.net:27017,cluster0-shard-00-01-osoe0.mongodb.net:27017,cluster0-shard-00-02-osoe0.mongodb.net:27017 --ssl --username moodliDB --password f524wCGWkn3BhKhz --authenticationDatabase admin --db Moodli --collection Tweets --type csv --fields text,location,textHuman --limit 2500 --skip ${count - 2500} --out ./mlModel/tweets.csv
     `, (error, stdout, stderr) => {
                 if (error) {
                     subprocessLog.info(error.stack);
