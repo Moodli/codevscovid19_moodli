@@ -10,7 +10,7 @@
         "production": {
             "user": "algorithm",
             "host": [
-                "35.239.189.120"
+                "35.222.195.44"
             ],
             "ref": "origin/master",
             "repo": "https://github.com/Moodli/codevscovid19_moodli_backend.git",
@@ -23,7 +23,7 @@
         "development": {
             "user": "algorithm",
             "host": [
-                "35.239.189.120"
+                "35.222.195.44"
             ],
             "ref": "origin/master",
             "repo": "https://github.com/Moodli/codevscovid19_moodli_backend.git",
