@@ -4,7 +4,7 @@ Backend for Moodli
 
 ## API Doc: (missing)
 
-## API Endpoint: http://35.246.139.42/tweet/geo
+## API Endpoint: http://35.246.196.123/tweet/geo
 
 ## File Structure
 
