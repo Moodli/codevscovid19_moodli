@@ -1,3 +1,3 @@
 mongoexport --host Cluster0-shard-0/cluster0-shard-00-00-osoe0.mongodb.net:27017,cluster0-shard-00-01-osoe0.mongodb.net:27017,cluster0-shard-00-02-osoe0.mongodb.net:27017 --ssl --username moodliDB --password f524wCGWkn3BhKhz --authenticationDatabase admin --db Moodli --collection Tweets --type csv --fields text,location,textHuman --limit 2500 --out ../mlModel/tweets.csv
 
-# You think you hit the jackpot here? Sorry for you man. We know that we accidentally commited our passwords here.
+# You think you hit the jackpot here? Sorry for you man. We know that we accidentally commited our passwords here. So does it work?
