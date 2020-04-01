@@ -75,7 +75,7 @@ Note: The ML's Script Path is realtive to the location of which it's being calle
 pm2 deploy ecosystem.json development setup
 
 //Deploy your code:
-//Syntax: pm2 deploy ecosystem.json development
+//Syntax: pm2 deploy <configuration_file> development
 //Example:
 pm2 deploy ecosystem.json development
 
