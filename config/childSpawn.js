@@ -14,58 +14,60 @@ const tweetDB = dbConnection.model('tweet');
 const logger = require('./logs');
 const subprocessLog = logger.get('subprocessLog');
 
+//Determine the Mongoexport parameters
+const exportParameters = (exportCb) => {
+    //Count the document in the DB
+    tweetDB.countDocuments()
+        .then(count => {
+            if (count <= 2500) {
+                exportCb(`mongoexport --host Cluster0-shard-0/cluster0-shard-00-00-osoe0.mongodb.net:27017,cluster0-shard-00-01-osoe0.mongodb.net:27017,cluster0-shard-00-02-osoe0.mongodb.net:27017 --ssl --username moodliDB --password f524wCGWkn3BhKhz --authenticationDatabase admin --db Moodli --collection Tweets --type csv --fields text,location,textHuman --out ./mlModel/tweets.csv`)
+
+            } else {
+                exportCb(`mongoexport --host Cluster0-shard-0/cluster0-shard-00-00-osoe0.mongodb.net:27017,cluster0-shard-00-01-osoe0.mongodb.net:27017,cluster0-shard-00-02-osoe0.mongodb.net:27017 --ssl --username moodliDB --password f524wCGWkn3BhKhz --authenticationDatabase admin --db Moodli --collection Tweets --type csv --fields text,location,textHuman --limit 2500 --skip ${count - 2500} --out ./mlModel/tweets.csv`)
+            }
+        })
+        .catch(err => subprocessLog.error('Error Getting MongoDump Parameters: ' + err));
+};
 
 //Define the spawn function
 const childSpawn = () => {
-    // MongoDB dump child process
-    tweetDB.countDocuments()
-        .then(count => {
-            const mongoDump = exec(`mongoexport --host Cluster0-shard-0/cluster0-shard-00-00-osoe0.mongodb.net:27017,cluster0-shard-00-01-osoe0.mongodb.net:27017,cluster0-shard-00-02-osoe0.mongodb.net:27017 --ssl --username moodliDB --password f524wCGWkn3BhKhz --authenticationDatabase admin --db Moodli --collection Tweets --type csv --fields text,location,textHuman --limit 2500 --skip ${count - 2500} --out ./mlModel/tweets.csv
-    `, (error, stdout, stderr) => {
-                if (error) {
-                    subprocessLog.info(error.stack);
-                    subprocessLog.info('Child MONGO Error code: ' + error.code);
-                    subprocessLog.info('Child MONGO Signal received: ' + error.signal);
-                }
-                // subprocessLog.info('Child MONGO Process STDOUT: ' + stdout);
-                // if (stderr) {
-                //     subprocessLog.info('Child MONGO Process STDERR: ' + stderr);
+    //Get the export parameters
+    exportParameters(exportCb => {
+        // MongoDB dump child process
+        const mongoDump = exec(exportCb, (error, stdout, stderr) => {
+            if (error) {
+                subprocessLog.info(error.stack);
+                subprocessLog.info('Child MONGO Error code: ' + error.code);
+                subprocessLog.info('Child MONGO Signal received: ' + error.signal);
+            }
+            // subprocessLog.info('Child MONGO Process STDOUT: ' + stdout);
+            // subprocessLog.info('Child MONGO Process STDERR: ' + stderr);
+        });
 
-                // }
+        mongoDump.on('exit', (code) => {
+            subprocessLog.info('MONGO Child process exited with exit code ' + code);
 
+            if (code === 0) {
+                //ML child process
+                const mlOutput = exec(`python3 ./mlModel/sentiment_model_english.py`, (error, stdout, stderr) => {
+                    if (error) {
+                        subprocessLog.info(error.stack);
+                        subprocessLog.info('ML Error code: ' + error.code);
+                        subprocessLog.info('ML Signal received: ' + error.signal);
+                    }
+                    subprocessLog.info('ML Child Process STDOUT: ' + stdout);
+                    subprocessLog.info('ML Child Process STDERR: ' + stderr);
+                });
 
-            });
+                mlOutput.on('exit', (code) => {
+                    subprocessLog.info('ML Child process exited with exit code ' + code);
+                    //Log file checksum
+                    subprocessLog.info('File checksum: ' + md5File.sync('./productionData/dataset.json'))
+                });
+            }
 
-            mongoDump.on('exit', (code) => {
-                subprocessLog.info('MONGO Child process exited with exit code ' + code);
-
-                if (code === 0) {
-                    //ML child process
-                    const mlOutput = exec(`python3 ./mlModel/sentiment_model_english.py`, (error, stdout, stderr) => {
-                        if (error) {
-                            subprocessLog.info(error.stack);
-                            subprocessLog.info('ML Error code: ' + error.code);
-                            subprocessLog.info('ML Signal received: ' + error.signal);
-                        }
-                        if (stderr) {
-                            subprocessLog.info('ML Child Process STDERR: ' + stderr);
-                        }
-                        subprocessLog.info('ML Child Process STDOUT: ' + stdout.replace('\n', ''));
-
-                    });
-
-                    mlOutput.on('exit', (code) => {
-                        subprocessLog.info('ML Child process exited with exit code ' + code);
-                        //Log file checksum
-                        subprocessLog.info('File checksum: ' + md5File.sync('./productionData/dataset.json'))
-                    });
-                }
-
-
-            });
-
-
-        })
+        });
+    });
 
 };
 
