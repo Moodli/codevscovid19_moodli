@@ -36,24 +36,30 @@ dbConnection
 
         //MongoDB Change Stream
         const changeStream = tweetDB.watch()
+
+        tweetDB.deleteMany({ textHuman: "" })
+            .then(rs => console.log(rs))
         //Tweet Stream On
         stream.on('tweet', (twt) => {
 
-            //Get rid of all the undef
+            //Get rid of all the undefs
             if ((locationFilter(twt.user.location)) != 'fup') {
-
-                //Tweet Object to be stored in the db
-                let twitObj = {
-                    // date: twt.created_at,
-                    text: dataPrep(twt.text),
-                    textHuman: twt.text.replace('RT', ''),
-                    location: locationFilter(twt.user.location)
+                //Get rid of all the empty tweets
+                if (twt.text != '') {
+                    //Tweet Object to be stored in the db
+                    let twitObj = {
+                        // date: twt.created_at,
+                        text: dataPrep(twt.text),
+                        textHuman: twt.text.replace('RT', ''),
+                        location: locationFilter(twt.user.location)
+                    }
+                    //Save the object into the db
+                    new tweetDB(twitObj)
+                        .save()
+                        // .then(() => dblog.info('Data saved!'))
+                        .catch(err => dblog.error(err))
                 }
-                //Save the object into the db
-                new tweetDB(twitObj)
-                    .save()
-                    // .then(() => dblog.info('Data saved!'))
-                    .catch(err => dblog.error(err))
+
             }
         })
 
