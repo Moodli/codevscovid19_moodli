@@ -37,8 +37,6 @@ dbConnection
         //MongoDB Change Stream
         const changeStream = tweetDB.watch()
 
-        tweetDB.deleteMany({ textHuman: "" })
-            .then(rs => console.log(rs))
         //Tweet Stream On
         stream.on('tweet', (twt) => {
 
