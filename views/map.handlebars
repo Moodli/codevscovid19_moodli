@@ -22,13 +22,13 @@
     //Refresh on a 3 sec interval
     window.setInterval(() => {
 
-      fetch('https://moodli.org/geo')
+      fetch('http://localhost:3005/geo')
         .then(res => res.json())
         .then(x => {
           map.getSource('tweet').setData(x);
         })
-        .catch(err => console.log(err))
-    }, 2000);
+
+    }, 3000);
 
 
     map.addSource('tweet',
