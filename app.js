@@ -6,11 +6,12 @@ const express = require('express');
 const BodyParser = require('body-parser');
 const path = require('path');
 const compression = require('compression');
+
 //Custom modules
 const childSpawn = require('./config/childSpawn').childSpawn;
+
 // Winston Logger
-const logger = require('./config/logs');
-const appLog = logger.get('appLog');
+const logger = require('./config/logs').get('appLog');
 
 
 //Global Constant || Heroku Deployment Setup
