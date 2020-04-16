@@ -26,7 +26,7 @@
 
       window.setInterval(() => {
 
-        fetch('http://127.0.0.1:3005/tweet/geo')
+        fetch('http://localhost:3005/tweet/geo')
           .then(res => res.json())
           .then(x => {
             map.getSource('tweet').setData(x);
