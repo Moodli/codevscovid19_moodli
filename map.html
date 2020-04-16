@@ -1,0 +1,104 @@
+<html>
+<header>
+  <script src="https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js"></script>
+  <link href="https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css" rel="stylesheet" />
+</header>
+
+<body>
+  <div id="map" style="width: 100%; height: 100%;"></div>
+
+
+  <script>
+    mapboxgl.accessToken =
+      'pk.eyJ1IjoiYWxnbzciLCJhIjoiY2s4anVka3NnMGt4cjNncGxiYWFzOHFvZiJ9.rZYHg8xF6QahGl0hOaa1cQ';
+    var map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/mapbox/dark-v10',
+      center: [-96, 37.8],
+      buffer: 0,
+      zoom: 3,
+    });
+
+
+    var url = 'https://wanderdrone.appspot.com/';
+    map.on('load', (e) => {
+
+
+      window.setInterval(() => {
+
+        fetch('http://127.0.0.1:3005/tweet/geo')
+          .then(res => res.json())
+          .then(x => {
+            map.getSource('tweet').setData(x);
+          })
+      }, 3000);
+
+      map.addSource('tweet',
+        {
+          type: 'geojson',
+          data: url
+        });
+
+      map.addLayer({
+        'id': 'tweet',
+        // 'type': 'symbol',
+        'type': 'circle',
+        'source': 'tweet',
+        // 'layout': {
+        // 'icon-image': 'rocket-15'
+        // }
+        'paint': {
+          // make circles larger as the user zooms from z12 to z22
+          'circle-radius': {
+            // 'base': 10,
+            'stops': [[3, 5], [12, 10], [22, 180]]
+          },
+          // https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
+          'circle-color': [
+            'case',
+
+            ['==', ['get', 'sentiment'], 0],
+            'yellow',
+
+            ['>', ['get', 'sentiment'], 0],
+            'green',
+
+            ['<', ['get', 'sentiment'], 0],
+            'red',
+
+/* other */ '#FF0000'
+          ]
+
+        }
+
+
+
+      });
+
+
+
+    });
+
+
+    map.on('click', (e) => {
+      var features = map.queryRenderedFeatures(e.point, {
+        layers: ['tweet'] // replace this with the name of the layer
+      });
+
+      if (!features.length) {
+        return;
+      }
+
+      let feature = features[0];
+
+      let popup = new mapboxgl.Popup({ offset: [0, -15] })
+        .setLngLat(feature.geometry.coordinates)
+        .setHTML('<h3>' + feature.properties.sentiment + '</h3>' + '<p>' + feature.properties.textHuman + '</p>')
+        .addTo(map);
+
+    });
+  </script>
+
+</body>
+
+</html>

@@ -72,8 +72,7 @@ dbConnection
     })
     .catch(err => dblog.error('Error Connecting to DB' + ' ' + err));
 
-
-//API send geoJson [1.5 min cache duration]
+//Send geojson everytime when the api is called
 router.get('/geo', (req, res) => {
 
     //Read from dataset.json the serve so it detects the file change
@@ -83,6 +82,8 @@ router.get('/geo', (req, res) => {
     })
 
 });
+
+
 
 // //Tweet raw flow monitoring:3000 constant
 // let count = [];

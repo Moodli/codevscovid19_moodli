@@ -68,6 +68,12 @@ const tweet = require('./routes/tweet');
 //Use Routes
 app.use('/tweet', tweet)
 
+app.get('/', (req, res) => {
+
+    res.sendFile('./map.html', { root: __dirname });
+
+});
+
 
 //Start the app
 app.listen(port, () => {
