@@ -4,14 +4,15 @@
 //Dependencies
 const express = require('express');
 const BodyParser = require('body-parser');
-const path = require('path');
 const compression = require('compression');
+const exphbs = require('express-handlebars');
+const fs = require('fs');
 
 //Custom modules
 const childSpawn = require('./config/childSpawn').childSpawn;
 
 // Winston Logger
-const logger = require('./config/logs').get('appLog');
+const appLog = require('./config/logs').get('appLog');
 
 
 //Global Constant || Heroku Deployment Setup
@@ -38,6 +39,19 @@ app.use(BodyParser.json({
     extended: true
 }));
 
+
+//Handlebars Middleware
+app.engine('handlebars', exphbs({
+    defaultLayout: 'main'
+
+}));
+
+app.set('view engine', 'handlebars');
+
+app.engine('handlebars', exphbs({
+    defaultLayout: 'main'
+}));
+
 app.all('*', (req, res, next) => {
 
     // Website you wish to allow to connect
@@ -58,28 +72,27 @@ app.all('*', (req, res, next) => {
     next();
 });
 
+//Start the app with socket io;
+const io = require('socket.io')(app.listen(port, () => {
+    appLog.info(`Server is listening on port ${port}`);
+}));
+
 // Dump data from MongoDB
 setInterval(() => {
     childSpawn()
 }, 300 * 200);
 
 
+module.exports = { io };
+
 //Load Routes
 const tweet = require('./routes/tweet');
+
 //Use Routes
-app.use('/tweet', tweet)
-
-app.get('/', (req, res) => {
-
-    res.sendFile('./map.html', { root: __dirname });
-
-});
+app.use('/', tweet)
 
 
-//Start the app
-app.listen(port, () => {
-    appLog.info(`Server is listening on port ${port}`);
-});
+
 
 //Array conversion
 // const fs = require("fs");

@@ -5,6 +5,7 @@
 //Dependencies
 const express = require('express');
 const router = express.Router();
+const io = require('../app').io;
 const fs = require('fs');
 const Twit = require('twit');
 
@@ -16,6 +17,10 @@ const dataPrep = require('../config/textProcess.js').dataPrep;
 const locationFilter = require('../config/textProcess').locationFilter;
 const dbConnection = require('../config/dbConnection').DB_Connection;
 // const cacheMiddleware = require('../config/meCache').cacheMiddleware;
+
+//Read stream
+const geojsonStream = fs.createReadStream('./productionData/dataset.json', 'utf8');
+
 
 //Create a new Twitter crawler instance
 const T = new Twit(creds);
@@ -76,28 +81,42 @@ dbConnection
     })
     .catch(err => dblog.error('Error Connecting to DB' + ' ' + err));
 
-//Send geojson everytime when the api is called
+
+// //Filestream middleware
+// const streamW = () => {
+//     return (req, res, next) => {
+//         geojsonStream.pipe(res)
+//         next()
+
+//     }
+// }
+
+
+// router.get('/geostream', streamW(), (req, res) => {
+//     //Send the data to the front end
+//     res
+// });
+
+//API end point
 router.get('/geo', (req, res) => {
 
-    //Read from dataset.json the serve so it detects the file change
-    //Setting fix vars. will only read the file once upon startup
+    //  Read from dataset.json the serve so it detects the file change
+    // Setting fix vars. will only read the file once upon startup
     fs.readFile('./productionData/dataset.json', 'utf8', (err, data) => {
         res.send(data)
     })
 
+
+});
+
+//Render the actual map
+router.get('/', (req, res) => {
+    res.render('map');
 });
 
 
 
-// //Tweet raw flow monitoring:3000 constant
-// let count = [];
-// stream.on('tweet', (twt) => {
-//     count.push(twt.created_at)
-// });
 
-// setTimeout(() => {
-//     console.log(count.length)
-// }, 60000)
 
 
 //Export the Module
@@ -109,3 +128,13 @@ module.exports = router;
 // });
 
 // dbStats = change.operationType + " " + `${counter = counter + 1}`;
+
+// //Tweet raw flow monitoring:3000 constant
+// let count = [];
+// stream.on('tweet', (twt) => {
+//     count.push(twt.created_at)
+// });
+
+// setTimeout(() => {
+//     console.log(count.length)
+// }, 60000)

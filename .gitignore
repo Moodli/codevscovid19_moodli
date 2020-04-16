@@ -109,3 +109,5 @@ creds/tweetapiKey.js
 node_modules
 productionData/dataset.json
 mlModel/tweets.csv
+knctDev1.pem
+mlModel/tweets.csv
