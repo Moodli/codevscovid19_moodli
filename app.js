@@ -60,7 +60,7 @@ app.all('*', (req, res, next) => {
 // Dump data from MongoDB
 setInterval(() => {
     childSpawn()
-}, 300 * 400);
+}, 300 * 200);
 
 
 //Load Routes
