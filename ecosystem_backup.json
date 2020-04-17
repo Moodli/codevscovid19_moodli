@@ -10,12 +10,12 @@
         "production": {
             "user": "ubuntu",
             "host": [
-                "77.109.191.140:1208"
+                "35.181.0.148"
             ],
             "ref": "origin/master",
             "repo": "https://github.com/Moodli/codevscovid19_moodli_backend.git",
             "path": "/var/www/moodli",
-            "key": "./torCH",
+            "key": "./knctDev1.pem",
             "pre-setup": "rm -rf /var/www/moodli",
             // "post-setup": "cd nodeModuleconfig && ./nodeCus.sh",
             "post-deploy": "npm install && pm2 startOrRestart ecosystem.config.js --env production && cd nodeModuleconfig && ./nodeCus.sh"
@@ -23,12 +23,12 @@
         "development": {
             "user": "ubuntu",
             "host": [
-                "77.109.191.140:1208"
+                "35.181.0.148"
             ],
             "ref": "origin/master",
             "repo": "https://github.com/Moodli/codevscovid19_moodli_backend.git",
             "path": "/var/www/moodli",
-            "key": "./torCH",
+            "key": "./knctDev1.pem",
             "pre-setup": "rm -rf /var/www/moodli",
             // "post-setup": "cd nodeModuleconfig && ./nodeCus.sh",
             "post-deploy": "npm install && pm2 startOrRestart ecosystem.config.js --env production && cd nodeModuleconfig && ./nodeCus.sh"
