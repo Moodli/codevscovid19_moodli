@@ -3,13 +3,13 @@
 Backend for Moodli
 
 ## Live Site:
-### https://moodli.live
+### https://moodli.org
 
 ## API Doc:
 ### https://documenter.getpostman.com/view/4339786/SzYZ2epF?version=latest
 
 ## API Endpoint: 
-### http://35.209.116.94/tweet/geo
+### https://moodli.org:8443/geo
 
 ## File Structure
 
