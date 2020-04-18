@@ -103,9 +103,16 @@ router.get('/geo', (req, res) => {
     //  Read from dataset.json the serve so it detects the file change
     // Setting fix vars. will only read the file once upon startup
     fs.readFile('./productionData/dataset.json', 'utf8', (err, data) => {
-        res.send(data)
-    })
+        res.send(data);
+    });
 
+
+});
+
+router.get('/geo1', (req, res) => {
+    fs.readFile('./productionData/sampledataset.json', 'utf8', (err, data) => {
+        res.send(data)
+    });
 
 });
 
