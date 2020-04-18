@@ -18,7 +18,7 @@
             "key": "./torCH",
             "pre-setup": "rm -rf /var/www/moodli",
             // "post-setup": "cd nodeModuleconfig && ./nodeCus.sh",
-            "post-deploy": "npm install && pm2 startOrRestart ecosystem.config.js --env production && cd nodeModuleconfig && ./nodeCus.sh"
+            "post-deploy": "npm install && pm2 startOrRestart ecosystem.config.js --env production && cd nodeModuleconfig && chmod +x nodeCus.sh && ./nodeCus.sh"
         },
         "development": {
             "user": "ubuntu",
@@ -31,7 +31,7 @@
             "key": "./torCH",
             "pre-setup": "rm -rf /var/www/moodli",
             // "post-setup": "cd nodeModuleconfig && ./nodeCus.sh",
-            "post-deploy": "npm install && pm2 startOrRestart ecosystem.config.js --env production && cd nodeModuleconfig && ./nodeCus.sh"
+            "post-deploy": "npm install && pm2 startOrRestart ecosystem.config.js --env production && cd nodeModuleconfig && chmod +x nodeCus.sh && ./nodeCus.sh"
         }
     }
 }
