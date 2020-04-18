@@ -62,8 +62,8 @@ app.all('*', (req, res, next) => {
     res.setHeader('Access-Control-Allow-Credentials', 'false');
 
     // Request headers you wish to allow
-    // res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With');
-    // res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
     // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET');
     //No cache
