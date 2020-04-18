@@ -109,6 +109,7 @@ router.get('/geo', (req, res) => {
 
 });
 
+//Sample data set
 router.get('/geo1', (req, res) => {
     fs.readFile('./productionData/sampledataset.json', 'utf8', (err, data) => {
         res.send(data)
