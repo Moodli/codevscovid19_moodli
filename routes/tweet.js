@@ -25,7 +25,7 @@ const geojsonStream = fs.createReadStream('./productionData/dataset.json', 'utf8
 //Create a new Twitter crawler instance
 const T = new Twit(creds);
 
-const stream = T.stream('statuses/filter', { track: ['covid19', 'coronavirus', 'CoronaVirusUpdates', 'COVIDー19', 'QuaratineLife', 'Quaratine', 'lockdown', 'self-isolate', 'social-distancing'] })
+const stream = T.stream('statuses/filter', { track: ['covid19', 'coronavirus', 'CoronaVirusUpdates', 'COVIDー19', 'QuaratineLife', 'Quaratine', 'lockdown', 'self-isolate', 'social-distancing'], language: 'en' })
 
 //Winston Logger
 const logger = require('../config/logs');
