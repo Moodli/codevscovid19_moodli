@@ -15,7 +15,7 @@ let cacheMiddleware = (duration) => {
         if (cacheContent) {
             //Send the cache
             res.send(cacheContent);
-            return
+            return;
         } else {
             //Otherwise send the new content and cache it
             res.sendResponse = res.send
