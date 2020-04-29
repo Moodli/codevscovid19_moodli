@@ -23,7 +23,7 @@
         "development": {
             "user": "ubuntu",
             "host": [
-                "77.109.191.140"
+                "tor"
             ],
             "ref": "origin/master",
             "repo": "https://github.com/Moodli/codevscovid19_moodli_backend.git",
