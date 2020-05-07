@@ -6,6 +6,7 @@ const express = require('express');
 const BodyParser = require('body-parser');
 const compression = require('compression');
 const exphbs = require('express-handlebars');
+const path = require('path');
 // const fs = require('fs');
 
 //Custom modules
@@ -39,6 +40,8 @@ app.use(BodyParser.json({
     extended: true
 }));
 
+//Set Static Folder (Absolute)
+app.use('/', express.static(path.join(__dirname, '/assets')));
 
 //Handlebars Middleware
 app.engine('handlebars', exphbs({
