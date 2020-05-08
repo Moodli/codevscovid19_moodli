@@ -1,5 +1,7 @@
 # codevscovid19_moodli_backend
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b76450d97d7a46d482d8edcf04ee59e0)](https://app.codacy.com/gh/Moodli/codevscovid19_moodli_backend?utm_source=github.com&utm_medium=referral&utm_content=Moodli/codevscovid19_moodli_backend&utm_campaign=Badge_Grade_Settings)
+
 Backend for Moodli
 
 ## Live Site:
