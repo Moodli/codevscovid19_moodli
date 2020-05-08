@@ -5,6 +5,6 @@ module.exports = {
     'consumer_secret': '', //API Key Secrete
     'access_token': '',
     'access_token_secret': '',
-    timeout_ms: 60 * 1000,
-    strictSSL: true,
+    'timeout_ms': 60 * 1000,
+    'strictSSL': true,
 };
