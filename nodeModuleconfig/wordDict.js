@@ -1,3 +1,5 @@
+'use strict';
+/*eslint-env node*/
 const wordDict = {
   "aren't": 'are not',
   'arent': 'are not',
