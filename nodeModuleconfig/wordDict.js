@@ -81,7 +81,7 @@ const wordDict = {
   "we'll": ' will',
   'luv': 'love',
   'usa': 'US',
-  'rt': ''
+  'rt': '',
 
 };
 

@@ -15,6 +15,13 @@ module.exports = {
     "rules": {
         "strict": "off",
         "quotes": ["error", "single", "avoid-escape"],
-        "semi": ["error", "always"]
+        "semi": ["error", "always"],
+        "comma-dangle": ["error", {
+            "arrays": "never",
+            "objects": "always",
+            "imports": "never",
+            "exports": "never",
+            "functions": "never"
+        }]
     }
 };

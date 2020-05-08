@@ -25,7 +25,7 @@ const dbConnection = require('../config/dbConnection').DB_Connection;
 //Create a new Twitter crawler instance
 const T = new Twit(creds);
 
-const stream = T.stream('statuses/filter', { track: ['covid19', 'coronavirus', 'CoronaVirusUpdates', 'COVIDー19', 'QuaratineLife', 'Quaratine', 'lockdown', 'self-isolate', 'social-distancing'], language: 'en' });
+const stream = T.stream('statuses/filter', { track: ['covid19', 'coronavirus', 'CoronaVirusUpdates', 'COVIDー19', 'QuaratineLife', 'Quaratine', 'lockdown', 'self-isolate', 'social-distancing'], language: 'en', });
 
 //Winston Logger
 const logger = require('../config/logs');
@@ -54,7 +54,7 @@ dbConnection
                         // date: twt.created_at,
                         text: dataPrep(twt.text),
                         textHuman: twt.text.replace('RT', ''),
-                        location: locationFilter(twt.user.location)
+                        location: locationFilter(twt.user.location),
                     };
                     //Save the object into the db
                     new tweetDB(twitObj)
