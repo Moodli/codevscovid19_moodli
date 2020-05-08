@@ -7,7 +7,6 @@ const BodyParser = require('body-parser');
 const compression = require('compression');
 const exphbs = require('express-handlebars');
 const path = require('path');
-// const fs = require('fs');
 
 //Custom modules
 const childSpawn = require('./config/childSpawn').childSpawn;
