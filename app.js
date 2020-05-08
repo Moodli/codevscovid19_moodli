@@ -94,8 +94,6 @@ const tweet = require('./routes/tweet');
 app.use('/', tweet);
 
 
-
-
 //Array conversion
 // const fs = require("fs");
 // let text = fs.readFileSync("./x.txt").toString('utf-8');

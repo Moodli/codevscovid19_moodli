@@ -15,8 +15,10 @@ let readableDate = () => {
 const logFormat = winston.format.combine(
     winston.format.colorize(),
     winston.format.timestamp(),
+    winston.format.errors({ stack: true, }),
 
     winston.format.printf(info => {
+
         // //Determine Message type => special handling for object and error
 
         if (!info.stack) {
