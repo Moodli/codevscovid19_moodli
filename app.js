@@ -22,7 +22,7 @@ const port = process.env.PORT || 3005;
 const app = express();
 
 //Compression Module
-app.use(compression({ level: 9, memLevel: 9 }));
+app.use(compression({ level: 9, memLevel: 9, }));
 
 //Disable etag
 app.set('etag', false);
@@ -36,7 +36,7 @@ app.use(BodyParser.urlencoded({
 
 app.use(BodyParser.json({
     limit: '5mb',
-    extended: true
+    extended: true,
 }));
 
 //Set Static Folder (Absolute)
@@ -44,14 +44,14 @@ app.use('/', express.static(path.join(__dirname, '/assets')));
 
 //Handlebars Middleware
 app.engine('handlebars', exphbs({
-    defaultLayout: 'main'
+    defaultLayout: 'main',
 
 }));
 
 app.set('view engine', 'handlebars');
 
 app.engine('handlebars', exphbs({
-    defaultLayout: 'main'
+    defaultLayout: 'main',
 }));
 
 app.all('*', (req, res, next) => {
@@ -85,7 +85,7 @@ setInterval(() => {
 }, 300 * 200);
 
 
-module.exports = { io };
+module.exports = { io, };
 
 //Load Routes
 const tweet = require('./routes/tweet');

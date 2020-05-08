@@ -28,4 +28,4 @@ let cacheMiddleware = (duration) => {
     };
 };
 
-module.exports = { cacheMiddleware };
+module.exports = { cacheMiddleware, };

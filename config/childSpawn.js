@@ -2,7 +2,7 @@
 /*eslint-env node*/
 
 //Dependencies
-const { exec } = require('child_process');
+const { exec, } = require('child_process');
 const md5File = require('md5-file');
 
 //Custom Modules
@@ -71,7 +71,7 @@ const childSpawn = () => {
 
 };
 
-module.exports = { childSpawn };
+module.exports = { childSpawn, };
 
 // const shell = require('shelljs')
 // shell.exec('../mongodump/tweetDump.sh')

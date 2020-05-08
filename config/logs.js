@@ -38,33 +38,33 @@ const container = new winston.Container();
 //Logging Category for dbConnection.js
 container.add('dbCon', {
     format: winston.format.combine(
-        winston.format.label({ label: 'dbConnection' }),
+        winston.format.label({ label: 'dbConnection', }),
         logFormat
     ),
     transports: [new winston.transports.Console()],
-    exitOnError: false
+    exitOnError: false,
 
 });
 
 //Logging Category for app.js
 container.add('appLog', {
     format: winston.format.combine(
-        winston.format.label({ label: 'APP' }),
+        winston.format.label({ label: 'APP', }),
         logFormat
     ),
     transports: [new winston.transports.Console()],
-    exitOnError: false
+    exitOnError: false,
 
 });
 
 //Logging Category for passport-local.js
 container.add('subprocessLog', {
     format: winston.format.combine(
-        winston.format.label({ label: 'CHILD' }),
+        winston.format.label({ label: 'CHILD', }),
         logFormat
     ),
     transports: [new winston.transports.Console()],
-    exitOnError: false
+    exitOnError: false,
 
 });
 

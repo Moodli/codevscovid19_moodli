@@ -8,12 +8,12 @@ const natural = require('natural');
 // const strSim = require('string-similarity');
 const localtionDB = require('all-the-cities');
 const cL = require('country-list');
-const { overwrite } = require('country-list');
+const { overwrite, } = require('country-list');
 overwrite([{
     code: 'US',
-    name: 'USA'
+    name: 'USA',
 }]);
-const { WordTokenizer } = natural;
+const { WordTokenizer, } = natural;
 const tokenizer = new WordTokenizer;
 
 //Data pre-processing
@@ -112,7 +112,7 @@ const locationFilter = (location) => {
 
 
 
-module.exports = { dataPrep, locationFilter, standardLex };
+module.exports = { dataPrep, locationFilter, standardLex, };
 
 
 

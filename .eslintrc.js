@@ -22,6 +22,8 @@ module.exports = {
             "imports": "never",
             "exports": "never",
             "functions": "never"
-        }]
+        }],
+        "global-require": "error",
+        "handle-callback-err": "error"
     }
 };

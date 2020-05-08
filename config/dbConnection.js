@@ -13,8 +13,8 @@ const MongodbPass = require('../creds/mongoKey');
 const DB_Connection = mongoose.createConnection(MongodbPass.Database, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useFindAndModify: false
+    useFindAndModify: false,
 });
 
 
-module.exports = { DB_Connection };
+module.exports = { DB_Connection, };
