@@ -5,7 +5,7 @@
 //Dependencies
 const express = require('express');
 const router = express.Router();
-const io = require('../app').io;
+// const io = require('../app').io;
 const fs = require('fs');
 const Twit = require('twit');
 
@@ -19,13 +19,13 @@ const dbConnection = require('../config/dbConnection').DB_Connection;
 // const cacheMiddleware = require('../config/meCache').cacheMiddleware;
 
 //Read stream
-const geojsonStream = fs.createReadStream('./productionData/dataset.json', 'utf8');
+// const geojsonStream = fs.createReadStream('./productionData/dataset.json', 'utf8');
 
 
 //Create a new Twitter crawler instance
 const T = new Twit(creds);
 
-const stream = T.stream('statuses/filter', { track: ['covid19', 'coronavirus', 'CoronaVirusUpdates', 'COVIDー19', 'QuaratineLife', 'Quaratine', 'lockdown', 'self-isolate', 'social-distancing'], language: 'en' })
+const stream = T.stream('statuses/filter', { track: ['covid19', 'coronavirus', 'CoronaVirusUpdates', 'COVIDー19', 'QuaratineLife', 'Quaratine', 'lockdown', 'self-isolate', 'social-distancing'], language: 'en' });
 
 //Winston Logger
 const logger = require('../config/logs');
@@ -34,13 +34,13 @@ const dblog = logger.get('dbCon');
 //Initialize DB Connection
 dbConnection
     .once('open', () => {
-        dblog.info('DB Connected')
+        dblog.info('DB Connected');
         //Load Model for tweetDB
         require('../schema/tweetSchema');
         const tweetDB = dbConnection.model('tweet');
 
         //MongoDB Change Stream
-        const changeStream = tweetDB.watch()
+        const changeStream = tweetDB.watch();
 
         //Tweet Stream On
         stream.on('tweet', (twt) => {
@@ -55,27 +55,27 @@ dbConnection
                         text: dataPrep(twt.text),
                         textHuman: twt.text.replace('RT', ''),
                         location: locationFilter(twt.user.location)
-                    }
+                    };
                     //Save the object into the db
                     new tweetDB(twitObj)
                         .save()
                         // .then(() => dblog.info('Data saved!'))
-                        .catch(err => dblog.error(err))
+                        .catch(err => dblog.error(err));
                 }
 
             }
-        })
+        });
 
         //Monitoring
         let counter = 0;
         let dbStats = 0;
-        changeStream.on('change', (change) => {
+        changeStream.on('change', () => {
             dbStats = counter = counter + 1;
-        })
+        });
 
         // Return Stats every 10 sec	
         setInterval(() => {
-            dblog.info('Tweet Analyzed Since Started: ' + dbStats)
+            dblog.info('Tweet Analyzed Since Started: ' + dbStats);
         }, 10 * 1000);
 
     })
@@ -112,7 +112,7 @@ router.get('/geo', (req, res) => {
 //Sample data set
 router.get('/geo1', (req, res) => {
     fs.readFile('./productionData/sampledataset.json', 'utf8', (err, data) => {
-        res.send(data)
+        res.send(data);
     });
 
 });

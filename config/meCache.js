@@ -8,7 +8,7 @@ let memCache = new cache.Cache();
 //Define the middleware
 let cacheMiddleware = (duration) => {
     return (req, res, next) => {
-        let key = 'data:' + req.originalUrl || req.url
+        let key = 'data:' + req.originalUrl || req.url;
         //Searech cache using the key
         let cacheContent = memCache.get(key);
         //If the corresponding cache exists
@@ -18,14 +18,14 @@ let cacheMiddleware = (duration) => {
             return;
         } else {
             //Otherwise send the new content and cache it
-            res.sendResponse = res.send
+            res.sendResponse = res.send;
             res.send = (body) => { //res.send or res.json
                 memCache.put(key, body, duration);
-                res.sendResponse(body)
-            }
-            next()
+                res.sendResponse(body);
+            };
+            next();
         }
-    }
-}
+    };
+};
 
-module.exports = { cacheMiddleware }
+module.exports = { cacheMiddleware };

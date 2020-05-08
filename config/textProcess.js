@@ -12,7 +12,7 @@ const { overwrite } = require('country-list');
 overwrite([{
     code: 'US',
     name: 'USA'
-}])
+}]);
 const { WordTokenizer } = natural;
 const tokenizer = new WordTokenizer;
 
@@ -23,14 +23,14 @@ const dataPrep = (text) => {
     //Convert all to lower case
     const toLow = toLex.toLowerCase();
     //Normalize (remove accent)
-    const normalized = toLow.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    const normalized = toLow.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
     //Remove numbers and punctuations
     const alphaOnly = normalized.replace(/[^a-zA-Z\s]+/g, '');
     //Convert string to lexicons again
     const toLex2 = standardLex(alphaOnly);
     //Tokenize strings
     const tokenized = tokenizer.tokenize(toLex2);
-    return tokenized
+    return tokenized;
 
     // //Remove stopwords
     // const remSw = stWord.removeStopwords(tokenized);
@@ -46,7 +46,7 @@ const locationFilter = (location) => {
     const filter = () => {
         if (location != null) {
             //Normalize (remove accent)
-            const normalized = location.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+            const normalized = location.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
             //Remove numbers and punctuations
             const alphaOnly = normalized.replace(/[^a-zA-Z\s]+/g, '');
             //Take in value that's not null after normalization
@@ -59,15 +59,15 @@ const locationFilter = (location) => {
                     //Check fo corresponding country code
                     const countryCode = cL.getCode(locality[0]);
                     if (countryCode != undefined) {
-                        return localtionDB.filter(data => data.country.match(countryCode))[0].loc.coordinates
+                        return localtionDB.filter(data => data.country.match(countryCode))[0].loc.coordinates;
                         //Otherwise check for the city
                     } else {
                         //If the city is not found
                         if (localtionDB.filter(data => data.name.match(locality[0]))[0] === undefined) {
-                            return undefined
+                            return undefined;
                             //Otherwise return the coordinate
                         } else {
-                            return localtionDB.filter(data => data.name.match(locality[0]))[0].loc.coordinates
+                            return localtionDB.filter(data => data.name.match(locality[0]))[0].loc.coordinates;
                         }
 
                     }
@@ -85,28 +85,28 @@ const locationFilter = (location) => {
                         //If the result is not undefined return the exact coordinate
                         if (localtionDB.filter(data => data.country.match(countryCode) && data.name.match(locality[0]))[0] != undefined) {
 
-                            return localtionDB.filter(data => data.country.match(countryCode) && data.name.match(locality[0]))[0].loc.coordinates
+                            return localtionDB.filter(data => data.country.match(countryCode) && data.name.match(locality[0]))[0].loc.coordinates;
                             //otherwise just return the country's coordinate
                         } else {
 
-                            return localtionDB.filter(data => data.country.match(countryCode))[0].loc.coordinates
+                            return localtionDB.filter(data => data.country.match(countryCode))[0].loc.coordinates;
                         }
                         //Check for the 2 element
                     } else {
 
-                        return undefined
+                        return undefined;
                     }
 
                 }
             }
         }
-    }
+    };
 
     //Remove undefined
     if (filter() === undefined) {
-        return 'fup'
+        return 'fup';
     } else {
-        return filter()
+        return filter();
     }
 };
 

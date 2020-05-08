@@ -1,5 +1,5 @@
 /*eslint-env node*/
-'use strict'
+'use strict';
 module.exports = {
     apps: [{
         name: 'moodliBackend',

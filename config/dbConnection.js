@@ -1,5 +1,5 @@
 /*eslint-env node*/
-'use strict'
+'use strict';
 //Dependencies
 const mongoose = require('mongoose');
 //Global Variables

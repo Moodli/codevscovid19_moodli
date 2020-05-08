@@ -20,10 +20,10 @@ const exportParameters = (exportCb) => {
     tweetDB.countDocuments()
         .then(count => {
             if (count <= 2500) {
-                exportCb(`mongoexport --host Cluster0-shard-0/cluster0-shard-00-00-osoe0.mongodb.net:27017,cluster0-shard-00-01-osoe0.mongodb.net:27017,cluster0-shard-00-02-osoe0.mongodb.net:27017 --ssl --username moodliDBread --password ilaHtxZYN6rALqtd --authenticationDatabase admin --db Moodli --collection Tweets --type csv --fields text,location,textHuman --out ./mlModel/tweets.csv`)
+                exportCb('mongoexport --host Cluster0-shard-0/cluster0-shard-00-00-osoe0.mongodb.net:27017,cluster0-shard-00-01-osoe0.mongodb.net:27017,cluster0-shard-00-02-osoe0.mongodb.net:27017 --ssl --username moodliDBread --password ilaHtxZYN6rALqtd --authenticationDatabase admin --db Moodli --collection Tweets --type csv --fields text,location,textHuman --out ./mlModel/tweets.csv');
                 //You think you found something here again? It's a readonly user my friend.
             } else {
-                exportCb(`mongoexport --host Cluster0-shard-0/cluster0-shard-00-00-osoe0.mongodb.net:27017,cluster0-shard-00-01-osoe0.mongodb.net:27017,cluster0-shard-00-02-osoe0.mongodb.net:27017 --ssl --username moodliDBread --password ilaHtxZYN6rALqtd --authenticationDatabase admin --db Moodli --collection Tweets --type csv --fields text,location,textHuman --limit 2500 --skip ${count - 2500} --out ./mlModel/tweets.csv`)
+                exportCb(`mongoexport --host Cluster0-shard-0/cluster0-shard-00-00-osoe0.mongodb.net:27017,cluster0-shard-00-01-osoe0.mongodb.net:27017,cluster0-shard-00-02-osoe0.mongodb.net:27017 --ssl --username moodliDBread --password ilaHtxZYN6rALqtd --authenticationDatabase admin --db Moodli --collection Tweets --type csv --fields text,location,textHuman --limit 2500 --skip ${count - 2500} --out ./mlModel/tweets.csv`);
             }
         })
         .catch(err => subprocessLog.error('Error Getting MongoDump Parameters: ' + err));
@@ -34,7 +34,7 @@ const childSpawn = () => {
     //Get the export parameters
     exportParameters(exportCb => {
         // MongoDB dump child process
-        const mongoDump = exec(exportCb, (error, stdout, stderr) => {
+        const mongoDump = exec(exportCb, (error) => {
             if (error) {
                 subprocessLog.info(error.stack);
                 subprocessLog.info('Child MONGO Error code: ' + error.code);
@@ -49,7 +49,7 @@ const childSpawn = () => {
 
             if (code === 0) {
                 //ML child process
-                const mlOutput = exec(`python3 ./mlModel/sentiment_model_english.py`, (error, stdout, stderr) => {
+                const mlOutput = exec('python3 ./mlModel/sentiment_model_english.py', (error, stdout, stderr) => {
                     if (error) {
                         subprocessLog.info(error.stack);
                         subprocessLog.info('ML Error code: ' + error.code);
@@ -62,7 +62,7 @@ const childSpawn = () => {
                 mlOutput.on('exit', (code) => {
                     subprocessLog.info('ML Child process exited with exit code ' + code);
                     //Log file checksum
-                    subprocessLog.info('File checksum: ' + md5File.sync('./productionData/dataset.json'))
+                    subprocessLog.info('File checksum: ' + md5File.sync('./productionData/dataset.json'));
                 });
             }
 
@@ -71,7 +71,7 @@ const childSpawn = () => {
 
 };
 
-module.exports = { childSpawn }
+module.exports = { childSpawn };
 
 // const shell = require('shelljs')
 // shell.exec('../mongodump/tweetDump.sh')

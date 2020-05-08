@@ -1,3 +1,6 @@
+'use strict';
+/*eslint-env node*/
+
 //Dependencies
 const mongoose = require('mongoose');
 

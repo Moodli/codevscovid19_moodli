@@ -82,7 +82,7 @@ const io = require('socket.io')(app.listen(port, () => {
 
 // Dump data from MongoDB
 setInterval(() => {
-    childSpawn()
+    childSpawn();
 }, 300 * 200);
 
 
@@ -92,7 +92,7 @@ module.exports = { io };
 const tweet = require('./routes/tweet');
 
 //Use Routes
-app.use('/', tweet)
+app.use('/', tweet);
 
 
 
