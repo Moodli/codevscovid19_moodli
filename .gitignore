@@ -101,7 +101,6 @@ dist
 
 # TernJS port file
 .tern-port
-.eslintrc.js
 creds/mongoKey.js
 package-lock.json
 dep.sh
