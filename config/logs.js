@@ -1,5 +1,5 @@
 
-'use strict';
+
 /*eslint-env node*/
 
 //Dependencies

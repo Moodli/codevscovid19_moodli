@@ -1,5 +1,5 @@
 /*eslint-env node*/
-'use strict';
+
 module.exports = {
     apps: [{
         name: 'moodliBackend',
@@ -10,10 +10,10 @@ module.exports = {
         max_memory_restart: '5G',
         exec_mode: 'fork',
         env: {
-            NODE_ENV: 'development'
+            NODE_ENV: 'development',
         },
         env_production: {
-            NODE_ENV: 'production'
-        }
+            NODE_ENV: 'production',
+        },
     }],
 };

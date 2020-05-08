@@ -24,6 +24,10 @@ module.exports = {
             "functions": "never"
         }],
         "global-require": "error",
-        "handle-callback-err": "error"
+        "handle-callback-err": "error",
+        "camelcase": ["error", {
+            "properties": "always",
+            "ignoreDestructuring": false
+        }],
     }
 };

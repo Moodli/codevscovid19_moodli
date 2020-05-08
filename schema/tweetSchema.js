@@ -1,4 +1,4 @@
-'use strict';
+
 /*eslint-env node*/
 
 //Dependencies
@@ -11,20 +11,20 @@ const Schema = mongoose.Schema;
 const tweetSchema = new Schema({
     date: {
         type: Date,
-        default: Date.now()
+        default: Date.now(),
     },
     // },
     text: {
-        type: Array
+        type: Array,
     },
     textHuman: {
     },
     location: {
-        type: Array
-    }
+        type: Array,
+    },
 
 }, {
-    collection: 'Tweets'
+    collection: 'Tweets',
 });
 
 mongoose.model('tweet', tweetSchema);

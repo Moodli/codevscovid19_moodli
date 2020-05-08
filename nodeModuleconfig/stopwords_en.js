@@ -22,7 +22,7 @@ THE SOFTWARE.
 
 // a list of commonly used words that have little meaning and can be excluded
 // from analysis.
-'use strict';
+
 /*eslint-env node*/
 
 let words = [

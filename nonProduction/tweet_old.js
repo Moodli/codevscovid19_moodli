@@ -1,15 +1,15 @@
 
-'use strict';
+
 /*eslint-env node*/
 
 //Dependencies
 const express = require('express');
 const router = express.Router();
-const Twit = require('twit')
-const { Transform } = require("json2csv");
-const { Readable } = require('stream');
-const { createWriteStream } = require('fs');
-const fs = require('fs')
+const Twit = require('twit');
+const { Transform, } = require('json2csv');
+const { Readable, } = require('stream');
+const { createWriteStream, } = require('fs');
+const fs = require('fs');
 
 //Gloabl variables
 const creds = require('../creds/tweetapiKey');
@@ -21,7 +21,7 @@ const locationFilter = require('../config/textProcess').locationFilter;
 //Create a new Twitter crawler instance
 const T = new Twit(creds);
 
-const stream = T.stream('statuses/filter', { track: ['covid19', 'coronavirus', 'CoronaVirusUpdates', 'COVIDー19', 'QuaratineLife', 'Quaratine', 'lockdown', 'self-isolate', 'social-distancing'] })
+const stream = T.stream('statuses/filter', { track: ['covid19', 'coronavirus', 'CoronaVirusUpdates', 'COVIDー19', 'QuaratineLife', 'Quaratine', 'lockdown', 'self-isolate', 'social-distancing'], });
 
 
 //Tweet Stream On
@@ -35,28 +35,28 @@ stream.on('tweet', (twt) => {
             date: twt.created_at,
             text: dataPrep(twt.text),
             textHuman: twt.text.replace('RT', ''),
-            location: locationFilter(twt.user.location)
-        }
+            location: locationFilter(twt.user.location),
+        };
         //console.log(twitObj)
 
         //Pipie the tweets into the object
-        input.push(twitObj)
+        input.push(twitObj);
     }
-})
+});
 
 //CSV
 //Define Write input and output
-const output = createWriteStream(`./productionData/tweet.csv`, { encoding: 'utf8' });
-const input = new Readable({ objectMode: true });
+const output = createWriteStream('./productionData/tweet.csv', { encoding: 'utf8', });
+const input = new Readable({ objectMode: true, });
 //Headers
 const fields = ['date', 'text', 'textHuman', 'location'];
-const opts = { fields };
+const opts = { fields, };
 //We are taking data in as an object
-const transformOpts = { objectMode: true };
+const transformOpts = { objectMode: true, };
 const json2csv = new Transform(opts, transformOpts);
 //Pipe the data to the output
 input._read = () => { };
-input.pipe(json2csv).pipe(output)
+input.pipe(json2csv).pipe(output);
 
 
 
