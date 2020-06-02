@@ -2,7 +2,11 @@
 
 Backend for Moodli
 
+## Badges
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/53edb3df323247c8be6188e7198c1828)](https://www.codacy.com/gh/Moodli/codevscovid19_moodli_backend?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Moodli/codevscovid19_moodli_backend&amp;utm_campaign=Badge_Grade)[![Maintainability](https://api.codeclimate.com/v1/badges/fcac951a350d7fbb5fb7/maintainability)](https://codeclimate.com/github/Moodli/codevscovid19_moodli_backend/maintainability)
+[![](https://img.shields.io/github/issues/Moodli/codevscovid19_moodli_backend)]()
+[![](https://img.shields.io/github/stars/Moodli/codevscovid19_moodli_backend)]()
+[![](https://img.shields.io/github/license/Moodli/codevscovid19_moodli_backend)]()
 
 ## Live Site:
 ### https://moodli.org
