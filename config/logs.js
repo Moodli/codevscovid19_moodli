@@ -71,6 +71,18 @@ container.add('subprocessLog', {
 });
 
 
+//Logging Category for passport-local.js
+container.add('workerLog', {
+    format: winston.format.combine(
+        winston.format.label({ label: 'WORKER', }),
+        logFormat
+    ),
+    transports: [new winston.transports.Console()],
+    exitOnError: false,
+
+});
+
+
 
 //Export the Module
 module.exports = (container);

@@ -5,7 +5,7 @@
 const { exec, } = require('child_process');
 const md5File = require('md5-file');
 
-//Custom Modules
+//DB Connection
 const dbConnection = require('../config/dbConnection').DB_Connection;
 require('../schema/tweetSchema');
 const tweetDB = dbConnection.model('tweet');
