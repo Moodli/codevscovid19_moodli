@@ -84,7 +84,7 @@ io.on('connection', socket => {
 
     //Listening for the data request
     socket.on('dataRequest', () => {
-
+        console.log('in');
         //Read the json file
         fs.readFile('./productionData/dataset.json', 'utf8', (err, geoJson) => {
 
