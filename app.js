@@ -17,7 +17,7 @@ const appLog = require('./config/logs').get('appLog');
 
 
 //Global Constant || Heroku Deployment Setup
-const port = process.env.PORT || 3005;
+const PORT = process.env.PORT || 3005;
 
 //Initialize the App
 const app = express();
@@ -75,10 +75,25 @@ app.all('*', (req, res, next) => {
     next();
 });
 
-//Start the app with socket io;
-const io = require('socket.io')(app.listen(port, () => {
-    appLog.info(`Server is listening on port ${port}`);
-}));
+// //Start the app with socket io;
+// const io = require('socket.io')(app.listen(port, () => {
+//     appLog.info(`Server is listening on port ${port}`);
+// }));
+
+//Initialize socket.io server
+const server = require('http').createServer(app);
+const io = require('socket.io')(server, {
+    // path: '/',
+    // serveClient: true,
+    // // below are engine.IO options
+    // pingInterval: 10000,
+    // pingTimeout: 5000,
+    // cookie: false,
+});
+//Start the Server (socket.io + app)
+server.listen(PORT, () => {
+    appLog.info(`Server is listening on port ${PORT}`);
+});
 
 // Dump data from MongoDB
 setInterval(() => {
