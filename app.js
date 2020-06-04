@@ -22,17 +22,6 @@ const PORT = process.env.PORT || 3005;
 //Initialize the App
 const app = express();
 
-//Initialize socket.io server
-const server = require('http').createServer(app);
-const io = require('socket.io')(server, {
-    // path: '/',
-    // serveClient: true,
-    // // below are engine.IO options
-    // pingInterval: 10000,
-    // pingTimeout: 5000,
-    // cookie: false,
-});
-
 //Compression Module
 app.use(compression({ level: 9, memLevel: 9, }));
 
@@ -87,15 +76,10 @@ app.all('*', (req, res, next) => {
 });
 
 // //Start the app with socket io;
-// const io = require('socket.io')(app.listen(port, () => {
-//     appLog.info(`Server is listening on port ${port}`);
-// }));
-
-
-//Start the Server (socket.io + app)
-server.listen(PORT, () => {
+const io = require('socket.io')(app.listen(PORT, () => {
     appLog.info(`Server is listening on port ${PORT}`);
-});
+}));
+
 
 // Dump data from MongoDB
 setInterval(() => {
