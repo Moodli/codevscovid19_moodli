@@ -31,13 +31,11 @@
     //Request the data from the backend
     setInterval(() => {
       socket.compress(true).emit('dataRequest')
-      socket.compress(true).emit('in', "test at")
     }, 1000);
 
 
     //Listening for incoming data
     socket.on('dataOut', data => {
-      console.log('yes')
       //Set the map source
       map.getSource('tweet').setData(JSON.parse(data));
     })
