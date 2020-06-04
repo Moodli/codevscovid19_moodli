@@ -1,13 +1,9 @@
 /*eslint-env node*/
-
 //Dependencies
 const mongoose = require('mongoose');
+
 //Global Variables
 const MongodbPass = require('../creds/mongoKey');
-
-// //Winston Logger
-// const logger = require('./logs');
-// const dblog = logger.get('dbCon');
 
 //Connect to DB
 const DB_Connection = mongoose.createConnection(MongodbPass.Database, {

@@ -4,6 +4,7 @@
   "description": "Backend for Moodli",
   "main": "app.js",
   "scripts": {
+    "start": "nodemon --ignore ./productionData",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

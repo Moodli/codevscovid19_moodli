@@ -1,8 +1,16 @@
 <div id="map" style="width: 100%; height: 100%;"></div>
-{{!-- 
-<script src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js'></script> --}}
-{{!-- const socket = io.connect('http://localhost:2256', { upgrade: false, transports: ['websocket'], reconnection: true, forceNew: false }); --}}
+
+{{!-- Socket io --}}
+<script src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js'>
+</script>
+
 <script>
+
+  //websocket connection
+  const socket = io.connect('http://localhost:3005', {
+    upgrade: false, transports: ['websocket'], reconnection: true,
+    forceNew: false
+  });
 
   mapboxgl.accessToken =
     'pk.eyJ1IjoiYWxnbzciLCJhIjoiY2s4anVka3NnMGt4cjNncGxiYWFzOHFvZiJ9.rZYHg8xF6QahGl0hOaa1cQ';
@@ -14,21 +22,23 @@
     zoom: 3,
   });
 
-
+  //Default data
   let url = 'https://wanderdrone.appspot.com/';
-  //let url = 'https://moodli.org:8443/geo1';
+  //When the map loads
   map.on('load', (e) => {
 
-    //Refresh on a 3 sec interval
-    window.setInterval(() => {
+    //Request the data from the backend
+    setInterval(() => {
+      socket.compress(true).emit('dataRequest')
+    }, 1000);
 
-      fetch('https://moodli.org:8443/geo')
-        .then(res => res.json())
-        .then(x => {
-          map.getSource('tweet').setData(x);
-        })
 
-    }, 2000);
+    //Listening for incoming data
+    socket.on('dataOut', data => {
+      console.log('yes')
+      //Set the map source
+      map.getSource('tweet').setData(JSON.parse(data));
+    })
 
     map.addSource('tweet',
       {
@@ -68,11 +78,7 @@
 
       }
 
-
-
     });
-
-
 
   });
 
@@ -94,3 +100,14 @@
 
   });
 </script>
+
+{{!-- fetch('https://moodli.org:8443/geo')
+        .then(res => res.json())
+        .then(x => {
+          map.getSource('tweet').setData(x);
+        }) --}}
+
+
+{{!-- //Refresh on a 1 sec interval
+/*window.setInterval(() => {
+}, 1000);*/ --}}

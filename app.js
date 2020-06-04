@@ -8,8 +8,9 @@ const compression = require('compression');
 const exphbs = require('express-handlebars');
 const path = require('path');
 
+
 //Custom modules
-const childSpawn = require('./config/childSpawn').childSpawn;
+const { childSpawn, } = require('./config/childSpawn');
 
 // Winston Logger
 const appLog = require('./config/logs').get('appLog');
@@ -85,6 +86,9 @@ setInterval(() => {
 }, 300 * 200);
 
 
+
+//Export socket io Server before the route so it's
+//loaded when used in the routes
 module.exports = { io, };
 
 //Load Routes
