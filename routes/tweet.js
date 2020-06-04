@@ -95,7 +95,7 @@ io.on('connection', socket => {
             }
 
             //Send the data to the front end
-            socket.compress(true).emit('dataOut', 'xn');
+            socket.compress(true).emit('dataOut', geoJson);
         });
 
     });
