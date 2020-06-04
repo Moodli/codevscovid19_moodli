@@ -12,9 +12,8 @@ const Twit = require('twit');
 const creds = require('../creds/tweetapiKey');
 
 //Custom Modules
-const dataPrep = require('../config/textProcess.js').dataPrep;
-const locationFilter = require('../config/textProcess').locationFilter;
-const dbConnection = require('../config/dbConnection').DB_Connection;
+const { locationFilter, dataPrep, } = require('../config/textProcess');
+const { DB_Connection: dbConnection, } = require('../config/dbConnection');
 
 //Internal Dependency
 const { io, } = require('../app');

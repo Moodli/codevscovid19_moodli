@@ -16,7 +16,7 @@ const subprocessLog = logger.get('subprocessLog');
 
 //The current db is too huge so we are not using the db.count to get the number
 //of docs anymore. We now hardcoded the dump parameters
-const currentExportParameters = 'mongoexport --host Cluster0-shard-0/cluster0-shard-00-00-osoe0.mongodb.net:27017,cluster0-shard-00-01-osoe0.mongodb.net:27017,cluster0-shard-00-02-osoe0.mongodb.net:27017 --ssl --username moodliDBread --password ilaHtxZYN6rALqtd --authenticationDatabase admin --db Moodli --collection Tweets --type csv --fields text,location,textHuman --limit 15000 --skip 15000 --out ./mlModel/tweets.csv';
+const currentExportParameters = 'mongoexport --host Cluster0-shard-0/cluster0-shard-00-00-osoe0.mongodb.net:27017,cluster0-shard-00-01-osoe0.mongodb.net:27017,cluster0-shard-00-02-osoe0.mongodb.net:27017 --ssl --username moodliDBread --password ilaHtxZYN6rALqtd --authenticationDatabase admin --db Moodli --collection Tweets --type csv --fields text,location,textHuman --limit 8000 --skip 8000 --out ./mlModel/tweets.csv';
 
 //The child process function
 const childSpawn = () => {
