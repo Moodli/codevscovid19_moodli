@@ -19,6 +19,9 @@ const appLog = require('./config/logs').get('appLog');
 //Global Constant || Heroku Deployment Setup
 const PORT = process.env.PORT || 3005;
 
+//Initialize the App
+const app = express();
+
 //Initialize socket.io server
 const server = require('http').createServer(app);
 const io = require('socket.io')(server, {
@@ -29,9 +32,6 @@ const io = require('socket.io')(server, {
     // pingTimeout: 5000,
     // cookie: false,
 });
-
-//Initialize the App
-const app = express();
 
 //Compression Module
 app.use(compression({ level: 9, memLevel: 9, }));
