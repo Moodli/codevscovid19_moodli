@@ -7,7 +7,7 @@ const BodyParser = require('body-parser');
 const compression = require('compression');
 const exphbs = require('express-handlebars');
 const path = require('path');
-
+const { routeCheck, } = require('express-suite');
 
 //Custom modules
 const { childSpawn, } = require('./config/childSpawn');
@@ -98,6 +98,8 @@ const tweet = require('./routes/tweet');
 //Use Routes
 app.use('/', tweet);
 
+//Route Check
+app.use(routeCheck(app));
 
 //Array conversion
 // const fs = require("fs");
