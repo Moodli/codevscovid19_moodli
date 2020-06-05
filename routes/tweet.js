@@ -2,17 +2,29 @@
 
 /*eslint-env node*/
 //Dependencies
+const { Worker, MessageChannel, } = require('worker_threads');
 const express = require('express');
 const router = express.Router();
 // const io = require('../app').io;
 const fs = require('fs');
 const Twit = require('twit');
 
+//Worker
+const worker = new Worker('./config/textProcess_worker.js');
+const worker1 = new Worker('./config/textProcess_worker.js');
+const worker2 = new Worker('./config/textProcess_worker.js');
+//Worker Pool
+const workerPool = [worker, worker1, worker2];
+//Generate random no. with max length of the length of the array
+const random = () => {
+    let ran = Math.floor(Math.random() * workerPool.length);
+    return ran;
+};
+
 //Gloabl variables
 const creds = require('../creds/tweetapiKey');
 
 //Custom Modules
-const { locationFilter, dataPrep, } = require('../config/textProcess');
 const { DB_Connection: dbConnection, } = require('../config/dbConnection');
 
 //Internal Dependency
@@ -21,6 +33,7 @@ const { io, } = require('../app');
 //Create a new Twitter crawler instance
 const T = new Twit(creds);
 
+//Create a readable stream 
 const stream = T.stream('statuses/filter', { track: ['covid19', 'coronavirus', 'CoronaVirusUpdates', 'COVIDー19', 'QuaratineLife', 'Quaratine', 'lockdown', 'self-isolate', 'social-distancing'], language: 'en', });
 
 //Winston Logger
@@ -31,52 +44,15 @@ dbConnection
     .once('open', () => {
         dblog.info('DB Connected');
 
-        //Load Model for tweetDB
-        require('../schema/tweetSchema');
-        const tweetDB = dbConnection.model('tweet');
-
-        //MongoDB Change Stream
-        const changeStream = tweetDB.watch();
-
         //Tweet Stream On
         stream.on('tweet', (twt) => {
 
-            //Get rid of all the undefs
-            if ((locationFilter(twt.user.location)) != 'fup') {
-                //Get rid of all the empty tweets
-                if (twt.text != '') {
-                    //Tweet Object to be stored in the db
-                    let twitObj = {
-                        // date: twt.created_at,
-                        text: dataPrep(twt.text),
-                        textHuman: twt.text.replace('RT', ''),
-                        location: locationFilter(twt.user.location),
-                    };
-                    //Save the object into the db
-                    new tweetDB(twitObj)
-                        .save()
-                        // .then(() => dblog.info('Data saved!'))
-                        .catch(err => dblog.error(err));
-                }
+            workerPool[random()].postMessage(twt);
 
-            }
         });
-
-        //Monitoring
-        let counter = 0;
-        let dbStats = 0;
-        changeStream.on('change', () => {
-            dbStats = counter = counter + 1;
-        });
-
-        // Return Stats every 10 sec	
-        setInterval(() => {
-            dblog.info('Tweet Analyzed Since Started: ' + dbStats);
-        }, 10 * 1000);
 
     })
     .catch(err => dblog.error('Error Connecting to DB' + ' ' + err));
-
 
 //API end point
 io.on('connection', socket => {
@@ -134,9 +110,6 @@ router.get('/geo1', (req, res) => {
 router.get('/', (req, res) => {
     res.render('map');
 });
-
-
-
 
 
 
