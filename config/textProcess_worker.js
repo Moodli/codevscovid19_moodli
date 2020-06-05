@@ -114,7 +114,7 @@ const locationFilter = (location) => {
         locality = ['GB'];
     }
 
-    if (locality[0] || locality[2] === 'Brasil') {
+    if (locality[0] === 'Brasil' || locality[2] === 'Brasil') {
         locality = ['Brazil'];
     }
 
