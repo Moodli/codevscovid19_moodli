@@ -123,8 +123,12 @@ const locationFilter = (location) => {
       
     }
     
-    if (locality[0] === 'South' && locality[1] === 'Korea') {
-      locality = ['South Korea']
+    if (
+      (locality[0] === 'South' && locality[1] === 'Korea')
+      ||(locality[0]==='Korea'||
+      locality[1]==='Korea')
+      ) {
+      locality = ['KR']
     
     }
 
