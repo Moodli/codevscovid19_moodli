@@ -114,8 +114,13 @@ const locationFilter = (location) => {
         locality = ['GB'];
     }
 
-    if (locality[0] === 'Brasil' || locality[2] === 'Brasil') {
+    if (locality[0] === 'Brasil' || locality[1] === 'Brasil') {
         locality = ['Brazil'];
+    }
+    
+    if (locality[0]==='New'&&locality[1]==='Zealand') {
+      locality=['New Zealand']
+      
     }
 
     //If the location has only one string
