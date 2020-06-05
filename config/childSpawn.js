@@ -19,7 +19,7 @@ const subprocessLog = logger.get('subprocessLog');
 const currentExportParameters = 'mongoexport --host Cluster0-shard-0/cluster0-shard-00-00-osoe0.mongodb.net:27017,cluster0-shard-00-01-osoe0.mongodb.net:27017,cluster0-shard-00-02-osoe0.mongodb.net:27017 --ssl --username moodliDBread --password ilaHtxZYN6rALqtd --authenticationDatabase admin --db Moodli --collection Tweets --type csv --fields text,location,textHuman --limit 8000 --skip 8000 --out ./mlModel/tweets.csv';
 
 //The child process function
-const childSpawn = () => {
+const childSpawn1 = () => {
     // MongoDB dump child process
     const mongoDump = exec(currentExportParameters, (error) => {
         if (error) {
@@ -63,18 +63,18 @@ const exportParameters = (exportCb) => {
     //Count the document in the DB
     tweetDB.countDocuments()
         .then(count => {
-            if (count <= 2500) {
+            if (count <= 8000) {
                 exportCb('mongoexport --host Cluster0-shard-0/cluster0-shard-00-00-osoe0.mongodb.net:27017,cluster0-shard-00-01-osoe0.mongodb.net:27017,cluster0-shard-00-02-osoe0.mongodb.net:27017 --ssl --username moodliDBread --password ilaHtxZYN6rALqtd --authenticationDatabase admin --db Moodli --collection Tweets --type csv --fields text,location,textHuman --out ./mlModel/tweets.csv');
                 //You think you found something here again? It's a readonly user my friend.
             } else {
-                exportCb(`mongoexport --host Cluster0-shard-0/cluster0-shard-00-00-osoe0.mongodb.net:27017,cluster0-shard-00-01-osoe0.mongodb.net:27017,cluster0-shard-00-02-osoe0.mongodb.net:27017 --ssl --username moodliDBread --password ilaHtxZYN6rALqtd --authenticationDatabase admin --db Moodli --collection Tweets --type csv --fields text,location,textHuman --limit 2500 --skip ${count - 2500} --out ./mlModel/tweets.csv`);
+                exportCb(`mongoexport --host Cluster0-shard-0/cluster0-shard-00-00-osoe0.mongodb.net:27017,cluster0-shard-00-01-osoe0.mongodb.net:27017,cluster0-shard-00-02-osoe0.mongodb.net:27017 --ssl --username moodliDBread --password ilaHtxZYN6rALqtd --authenticationDatabase admin --db Moodli --collection Tweets --type csv --fields text,location,textHuman --limit 8000 --skip ${count - 8000} --out ./mlModel/tweets.csv`);
             }
         })
         .catch(err => subprocessLog.error('Error Getting MongoDump Parameters: ' + err));
 };
 
 //Define the spawn function
-const childSpawn1 = () => {
+const childSpawn = () => {
     //Get the export parameters
     exportParameters(exportCb => {
         // MongoDB dump child process
