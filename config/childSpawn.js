@@ -100,7 +100,7 @@ const childSpawn = () => {
                         subprocessLog.info('ML Signal received: ' + error.signal);
                     }
                     subprocessLog.info('ML Child Process STDOUT: ' + stdout);
-                    subprocessLog.info('ML Child Process STDERR: ' + stderr);
+                    // subprocessLog.info('ML Child Process STDERR: ' + stderr);
                 });
 
                 mlOutput.on('exit', (code) => {
@@ -114,8 +114,6 @@ const childSpawn = () => {
     });
 
 };
-
-childSpawn();
 
 module.exports = { childSpawn, childSpawn1, };
 
