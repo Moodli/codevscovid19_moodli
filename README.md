@@ -15,7 +15,7 @@ Backend for Moodli
 ### https://documenter.getpostman.com/view/4339786/SzYZ2epF?version=latest
 
 ## API Endpoint: 
-### https://moodli.org:8443/geo
+### https://moodli.org/geo
 
 ## File Structure
 
