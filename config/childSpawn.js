@@ -67,7 +67,7 @@ const exportParameters = (exportCb) => {
                 exportCb('mongoexport --host Cluster0-shard-0/cluster0-shard-00-00-osoe0.mongodb.net:27017,cluster0-shard-00-01-osoe0.mongodb.net:27017,cluster0-shard-00-02-osoe0.mongodb.net:27017 --ssl --username moodliDBread --password ilaHtxZYN6rALqtd --authenticationDatabase admin --db Moodli --collection Tweets --type csv --fields text,location,textHuman --out ./mlModel/tweets.csv');
                 //You think you found something here again? It's a readonly user my friend.
             } else {
-                exportCb(`mongoexport --host Cluster0-shard-0/cluster0-shard-00-00-osoe0.mongodb.net:27017,cluster0-shard-00-01-osoe0.mongodb.net:27017,cluster0-shard-00-02-osoe0.mongodb.net:27017 --ssl --username moodliDBread --password ilaHtxZYN6rALqtd --authenticationDatabase admin --db Moodli --collection Tweets --type csv --fields text,location,textHuman --limit 15000 --skip ${count - 15000} --out ./mlModel/tweets.csv`);
+                exportCb(`mongoexport --host Cluster0-shard-0/cluster0-shard-00-00-osoe0.mongodb.net:27017,cluster0-shard-00-01-osoe0.mongodb.net:27017,cluster0-shard-00-02-osoe0.mongodb.net:27017 --ssl --username moodliDBread --password ilaHtxZYN6rALqtd --authenticationDatabase admin --db Moodli --collection Tweets --type csv --fields text,location,textHuman --limit 25000 --skip ${count - 25000} --out ./mlModel/tweets.csv`);
             }
         })
         .catch(err => subprocessLog.error('Error Getting MongoDump Parameters: ' + err));
