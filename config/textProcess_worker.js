@@ -268,7 +268,6 @@ let out = 0;
 // });
 workerLog.info(`${threadId} started`);
 parentPort.on('message', (twt) => {
-    console.log(threadId);
     inp += 1;
     //Get rid of all the undefs
     if (locationFilter(twt.user.location)) {
@@ -296,13 +295,13 @@ parentPort.on('message', (twt) => {
 let dbStats = 0;
 changeStream.on('change', () => {
     dbStats += 1;
-    parentPort.postMessage(`${threadId} -> Tweet Analyzed Since Started: ${dbStats}`);
+    // parentPort.postMessage(`${threadId} -> Tweet Analyzed Since Started: ${dbStats}`);
 });
 
-// // Return Stats every 10 sec	
-// setInterval(() => {
-//     parentPort.postMessage(`${threadId} -> Tweet Analyzed Since Started: ${dbStats}`);
-// }, 10 * 1000);
+// Return Stats every 10 sec	
+setInterval(() => {
+    parentPort.postMessage(`${threadId} -> Tweet Analyzed Since Started: ${dbStats}`);
+}, 10 * 1000);
 
 //Porcessing Coverage Counter
 setInterval(() => {

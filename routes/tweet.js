@@ -24,17 +24,37 @@ const worker5 = new Worker('./config/textProcess_worker.js');
 const worker6 = new Worker('./config/textProcess_worker.js');
 const worker7 = new Worker('./config/textProcess_worker.js');
 
-// worker.on('message', msg => {
-//     workerLog.info(msg);
-// });
+worker.on('message', msg => {
+    workerLog.info(msg);
+});
 
-// worker1.on('message', msg => {
-//     workerLog.info(msg);
-// });
+worker1.on('message', msg => {
+    workerLog.info(msg);
+});
 
-// worker2.on('message', msg => {
-//     workerLog.info(msg);
-// });
+worker2.on('message', msg => {
+    workerLog.info(msg);
+});
+
+worker3.on('message', msg => {
+    workerLog.info(msg);
+});
+
+worker4.on('message', msg => {
+    workerLog.info(msg);
+});
+
+worker5.on('message', msg => {
+    workerLog.info(msg);
+});
+
+worker6.on('message', msg => {
+    workerLog.info(msg);
+});
+
+worker7.on('message', msg => {
+    workerLog.info(msg);
+});
 
 
 //Worker Pool
