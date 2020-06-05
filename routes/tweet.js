@@ -2,24 +2,54 @@
 
 /*eslint-env node*/
 //Dependencies
-const { Worker, MessageChannel, } = require('worker_threads');
+const { Worker, } = require('worker_threads');
 const express = require('express');
 const router = express.Router();
 // const io = require('../app').io;
 const fs = require('fs');
 const Twit = require('twit');
 
+//Winston Logger
+const logger = require('../config/logs');
+const dblog = logger.get('dbCon');
+const workerLog = logger.get('workerLog');
+
 //Worker
 const worker = new Worker('./config/textProcess_worker.js');
 const worker1 = new Worker('./config/textProcess_worker.js');
 const worker2 = new Worker('./config/textProcess_worker.js');
+const worker3 = new Worker('./config/textProcess_worker.js');
+const worker4 = new Worker('./config/textProcess_worker.js');
+const worker5 = new Worker('./config/textProcess_worker.js');
+const worker6 = new Worker('./config/textProcess_worker.js');
+const worker7 = new Worker('./config/textProcess_worker.js');
+
+// worker.on('message', msg => {
+//     workerLog.info(msg);
+// });
+
+// worker1.on('message', msg => {
+//     workerLog.info(msg);
+// });
+
+// worker2.on('message', msg => {
+//     workerLog.info(msg);
+// });
+
+
 //Worker Pool
-const workerPool = [worker, worker1, worker2];
-//Generate random no. with max length of the length of the array
-const random = () => {
-    let ran = Math.floor(Math.random() * workerPool.length);
-    return ran;
+const workerPool = [worker, worker1, worker2, worker3, worker4, worker5, worker6, worker7];
+
+//Generate a number that corresponds to each index of the array. repeat.
+let i = -1;
+const inc = (n) => {
+    if (n < workerPool.length - 1) {
+        n += 1;
+        return n;
+    }
+    return 0;
 };
+
 
 //Gloabl variables
 const creds = require('../creds/tweetapiKey');
@@ -36,18 +66,17 @@ const T = new Twit(creds);
 //Create a readable stream 
 const stream = T.stream('statuses/filter', { track: ['covid19', 'coronavirus', 'CoronaVirusUpdates', 'COVIDー19', 'QuaratineLife', 'Quaratine', 'lockdown', 'self-isolate', 'social-distancing'], language: 'en', });
 
-//Winston Logger
-const dblog = require('../config/logs').get('dbCon');
 
 //Initialize DB Connection
 dbConnection
     .once('open', () => {
         dblog.info('DB Connected');
-
         //Tweet Stream On
         stream.on('tweet', (twt) => {
 
-            workerPool[random()].postMessage(twt);
+            workerPool[inc(i)].postMessage(twt);
+            i = inc(i);
+
 
         });
 
