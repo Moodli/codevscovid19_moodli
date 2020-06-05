@@ -20,6 +20,7 @@ const tokenizer = new WordTokenizer;
 const { DB_Connection: dbConnection, } = require('./dbConnection');
 require('../schema/tweetSchema');
 const tweetDB = dbConnection.model('tweet');
+const changeStream = tweetDB.watch();
 
 //Internal dependencies
 const { parentPort, threadId, } = require('worker_threads');
@@ -31,16 +32,22 @@ const workerLog = require('./logs').get('workerLog');
 
 //Data pre-processing
 const dataPrep = (text) => {
+
     //Convert string to standard lexicons
     const toLex = standardLex(text);
+
     //Convert all to lower case
     const toLow = toLex.toLowerCase();
+
     //Normalize (remove accent)
     const normalized = toLow.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+
     //Remove numbers and punctuations
     const alphaOnly = normalized.replace(/[^a-zA-Z\s]+/g, '');
+
     //Convert string to lexicons again
     const toLex2 = standardLex(alphaOnly);
+
     //Tokenize strings
     const tokenized = tokenizer.tokenize(toLex2);
     return tokenized;
@@ -126,10 +133,13 @@ const locationFilter = (location) => {
 //Run Task
 workerLog.info(`${threadId} started`);
 parentPort.on('message', (twt) => {
+
     //Get rid of all the undefs
     if ((locationFilter(twt.user.location)) != 'fup') {
+
         //Get rid of all the empty tweets
         if (twt.text != '') {
+
             //Tweet Object to be stored in the db
             let twitObj = {
                 // date: twt.created_at,
@@ -137,16 +147,26 @@ parentPort.on('message', (twt) => {
                 textHuman: twt.text.replace('RT', ''),
                 location: locationFilter(twt.user.location),
             };
+
             //Save the object into the db
             new tweetDB(twitObj)
                 .save()
                 // .then(() => dblog.info('Data saved!'))
                 .catch(err => dblog.error(err));
         }
-
     }
 });
 
+//Monitoring
+let dbStats = 0;
+changeStream.on('change', () => {
+    dbStats += 1;
+});
+
+// Return Stats every 10 sec	
+setInterval(() => {
+    dblog.info(`${threadId} -> Tweet Analyzed Since Started: ${dbStats}`);
+}, 10 * 1000);
 
 
 
