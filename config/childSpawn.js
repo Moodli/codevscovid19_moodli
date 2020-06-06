@@ -84,7 +84,7 @@ const childSpawn = () => {
                 subprocessLog.info('Child MONGO Error code: ' + error.code);
                 subprocessLog.info('Child MONGO Signal received: ' + error.signal);
             }
-            // subprocessLog.info('Child MONGO Process STDOUT: ' + stdout);
+            subprocessLog.info('Child MONGO Process STDOUT: ' + stdout);
             // subprocessLog.info('Child MONGO Process STDERR: ' + stderr);
         });
 

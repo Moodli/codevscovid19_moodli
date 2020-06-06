@@ -315,7 +315,7 @@ changeStream.on('change', () => {
 // Return Stats every 10 sec	
 setInterval(() => {
     parentPort.postMessage(`${threadId} -> Tweet Analyzed Since Started: ${dbStats}`);
-}, 10 * 1000);
+}, 60 * 1000);
 
 //Porcessing Coverage Counter
 setInterval(() => {

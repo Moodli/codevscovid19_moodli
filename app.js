@@ -82,6 +82,7 @@ const io = require('socket.io')(app.listen(PORT, () => {
 
 
 // Dump data from MongoDB
+childSpawn();
 setInterval(() => {
     childSpawn();
 }, 1200*10);
