@@ -71,6 +71,8 @@ const childSpawn = () => {
 
 };
 
+exportParameters(cb=>console.log(cb))
+
 module.exports = { childSpawn};
 
 // const shell = require('shelljs')
