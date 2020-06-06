@@ -17,7 +17,7 @@ const subprocessLog = logger.get('subprocessLog');
 //Determine the Mongoexport parameters
 const exportParameters = (exportCb) => {
     //Count the document in the DB
-    tweetDB.countDocuments()
+    tweetDB.estimatedDocumentCount()
         .then(count => {
             if (count <= 8000) {
                 exportCb('mongoexport --host Cluster0-shard-0/cluster0-shard-00-00-osoe0.mongodb.net:27017,cluster0-shard-00-01-osoe0.mongodb.net:27017,cluster0-shard-00-02-osoe0.mongodb.net:27017 --ssl --username moodliDBread --password ilaHtxZYN6rALqtd --authenticationDatabase admin --db Moodli --collection Tweets --type csv --fields text,location,textHuman --out ./mlModel/tweets.csv');
