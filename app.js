@@ -15,7 +15,7 @@ const { childSpawn, } = require('./config/childSpawn');
 // Winston Logger
 const appLog = require('./config/logs').get('appLog');
 
-
+childSpawn();
 //Global Constant || Heroku Deployment Setup
 const PORT = process.env.PORT || 3005;
 
@@ -82,9 +82,9 @@ const io = require('socket.io')(app.listen(PORT, () => {
 
 
 // Dump data from MongoDB
-childSpawn();
 setInterval(() => {
     childSpawn();
+    console.log('dump')
 }, 1200*10);
 
 
