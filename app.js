@@ -14,8 +14,8 @@ const { routeCheck, } = require('express-suite');
 const { childSpawn3, } = require('./config/childSpawn');
 
 //Task
-fs.writeFileSync('./mlModel/tweets.csv', '');
-fs.writeFileSync('./productionData/dataset.json', '');
+// fs.writeFileSync('./mlModel/tweets.csv', '');
+// fs.writeFileSync('./productionData/dataset.json', '');
 
 //Reset Switch
 setInterval(() => {

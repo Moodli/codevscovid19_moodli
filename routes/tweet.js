@@ -55,10 +55,9 @@ io.on('connection', socket => {
             socket.compress(true).emit('dataOut', geoJson);
         });
 
-
-
     });
 
+    //Listening for data point count request
     socket.on('dataPoint', () => {
 
         //Read the json file and count the length
@@ -81,6 +80,43 @@ io.on('connection', socket => {
 
         });
 
+    });
+
+    //Starting Data
+    socket.on('firstRender', () => {
+        //Read the json file and count the length
+        //Read the json file
+        fs.readFile('./productionData/dataset.json', 'utf8', (err, geoJson) => {
+
+            //Check for error
+            if (err) {
+                socket.compress(true).emit('firstRenderData', 'no');
+                return;
+            }
+
+            //Send the data to the front end
+            socket.compress(true).emit('firstRenderData', geoJson);
+        });
+    });
+
+    socket.on('firstRenderPointCount', () => {
+        //Read the json file and count the length
+        fs.readFile('./productionData/sampledataset.json', 'utf8', (err, geoJson) => {
+
+            //Check for error
+            if (err) {
+                socket.compress(true).emit('firstRenderPCounts', 'no');
+                return;
+            }
+
+            try {
+                const dataPointCount = JSON.parse(geoJson).features.length;
+                //Send the data to the front end
+                socket.compress(true).emit('firstRenderPCounts', dataPointCount);
+            } catch (error) {
+                console.log(error);
+            }
+        });
     });
 });
 

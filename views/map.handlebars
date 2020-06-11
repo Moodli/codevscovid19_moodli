@@ -22,7 +22,7 @@
 <script>
 
   //websocket connection
-  const socket = io.connect('https://moodli.org', {
+  const socket = io.connect('http://127.0.0.1:3005', {
     upgrade: false, transports: ['websocket'], reconnection: true,
     forceNew: false
   });
@@ -45,13 +45,13 @@
   map.on('load', (e) => {
 
     //Request the data from the backend
-    socket.compress(true).emit('dataRequest')
+    socket.compress(true).emit('firstRender')
     setInterval(() => {
       socket.compress(true).emit('dataRequest')
     }, 5000);
 
     //Request the data from the backend
-    socket.compress(true).emit('dataPoint')
+    socket.compress(true).emit('firstRenderPointCount')
     setInterval(() => {
       socket.compress(true).emit('dataPoint')
     }, 5000);
@@ -74,6 +74,24 @@
       document.getElementById("dataPointCount").innerHTML = 'Data Points Displayed:' + ' ' + data;
     })
 
+    //Initialization
+    socket.once('firstRenderData', data => {
+
+
+      //Set the map source
+      try {
+        map.getSource('tweet').setData(JSON.parse(data));
+      }
+      catch (err) {
+        console.log(err)
+      }
+
+    });
+
+    socket.once('firstRenderPCounts', data => {
+      //Set the map source
+      document.getElementById("dataPointCount").innerHTML = 'Data Points Displayed:' + ' ' + data;
+    })
 
     map.addSource('tweet',
       {
