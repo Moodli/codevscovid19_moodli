@@ -17,10 +17,11 @@ const { childSpawn3, } = require('./config/childSpawn');
 fs.writeFileSync('./mlModel/tweets.csv', '');
 fs.writeFileSync('./productionData/dataset.json', '');
 
+//Reset Switch
 setInterval(() => {
     fs.writeFileSync('./mlModel/tweets.csv', '');
     fs.writeFileSync('./productionData/dataset.json', '');
-}, 1800 * 1000);
+}, 3600 * 1000);
 
 // Winston Logger
 const appLog = require('./config/logs').get('appLog');
