@@ -55,8 +55,33 @@ io.on('connection', socket => {
             socket.compress(true).emit('dataOut', geoJson);
         });
 
+
+
     });
 
+    socket.on('dataPoint', () => {
+
+        //Read the json file and count the length
+        fs.readFile('./productionData/dataset.json', 'utf8', (err, geoJson) => {
+
+            //Check for error
+            if (err) {
+                socket.compress(true).emit('dataPoints', 'no');
+                return;
+            }
+
+            try {
+                const dataPointCount = JSON.parse(geoJson).features.length;
+                //Send the data to the front end
+                socket.compress(true).emit('dataPoints', dataPointCount);
+            } catch (error) {
+                console.log(error);
+            }
+
+
+        });
+
+    });
 });
 
 //Realtime data set
