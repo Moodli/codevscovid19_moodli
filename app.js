@@ -20,7 +20,7 @@ fs.writeFileSync('./productionData/dataset.json', '');
 // Winston Logger
 const appLog = require('./config/logs').get('appLog');
 
-
+childSpawn();
 //Global Constant || Heroku Deployment Setup
 const PORT = process.env.PORT || 3005;
 
@@ -91,8 +91,15 @@ const io = require('socket.io')(app.listen(PORT, () => {
 //     childSpawn3();
 // }, 300 * 200);
 setInterval(() => {
+<<<<<<< HEAD
     childSpawn3();
 }, 5000);
+=======
+    childSpawn();
+    console.log('dump')
+}, 1200*10);
+
+>>>>>>> master
 
 
 //Export socket io Server before the route so it's

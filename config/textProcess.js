@@ -116,6 +116,20 @@ const locationFilter = (location) => {
     if (locality[0] === 'Brasil' || locality[1] === 'Brasil') {
         locality = ['Brazil'];
     }
+    
+    if (locality[0]==='New'&&locality[1]==='Zealand') {
+      locality=['New Zealand']
+      
+    }
+    
+    if (
+      (locality[0] === 'South' && locality[1] === 'Korea')
+      ||(locality[0]==='Korea'||
+      locality[1]==='Korea')
+      ) {
+      locality = ['KR']
+    
+    }
 
     if (locality[0] === 'New' && locality[1] === 'Zealand') {
         locality = ['New Zealand'];
@@ -295,6 +309,13 @@ changeStream.on('change', () => {
     dbStats += 1;
 });
 
+<<<<<<< HEAD:config/textProcess.js
+=======
+// Return Stats every 10 sec	
+setInterval(() => {
+    parentPort.postMessage(`${threadId} -> Tweet Analyzed Since Started: ${dbStats}`);
+}, 60 * 1000);
+>>>>>>> master:config/textProcess_worker.js
 
 //Porcessing Coverage Counter
 setInterval(() => {
