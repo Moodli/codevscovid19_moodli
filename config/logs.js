@@ -89,7 +89,7 @@ container.add('statsLog', {
         winston.format.label({ label: 'STATS', }),
         logFormat
     ),
-    transports: [new winston.transports.Console()],
+    transports: [new winston.transports.File({ filename: 'combined.log', })],
     exitOnError: false,
 
 });

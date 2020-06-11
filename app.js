@@ -7,10 +7,15 @@ const BodyParser = require('body-parser');
 const compression = require('compression');
 const exphbs = require('express-handlebars');
 const path = require('path');
+const fs = require('fs');
 const { routeCheck, } = require('express-suite');
 
 //Custom modules
 const { childSpawn3, } = require('./config/childSpawn');
+
+//Task
+fs.writeFileSync('./mlModel/tweets.csv', '');
+fs.writeFileSync('./productionData/dataset.json', '');
 
 // Winston Logger
 const appLog = require('./config/logs').get('appLog');
@@ -88,7 +93,6 @@ const io = require('socket.io')(app.listen(PORT, () => {
 setInterval(() => {
     childSpawn3();
 }, 5000);
-
 
 
 //Export socket io Server before the route so it's
