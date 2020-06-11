@@ -8,7 +8,7 @@
 <script>
 
   //websocket connection
-  const socket = io.connect('http://127.0.0.1:3005', {
+  const socket = io.connect('https://moodli.org', {
     upgrade: false, transports: ['websocket'], reconnection: true,
     forceNew: false
   });
