@@ -86,7 +86,7 @@ io.on('connection', socket => {
     socket.on('firstRender', () => {
         //Read the json file and count the length
         //Read the json file
-        fs.readFile('./productionData/dataset.json', 'utf8', (err, geoJson) => {
+        fs.readFile('./productionData/sampledataset.json', 'utf8', (err, geoJson) => {
 
             //Check for error
             if (err) {
