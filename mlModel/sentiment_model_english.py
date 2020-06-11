@@ -134,4 +134,4 @@ geojson = df_to_geojson(data, cols)
 with open('./productionData/dataset.json', 'w') as output_file:
     #output_file.write('var dataset = ')
     json.dump(geojson, output_file, indent=2)
-    print("Damn look at this!!! Model Finished!!")
+    print("Damn look at this!!! Model Finished!!", end='')
