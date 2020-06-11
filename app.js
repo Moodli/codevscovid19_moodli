@@ -10,7 +10,7 @@ const path = require('path');
 const { routeCheck, } = require('express-suite');
 
 //Custom modules
-const { childSpawn, } = require('./config/childSpawn');
+const { childSpawn3, } = require('./config/childSpawn');
 
 // Winston Logger
 const appLog = require('./config/logs').get('appLog');
@@ -82,9 +82,12 @@ const io = require('socket.io')(app.listen(PORT, () => {
 
 
 // Dump data from MongoDB
+// setInterval(() => {
+//     childSpawn3();
+// }, 300 * 200);
 setInterval(() => {
-    childSpawn();
-}, 300 * 200);
+    childSpawn3();
+}, 5000);
 
 
 

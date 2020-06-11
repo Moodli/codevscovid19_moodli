@@ -93,7 +93,7 @@ const childSpawn = () => {
 
             if (code === 0) {
                 //ML child process
-                const mlOutput = exec('python3 ./mlModel/sentiment_model_english.py', (error, stdout, stderr) => {
+                const mlOutput = exec('python3 ./mlModel/sentiment_model_english.py', (error, stdout) => {
                     if (error) {
                         subprocessLog.info(error.stack);
                         subprocessLog.info('ML Error code: ' + error.code);
@@ -115,7 +115,29 @@ const childSpawn = () => {
 
 };
 
-module.exports = { childSpawn, childSpawn1, };
+const childSpawn3 = () => {
+
+
+    //ML child process
+    const mlOutput = exec('python3 ./mlModel/sentiment_model_english.py', (error, stdout) => {
+        if (error) {
+            subprocessLog.info(error.stack);
+            subprocessLog.info('ML Error code: ' + error.code);
+            subprocessLog.info('ML Signal received: ' + error.signal);
+        }
+        subprocessLog.info('ML Child Process STDOUT: ' + stdout);
+        // subprocessLog.info('ML Child Process STDERR: ' + stderr);
+    });
+
+    mlOutput.on('exit', (code) => {
+        subprocessLog.info('ML Child process exited with exit code ' + code);
+        //Log file checksum
+        subprocessLog.info('File checksum: ' + md5File.sync('./productionData/dataset.json'));
+    });
+
+};
+
+module.exports = { childSpawn, childSpawn1, childSpawn3, };
 
 // const shell = require('shelljs')
 // shell.exec('../mongodump/tweetDump.sh')

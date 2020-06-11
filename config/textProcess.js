@@ -23,12 +23,11 @@ const tweetDB = dbConnection.model('tweet');
 const changeStream = tweetDB.watch();
 
 //Internal dependencies
-const { parentPort, threadId, } = require('worker_threads');
+const { csvFunc, } = require('./csvGen');
 
 //Winston Loggers
 const logger = require('./logs');
 const dblog = logger.get('dbCon');
-const workerLog = logger.get('workerLog');
 const statsLog = logger.get('statsLog');
 
 
@@ -114,8 +113,22 @@ const locationFilter = (location) => {
         locality = ['GB'];
     }
 
-    if (locality[0] || locality[2] === 'Brasil') {
+    if (locality[0] === 'Brasil' || locality[1] === 'Brasil') {
         locality = ['Brazil'];
+    }
+
+    if (locality[0] === 'New' && locality[1] === 'Zealand') {
+        locality = ['New Zealand'];
+
+    }
+
+    if (
+        (locality[0] === 'South' && locality[1] === 'Korea')
+        || (locality[0] === 'Korea' ||
+            locality[1] === 'Korea')
+    ) {
+        locality = ['KR'];
+
     }
 
     //If the location has only one string
@@ -249,25 +262,8 @@ const locationFilter = (location) => {
 let inp = 0;
 let out = 0;
 
-//Run Task
-// parentPort.on('message', x => {
-//     if (locationFilter(x.user.location)) {
-//         if (x.text) {
+const csvProcess = (twt) => {
 
-//             //Tweet Object to be stored in the db
-//             let twitObj = {
-//                 // date: twt.created_at,
-//                 text: dataPrep(x.text),
-//                 textHuman: x.text.replace('RT', ''),
-//                 location: locationFilter(x.user.location),
-//             };
-//             console.log(threadId, twitObj.location);
-//         }
-//     }
-
-// });
-workerLog.info(`${threadId} started`);
-parentPort.on('message', (twt) => {
     inp += 1;
     //Get rid of all the undefs
     if (locationFilter(twt.user.location)) {
@@ -279,36 +275,35 @@ parentPort.on('message', (twt) => {
             let twitObj = {
                 // date: twt.created_at,
                 text: dataPrep(twt.text),
-                textHuman: twt.text.replace('RT', ''),
+                textHuman: twt.text.replace('RT', '').replace('rt', ''),
                 location: locationFilter(twt.user.location),
             };
 
+            csvFunc(twitObj);
             //Save the object into the db
             new tweetDB(twitObj)
                 .save()
                 .catch(err => dblog.error(err));
+
         }
     }
-});
+};
 
 //Monitoring
 let dbStats = 0;
 changeStream.on('change', () => {
     dbStats += 1;
-    // parentPort.postMessage(`${threadId} -> Tweet Analyzed Since Started: ${dbStats}`);
 });
 
-// Return Stats every 10 sec	
-setInterval(() => {
-    parentPort.postMessage(`${threadId} -> Tweet Analyzed Since Started: ${dbStats}`);
-}, 10 * 1000);
 
 //Porcessing Coverage Counter
 setInterval(() => {
     statsLog.info(`In: ${inp} | Out: ${out}`);
+    statsLog.info(`Tweet Processed: ${dbStats}`);
 }, 1000 * 60);
 
 
+module.exports = { csvProcess, };
 
 
 //Load dictionary file
