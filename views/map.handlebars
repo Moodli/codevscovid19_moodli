@@ -60,7 +60,13 @@
     //Listening for incoming data
     socket.on('dataOut', data => {
       //Set the map source
-      map.getSource('tweet').setData(JSON.parse(data));
+      try {
+        map.getSource('tweet').setData(JSON.parse(data));
+      }
+      catch (err) {
+        console.log(err)
+      }
+
     })
 
     socket.on('dataPoints', data => {
