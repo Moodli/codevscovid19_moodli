@@ -29,6 +29,7 @@ const { csvFunc, } = require('./csvGen');
 const logger = require('./logs');
 const dblog = logger.get('dbCon');
 const statsLog = logger.get('statsLog');
+const locationLog = logger.get('locationLog');
 
 
 //Data pre-processing
@@ -252,7 +253,7 @@ const locationFilter = (location) => {
     if (locality.length >= 3) {
         return;
     }
-    statsLog.error(locality, location);
+    locationLog.info(locality, location);
     return;
 };
 
@@ -289,7 +290,7 @@ const csvProcess = (twt) => {
     }
 };
 
-//Monitoring
+//DB Monitoring
 let dbStats = 0;
 changeStream.on('change', () => {
     dbStats += 1;
@@ -298,9 +299,9 @@ changeStream.on('change', () => {
 
 //Porcessing Coverage Counter
 setInterval(() => {
-    statsLog.info(`In: ${inp} | Out: ${out}`);
-    statsLog.info(`Tweet Processed: ${dbStats}`);
-}, 1000 * 60);
+    statsLog.debug(`In: ${inp} | Out: ${out}`);
+    statsLog.debug(`Tweet Processed: ${dbStats}`);
+}, 600 * 100);
 
 
 module.exports = { csvProcess, };

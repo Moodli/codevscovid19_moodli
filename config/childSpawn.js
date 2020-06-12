@@ -124,16 +124,16 @@ const childSpawn3 = () => {
     //ML child process
     const mlOutput = exec('python3 ./mlModel/sentiment_model_english.py', (error, stdout) => {
         if (error) {
-            subprocessLog.info(error.stack);
-            subprocessLog.info('ML Error code: ' + error.code);
-            subprocessLog.info('ML Signal received: ' + error.signal);
+            subprocessLog.error(error.stack);
+            subprocessLog.error('ML Error code: ' + error.code);
+            subprocessLog.error('ML Signal received: ' + error.signal);
         }
-        subprocessLog.info('ML Child Process STDOUT: ' + stdout);
+        subprocessLog.debug('ML Child Process STDOUT: ' + stdout);
         // subprocessLog.info('ML Child Process STDERR: ' + stderr);
     });
 
     mlOutput.on('exit', (code) => {
-        subprocessLog.info('ML Child process exited with exit code ' + code);
+        subprocessLog.debug('ML Child process exited with exit code ' + code);
         //Log file checksum
         subprocessLog.info('MD5: ' + md5File.sync('./productionData/dataset.json'));
     });

@@ -10,7 +10,7 @@ const Twit = require('twit');
 
 //Winston Logger
 const logger = require('../config/logs');
-const dblog = logger.get('dbCon');
+const jsonLog = logger.get('jsonLog');
 
 //Gloabl variables
 const creds = require('../creds/tweetapiKey');
@@ -25,18 +25,13 @@ const T = new Twit(creds);
 //Create a readable stream 
 const stream = T.stream('statuses/filter', { track: ['covid19', 'coronavirus', 'CoronaVirusUpdates', 'COVIDー19', 'QuaratineLife', 'Quaratine', 'lockdown', 'self-isolate', 'social-distancing'], language: 'en', });
 
-
-
-dblog.info('DB Connected');
 //Tweet Stream On
 stream.on('tweet', (twt) => {
-
     csvProcess(twt);
-
 });
 
 
-//API end point
+//API endpoints
 io.on('connection', socket => {
 
     //Listening for the data request
@@ -51,8 +46,17 @@ io.on('connection', socket => {
                 return;
             }
 
-            //Send the data to the front end
-            socket.compress(true).emit('dataOut', geoJson);
+            try {
+                //Minify JSONs
+                const minifyStep1 = JSON.parse(geoJson);
+                const minifyStep2 = JSON.stringify(minifyStep1, null, 0);
+
+                //Send the data to the front end
+                socket.compress(true).emit('dataOut', minifyStep2);
+            } catch (error) {
+                jsonLog.error(error);
+            }
+
         });
 
     });
@@ -74,7 +78,7 @@ io.on('connection', socket => {
                 //Send the data to the front end
                 socket.compress(true).emit('dataPoints', dataPointCount);
             } catch (error) {
-                console.log(error);
+                jsonLog.error(error);
             }
 
 
@@ -94,8 +98,20 @@ io.on('connection', socket => {
                 return;
             }
 
-            //Send the data to the front end
-            socket.compress(true).emit('firstRenderData', geoJson);
+
+            try {
+
+                //Minify JSONs
+                const minifyStep1 = JSON.parse(geoJson);
+                const minifyStep2 = JSON.stringify(minifyStep1, null, 0);
+
+                //Send the data to the front end
+                socket.compress(true).emit('firstRenderData', minifyStep2);
+
+            } catch (error) {
+                jsonLog.error(error);
+            }
+
         });
     });
 
@@ -114,7 +130,7 @@ io.on('connection', socket => {
                 //Send the data to the front end
                 socket.compress(true).emit('firstRenderPCounts', dataPointCount);
             } catch (error) {
-                console.log(error);
+                jsonLog.error(error);
             }
         });
     });
@@ -134,7 +150,6 @@ router.get('/geo', (req, res) => {
         res.send(data);
     });
 
-
 });
 
 //Sample data set
@@ -153,8 +168,6 @@ router.get('/geo1', (req, res) => {
 router.get('/', (req, res) => {
     res.render('map');
 });
-
-
 
 //Export the Module
 module.exports = router;
