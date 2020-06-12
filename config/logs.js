@@ -149,8 +149,18 @@ container.add('workerLog', {
         winston.format.label({ label: 'WORKER', }),
         logFormat
     ),
-    transports: [new winston.transports.Console({ level: 'silly', })],
-    exceptionHandlers: [new winston.transports.Console({ level: 'silly', })],
+    transports: [
+        new winston.transports
+            .File({ level: 'error', filename: `${logStore}/worker_error.log`, }),
+        new winston.transports
+            .File({ level: 'debug', filename: `${logStore}/worker_debug.log`, }),
+        new winston.transports
+            .Console({ level: 'debug', })
+    ],
+    exceptionHandlers: [
+        new winston.transports
+            .File({ level: 'silly', filename: `${logStore}/worker_exception_combined.log`, })
+    ],
     exitOnError: false,
 
 });
