@@ -17,7 +17,7 @@ const creds = require('../creds/tweetapiKey');
 
 //Internal Dependency
 const { io, } = require('../app');
-const { csvProcess, } = require('../config/textProcess');
+const { dataTransfer, } = require('../config/workerRelay');
 
 //Create a new Twitter crawler instance
 const T = new Twit(creds);
@@ -27,7 +27,7 @@ const stream = T.stream('statuses/filter', { track: ['covid19', 'coronavirus', '
 
 //Tweet Stream On
 stream.on('tweet', (twt) => {
-    csvProcess(twt);
+    dataTransfer(twt);
 });
 
 

@@ -143,6 +143,17 @@ container.add('locationLog', {
 
 });
 
+//Logging Category for workers
+container.add('workerLog', {
+    format: winston.format.combine(
+        winston.format.label({ label: 'WORKER', }),
+        logFormat
+    ),
+    transports: [new winston.transports.Console({ level: 'silly', })],
+    exceptionHandlers: [new winston.transports.Console({ level: 'silly', })],
+    exitOnError: false,
+
+});
 
 
 //Export the Module

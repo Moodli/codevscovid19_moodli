@@ -1,10 +1,19 @@
+
+//Dependencies
+const { threadId, parentPort, } = require('worker_threads');
 const fs = require('fs');
 const path = require('path');
 
+//Winston Loggers
+const logger = require('./logs');
+const workerLog = logger.get('workerLog');
+workerLog.info(`CSV ${threadId} Started`);
+
+//Write Stream Parameters
 const csvLocation = path.join(__dirname, '../mlModel/tweets.csv');
 const writeSt = fs.createWriteStream(csvLocation, { flags: 'a', });
 
-//CSV Column names
+//CSV Column Names
 writeSt.write('text,location,textHuman');
 
 const csvFunc = (twt) => {
@@ -63,8 +72,9 @@ const csvFunc = (twt) => {
 
 };
 
-//Export the Module
-module.exports = { csvFunc, };
+parentPort.on('message', data => {
+    csvFunc(data);
+});
 
 
  // //Write to the disk

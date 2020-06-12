@@ -16,21 +16,15 @@ overwrite([{
 const { WordTokenizer, } = natural;
 const tokenizer = new WordTokenizer;
 
-//DB Connection
-const { DB_Connection: dbConnection, } = require('./dbConnection');
-require('../schema/tweetSchema');
-const tweetDB = dbConnection.model('tweet');
-const changeStream = tweetDB.watch();
-
-//Internal dependencies
-const { csvFunc, } = require('./csvGen');
+//Worker
+const { threadId, parentPort, } = require('worker_threads');
 
 //Winston Loggers
 const logger = require('./logs');
-const dblog = logger.get('dbCon');
-const statsLog = logger.get('statsLog');
 const locationLog = logger.get('locationLog');
+const workerLog = logger.get('workerLog');
 
+workerLog.info(`${threadId} Started`);
 
 //Data pre-processing
 const dataPrep = (text) => {
@@ -258,13 +252,10 @@ const locationFilter = (location) => {
 };
 
 
-
 //Initialize Porcessing Coverage Counter
 let inp = 0;
 let out = 0;
-
-const csvProcess = (twt) => {
-
+parentPort.on('message', twt => {
     inp += 1;
     //Get rid of all the undefs
     if (locationFilter(twt.user.location)) {
@@ -280,73 +271,14 @@ const csvProcess = (twt) => {
                 location: locationFilter(twt.user.location),
             };
 
-            csvFunc(twitObj);
-            //Save the object into the db
-            new tweetDB(twitObj)
-                .save()
-                .catch(err => dblog.error(err));
-
+            //Send the processed tweets back to the parent
+            parentPort.postMessage(twitObj);
         }
     }
-};
 
-//DB Monitoring
-let dbStats = 0;
-changeStream.on('change', () => {
-    dbStats += 1;
 });
-
 
 //Porcessing Coverage Counter
 setInterval(() => {
-    statsLog.debug(`In: ${inp} | Out: ${out}`);
-    statsLog.debug(`Tweet Processed: ${dbStats}`);
+    workerLog.debug(`${threadId} => In: ${inp} | Out: ${out}`);
 }, 600 * 100);
-
-
-module.exports = { csvProcess, };
-
-
-//Load dictionary file
-// const dict = require('../config/dict.js').data;
-
-//BestMatch
-// const bestMatch = (array) => {
-
-//     let finalArray = []
-//     for (let index = 0; index < array.length; index++) {
-//         const element = array[index];
-//         const a = strSim.findBestMatch(element, dict)
-//         finalArray.push(a.bestMatch.target)
-//     }
-//     return finalArray
-// };
-
-
-
-// //Execution time measurement
-// let hrstarts = process.hrtime()
-// let hrends = process.hrtime(hrstarts)
-// simcompLog.info('Execution time[L]: ' + hrends[0] + 's ' + hrends[1] / 1000000 + 'ms')
-
-
-
-
-// var filtered = array.filter((el)=> {
-//   return el != null;
-// });
-
-// console.log(filtered);
-
-//  //Search locality DB for country[0] and city [1]
-//                     //If the result is not undefined return the exact coordinate
-//                     if (localtionDB.filter(data => data.country.match(countryCode) && data.name.match(locality[1]))[0] != undefined) {
-
-//                         return [countryCode, locality]
-//                         // return [localtionDB.filter(data => data.country.match(countryCode) && data.name.match(locality[1]))[0], locality]
-//                         //otherwise just return the country's coordinate
-//                     } else {
-//                         return [countryCode, locality]
-//                         // return [localtionDB.filter(data => data.country.match(countryCode))[0], locality]
-//                     }
-
