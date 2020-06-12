@@ -69,8 +69,8 @@ const csvFunc = (twt) => {
 
 };
 
+//Listening for messages from the parent
 parentPort.on('message', data => {
-
     csvFunc(data);
 });
 

@@ -255,11 +255,19 @@ const locationFilter = (location) => {
 //Initialize Porcessing Coverage Counter
 let inp = 0;
 let out = 0;
+
+//Listening for Messages from the Parents
 parentPort.on('message', twt => {
+
+    //Increase the input counter 
     inp += 1;
+
     //Get rid of all the undefs
     if (locationFilter(twt.user.location)) {
+
+        //Increase the output counter 
         out += 1;
+
         //Get rid of all the empty tweets
         if (twt.text) {
 
@@ -275,7 +283,6 @@ parentPort.on('message', twt => {
             parentPort.postMessage(twitObj);
         }
     }
-
 });
 
 //Porcessing Coverage Counter

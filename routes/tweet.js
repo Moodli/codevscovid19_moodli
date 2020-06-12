@@ -1,5 +1,3 @@
-
-
 /*eslint-env node*/
 //Dependencies
 const express = require('express');
@@ -29,7 +27,6 @@ const stream = T.stream('statuses/filter', { track: ['covid19', 'coronavirus', '
 stream.on('tweet', (twt) => {
     dataTransfer(twt);
 });
-
 
 //API endpoints
 io.on('connection', socket => {

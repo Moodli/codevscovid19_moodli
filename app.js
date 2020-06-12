@@ -29,7 +29,7 @@ setInterval(() => {
     fs.writeFileSync('./mlModel/tweets.csv', '');
     fs.writeFileSync('./productionData/dataset.json', '');
     writeSt.write('text,location,textHuman');
-}, 3600 * 1000);
+}, 3600 * 2000);
 
 
 // Winston Logger
