@@ -23,6 +23,13 @@ setInterval(() => {
     fs.writeFileSync('./productionData/dataset.json', '');
 }, 3600 * 1000);
 
+//Write Stream Parameters
+const csvLocation = path.join(__dirname, './mlModel/tweets.csv');
+const writeSt = fs.createWriteStream(csvLocation, { flags: 'a', });
+
+//CSV Column Names
+writeSt.write('text,location,textHuman');
+
 // Winston Logger
 const appLog = require('./config/logs').get('appLog');
 

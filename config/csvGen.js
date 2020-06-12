@@ -13,9 +13,6 @@ workerLog.info(`CSV ${threadId} Started`);
 const csvLocation = path.join(__dirname, '../mlModel/tweets.csv');
 const writeSt = fs.createWriteStream(csvLocation, { flags: 'a', });
 
-//CSV Column Names
-writeSt.write('text,location,textHuman');
-
 const csvFunc = (twt) => {
 
     //Create arrays to hold processed texts
@@ -73,6 +70,7 @@ const csvFunc = (twt) => {
 };
 
 parentPort.on('message', data => {
+
     csvFunc(data);
 });
 
