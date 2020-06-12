@@ -13,22 +13,24 @@ const { routeCheck, } = require('express-suite');
 //Custom modules
 const { childSpawn3, } = require('./config/childSpawn');
 
-//Task
+//Write Stream Parameters
+const csvLocation = path.join(__dirname, './mlModel/tweets.csv');
+const writeSt = fs.createWriteStream(csvLocation, { flags: 'a', });
+
+//Flush the Files
 fs.writeFileSync('./mlModel/tweets.csv', '');
 fs.writeFileSync('./productionData/dataset.json', '');
+
+//CSV Column Names
+writeSt.write('text,location,textHuman');
 
 //Reset Switch
 setInterval(() => {
     fs.writeFileSync('./mlModel/tweets.csv', '');
     fs.writeFileSync('./productionData/dataset.json', '');
+    writeSt.write('text,location,textHuman');
 }, 3600 * 1000);
 
-//Write Stream Parameters
-const csvLocation = path.join(__dirname, './mlModel/tweets.csv');
-const writeSt = fs.createWriteStream(csvLocation, { flags: 'a', });
-
-//CSV Column Names
-writeSt.write('text,location,textHuman');
 
 // Winston Logger
 const appLog = require('./config/logs').get('appLog');
