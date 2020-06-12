@@ -22,7 +22,7 @@
 <script>
 
   //websocket connection
-  const socket = io.connect('https://moodli.org', {
+  const socket = io.connect('http://127.0.0.1:3005', {
     upgrade: false, transports: ['websocket'], reconnection: true,
     forceNew: false
   });
@@ -104,14 +104,19 @@
       // 'type': 'symbol',
       'type': 'circle',
       'source': 'tweet',
-      'layout': {
-        'icon-allow-overlap': true
-      },
       'paint': {
         // make circles larger as the user zooms from z12 to z22
+        //'circle-radius': {
+        // 'base': 10,
+        //  'stops': [[3, 5], [12, 10], [22, 180]]
+        //},
+
         'circle-radius': {
-          // 'base': 10,
-          'stops': [[3, 5], [12, 10], [22, 180]]
+          'base': 1.75,
+          'stops': [
+            [12, 2],
+            [22, 180]
+          ]
         },
         // https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
         'circle-color': [
@@ -138,6 +143,7 @@
   map.on('click', (e) => {
     var features = map.queryRenderedFeatures(e.point, {
       layers: ['tweet'] // replace this with the name of the layer
+
     });
 
     if (!features.length) {

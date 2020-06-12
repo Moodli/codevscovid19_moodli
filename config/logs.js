@@ -22,7 +22,7 @@ const logFormat = winston.format.combine(
         // //Determine Message type => special handling for object and error
 
         if (!info.stack) {
-            return `${info.timestamp} | ${readableDate()} | [${info.label}] ${info.level}: ${JSON.stringify(info.message, null, 0)}`;
+            return `${readableDate()} | [${info.label}] ${info.level}: ${JSON.stringify(info.message, null, 0)}`;
         }
 
         return `${info.timestamp} | ${readableDate()} | [${info.label}] ${info.level}: ${info.message} Stack: ${info.stack}`;
