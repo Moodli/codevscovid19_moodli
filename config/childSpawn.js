@@ -3,7 +3,6 @@
 
 //Dependencies
 const { exec, } = require('child_process');
-const fs = require('fs');
 const md5File = require('md5-file');
 
 //DB Connection
