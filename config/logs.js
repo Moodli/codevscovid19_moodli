@@ -6,7 +6,29 @@ const path = require('path');
 let readableDate = () => {
     return new Date(Date.now()).toUTCString();
 };
+
+// Log store path
 const logStore = path.join(__dirname, '../logs');
+
+// Log Level
+// { 
+//     error: 0, 
+//     warn: 1, 
+//     info: 2, 
+//     http: 3,
+//     verbose: 4, 
+//     debug: 5, 
+//     silly: 6 
+//   }
+let logLv = null;
+
+// Determin log lv depending on the env
+if (process.env.NODE_ENV === 'production') {
+    logLv = 'info';
+} else {
+    logLv = 'silly';
+}
+
 
 // Custom Log Format
 const logFormat = winston.format.combine(
@@ -17,7 +39,6 @@ const logFormat = winston.format.combine(
     winston.format.printf(info => {
 
         // Determine Message type => special handling for object and error
-
         if (!info.stack) {
             return `${readableDate()} | [${info.label}] ${info.level}: ${JSON.stringify(info.message, null, 0)}`;
         }
@@ -29,9 +50,32 @@ const logFormat = winston.format.combine(
 );
 
 
-
 // Container for Multiple Loggers
 const container = new winston.Container();
+
+// Logging Category for app.js
+container.add('appLog', {
+    format: winston.format.combine(
+        winston.format.label({ label: 'APP', }),
+        logFormat
+    ),
+
+    transports: [
+        new winston.transports
+            .Console({ level: `${logLv}`, })],
+
+    // The exception handler for the whole app
+    exceptionHandlers: [
+        new winston.transports
+            .Console({ level: `${logLv}`, }),
+        new winston.transports
+            .File({ level: 'error', filename: `${logStore}/exceptions.log`, })
+    ],
+
+
+    exitOnError: true,
+
+});
 
 
 // Logging Category for dbConnection.js
@@ -40,23 +84,11 @@ container.add('dbCon', {
         winston.format.label({ label: 'dbConnection', }),
         logFormat
     ),
-    transports: [new winston.transports.Console({ level: 'silly', })],
-    exceptionHandlers: [new winston.transports.Console({ level: 'silly', })],
-    exitOnError: false,
+    transports: [new winston.transports.Console({ level: `${logLv}`, })],
+    exitOnError: true,
 
 });
 
-// Logging Category for app.js
-container.add('appLog', {
-    format: winston.format.combine(
-        winston.format.label({ label: 'APP', }),
-        logFormat
-    ),
-    transports: [new winston.transports.Console({ level: 'silly', })],
-    exceptionHandlers: [new winston.transports.Console({ level: 'silly', })],
-    exitOnError: false,
-
-});
 
 // Logging Category for child process
 container.add('subprocessLog', {
@@ -70,11 +102,7 @@ container.add('subprocessLog', {
         new winston.transports
             .File({ level: 'info', filename: `${logStore}/subProcess_info.log`, })],
 
-    exceptionHandlers: [
-        new winston.transports
-            .File({ level: 'silly', filename: `${logStore}/subProcess_exception_combined.log`, })
-    ],
-    exitOnError: false,
+    exitOnError: true,
 
 });
 
@@ -86,13 +114,10 @@ container.add('jsonLog', {
     ),
     transports: [
         new winston.transports
-            .File({ level: 'silly', filename: `${logStore}/json_combined.log`, })
+            .File({ level: `${logLv}`, filename: `${logStore}/json_combined.log`, })
     ],
-    exceptionHandlers: [
-        new winston.transports
-            .File({ level: 'silly', filename: `${logStore}/json_exception_combined.log`, })
-    ],
-    exitOnError: false,
+
+    exitOnError: true,
 
 });
 
@@ -106,16 +131,14 @@ container.add('statsLog', {
 
     transports: [
         new winston.transports
+            .Console({ level: `${logLv}`, }),
+        new winston.transports
             .File({ level: 'error', filename: `${logStore}/stats_error.log`, }),
         new winston.transports
-            .File({ level: 'debug', filename: `${logStore}/stats_debug.log`, }),
-        new winston.transports
-            .Console({ level: 'debug', })
+            .File({ level: 'debug', filename: `${logStore}/stats_debug.log`, })
     ],
-    exceptionHandlers: [
-        new winston.transports
-            .File({ level: 'silly', filename: `${logStore}/stats_exception_combined.log`, })
-    ],
+
+    exitOnError: true,
 
 });
 
@@ -128,15 +151,12 @@ container.add('locationLog', {
 
     transports: [
         new winston.transports
-            .File(
-                { level: 'info', filename: `${logStore}/location_combined.log`, })
-    ],
-    exceptionHandlers: [
+            .Console({ level: `${logLv}`, }),
         new winston.transports
-            .File({ level: 'silly', filename: `${logStore}/location_exception_combined.log`, })
+            .File({ level: 'info', filename: `${logStore}/location_combined.log`, })
     ],
 
-
+    exitOnError: true,
 });
 
 // Logging Category for workers
@@ -147,17 +167,14 @@ container.add('workerLog', {
     ),
     transports: [
         new winston.transports
+            .Console({ level: `${logLv}`, }),
+        new winston.transports
             .File({ level: 'error', filename: `${logStore}/worker_error.log`, }),
         new winston.transports
-            .File({ level: 'debug', filename: `${logStore}/worker_debug.log`, }),
-        new winston.transports
-            .Console({ level: 'debug', })
+            .File({ level: 'debug', filename: `${logStore}/worker_debug.log`, })
     ],
-    exceptionHandlers: [
-        new winston.transports
-            .File({ level: 'silly', filename: `${logStore}/worker_exception_combined.log`, })
-    ],
-    exitOnError: false,
+
+    exitOnError: true,
 
 });
 

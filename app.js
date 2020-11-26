@@ -119,3 +119,6 @@ app.use('/', tweet);
 
 // Route Check
 app.use(routeCheck(app));
+
+
+process.on('SIGINT', () => process.exit(0));
