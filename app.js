@@ -49,7 +49,7 @@ app.use(compression({ level: 9, memLevel: 9, }));
 app.set('etag', false);
 app.set('x-powered-by', false);
 
-//  BodyParser Middleware
+// BodyParser Middleware
 app.use(BodyParser.urlencoded({
     extended: true,
     limit: '5mb',
@@ -69,6 +69,7 @@ app.engine('handlebars', exphbs({
 
 }));
 
+// Set view engine
 app.set('view engine', 'handlebars');
 
 app.engine('handlebars', exphbs({
