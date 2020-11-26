@@ -19,7 +19,7 @@ const { dataTransfer, } = require('../config/workerRelay');
 const T = new Twit(creds);
 
 // Create a readable stream 
-const stream = T.stream('statuses/filter', { track: ['covid19', 'coronavirus', 'CoronaVirusUpdates', 'COVIDー19', 'QuaratineLife', 'Quaratine', 'lockdown', 'self-isolate', 'social-distancing'], language: 'en', });
+const stream = T.stream('statuses/filter', { track: ['covid19', 'coronavirus', 'CoronaVirusUpdates', 'COVIDー19', 'QuarantineLife', 'Quarantine', 'lockdown', 'self-isolate', 'social-distancing', 'masks', 'face masks', 'face mask', 'covid-19', 'covid', 'Vaccine', 'vaccine'], language: 'en', });
 
 // Tweet Stream On
 stream.on('tweet', (twt) => {
