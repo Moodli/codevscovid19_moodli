@@ -21,7 +21,7 @@ const logger = require('./logs');
 const locationLog = logger.get('locationLog');
 const workerLog = logger.get('workerLog');
 
-workerLog.info(`${threadId} Started`);
+workerLog.info(`Text ${threadId} Started`);
 
 // Data pre-processing
 const dataPrep = (text) => {

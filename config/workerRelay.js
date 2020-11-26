@@ -6,6 +6,8 @@ const workerText = new Worker(`${__dirname}/textProcessWorker.js`);
 const workerText1 = new Worker(`${__dirname}/textProcessWorker.js`);
 const workerText2 = new Worker(`${__dirname}/textProcessWorker.js`);
 const workerText3 = new Worker(`${__dirname}/textProcessWorker.js`);
+
+// The worker pool
 const workerPool = [workerText, workerText1, workerText2, workerText3];
 
 // CSV Workers
@@ -13,7 +15,6 @@ const workerCSV = new Worker(`${__dirname}/csvGen.js`);
 const workerCSV1 = new Worker(`${__dirname}/csvGen.js`);
 const workerCSV2 = new Worker(`${__dirname}/csvGen.js`);
 const workerCSV3 = new Worker(`${__dirname}/csvGen.js`);
-//  const csvWorkerPool = [workerCSV, workerCSV1, workerCSV2, workerCSV3];
 
 // Generate a number that corresponds to each index of the array. repeat.
 // Worker Rotation Function
@@ -59,8 +60,6 @@ workerText.on('message', twitObj => {
     out += 1;
 
     // Send raw tweets to the CSV workers
-    //  csvWorkerPool[inc(i, csvWorkerPool)].postMessage(twitObj);
-    //  i = inc(i, csvWorkerPool);
     workerCSV.postMessage(twitObj);
 
     // Save the object into the db
@@ -76,8 +75,6 @@ workerText1.on('message', twitObj => {
     out += 1;
 
     // Send raw tweets to the CSV workers
-    //  csvWorkerPool[inc(i, csvWorkerPool)].postMessage(twitObj);
-    //  i = inc(i, csvWorkerPool);
     workerCSV1.postMessage(twitObj);
 
     // Save the object into the db
@@ -92,8 +89,6 @@ workerText2.on('message', twitObj => {
     out += 1;
 
     // Send raw tweets to the CSV workers
-    //  csvWorkerPool[inc(i, csvWorkerPool)].postMessage(twitObj);
-    //  i = inc(i, csvWorkerPool);
     workerCSV2.postMessage(twitObj);
 
     // Save the object into the db
@@ -108,8 +103,6 @@ workerText3.on('message', twitObj => {
     out += 1;
 
     // Send raw tweets to the CSV workers
-    //  csvWorkerPool[inc(i, csvWorkerPool)].postMessage(twitObj);
-    //  i = inc(i, csvWorkerPool);
     workerCSV3.postMessage(twitObj);
 
     // Save the object into the db
