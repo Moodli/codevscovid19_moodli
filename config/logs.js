@@ -1,18 +1,14 @@
-
-
-/*eslint-env node*/
-
-//Dependencies
+// Dependencies
 const winston = require('winston');
 const path = require('path');
 
-//Global variables
+// Global variables
 let readableDate = () => {
     return new Date(Date.now()).toUTCString();
 };
 const logStore = path.join(__dirname, '../logs');
 
-//Custom Log Format
+// Custom Log Format
 const logFormat = winston.format.combine(
     winston.format.colorize(),
     winston.format.timestamp(),
@@ -20,7 +16,7 @@ const logFormat = winston.format.combine(
 
     winston.format.printf(info => {
 
-        // //Determine Message type => special handling for object and error
+        // Determine Message type => special handling for object and error
 
         if (!info.stack) {
             return `${readableDate()} | [${info.label}] ${info.level}: ${JSON.stringify(info.message, null, 0)}`;
@@ -34,11 +30,11 @@ const logFormat = winston.format.combine(
 
 
 
-//Container for Multiple Loggers
+// Container for Multiple Loggers
 const container = new winston.Container();
 
 
-//Logging Category for dbConnection.js
+// Logging Category for dbConnection.js
 container.add('dbCon', {
     format: winston.format.combine(
         winston.format.label({ label: 'dbConnection', }),
@@ -50,7 +46,7 @@ container.add('dbCon', {
 
 });
 
-//Logging Category for app.js
+// Logging Category for app.js
 container.add('appLog', {
     format: winston.format.combine(
         winston.format.label({ label: 'APP', }),
@@ -62,7 +58,7 @@ container.add('appLog', {
 
 });
 
-//Logging Category for child process
+// Logging Category for child process
 container.add('subprocessLog', {
     format: winston.format.combine(
         winston.format.label({ label: 'CHILD', }),
@@ -82,7 +78,7 @@ container.add('subprocessLog', {
 
 });
 
-//Logging Category for json parsing
+// Logging Category for json parsing
 container.add('jsonLog', {
     format: winston.format.combine(
         winston.format.label({ label: 'JSON', }),
@@ -101,7 +97,7 @@ container.add('jsonLog', {
 });
 
 
-//Logging Category for statistic regarding processing speed
+// Logging Category for statistic regarding processing speed
 container.add('statsLog', {
     format: winston.format.combine(
         winston.format.label({ label: 'STATS', }),
@@ -123,7 +119,7 @@ container.add('statsLog', {
 
 });
 
-//Logging Category for location filter improvement
+// Logging Category for location filter improvement
 container.add('locationLog', {
     format: winston.format.combine(
         winston.format.label({ label: 'LOCATION', }),
@@ -143,7 +139,7 @@ container.add('locationLog', {
 
 });
 
-//Logging Category for workers
+// Logging Category for workers
 container.add('workerLog', {
     format: winston.format.combine(
         winston.format.label({ label: 'WORKER', }),
@@ -166,7 +162,7 @@ container.add('workerLog', {
 });
 
 
-//Export the Module
+// Export the Module
 module.exports = (container);
 
 
