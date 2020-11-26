@@ -26,9 +26,9 @@ module.exports = {
         }],
         "global-require": "error",
         "handle-callback-err": "error",
-        "camelcase": ["error", {
-            "properties": "always",
-            "ignoreDestructuring": false
-        }],
+        // "camelcase": ["error", {
+        //     "properties": "always",
+        //     "ignoreDestructuring": false
+        // }],
     }
 };

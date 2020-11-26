@@ -1,11 +1,10 @@
-/*eslint-env node*/
-//Dependencies
+// Dependencies
 const mongoose = require('mongoose');
 
-//Global Variables
+// Global Variables
 const MongodbPass = require('../creds/mongoKey');
 
-//Connect to DB
+// Connect to DB
 const DB_Connection = mongoose.createConnection(MongodbPass.Database, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
