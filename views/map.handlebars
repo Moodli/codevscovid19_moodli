@@ -25,10 +25,10 @@
 
   //websocket connection
   const socket = io.connect('https://www.moodli.org', {
-    upgrade: true, transports: ['websocket'], reconnection: true,
+    reconnection: true,
     forceNew: false
   });
-
+  //upgrade: true, transports: ['websocket'],
   mapboxgl.accessToken =
     'pk.eyJ1IjoiYWxnbzciLCJhIjoiY2s4anVka3NnMGt4cjNncGxiYWFzOHFvZiJ9.rZYHg8xF6QahGl0hOaa1cQ';
   var map = new mapboxgl.Map({
