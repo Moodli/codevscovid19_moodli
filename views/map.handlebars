@@ -105,34 +105,49 @@
       'type': 'circle',
       'source': 'tweet',
       'paint': {
-        // make circles larger as the user zooms from z12 to z22
-        //'circle-radius': {
-        // 'base': 10,
-        //  'stops': [[3, 5], [12, 10], [22, 180]]
-        //},
 
+        // make circles larger as the user zooms from z12 to z22
         'circle-radius': {
-          'base': 1.75,
+          'base': 1,
           'stops': [
-            [12, 2],
-            [22, 180]
+            [0, 1],
+            [1, 2],
+            [2, 3],
+            [3, 4],
+            [4, 5],
+            [5, 6],
+            [6, 7],
+            [7, 8],
+            [8, 9],
+            [9, 10],
+            [10, 11],
+            [11, 12],
+            [12, 13],
+            [13, 14],
+            [14, 15],
+            [15, 16],
+            [16, 17],
+            [17, 18],
+            [18, 19],
+            [19, 20],
+            [20, 21],
+            [21, 22],
+            [22, 23]
           ]
         },
-        // https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
+
         'circle-color': [
-          'case',
-
-          ['==', ['get', 'sentiment'], 0],
-          'yellow',
-
-          ['>', ['get', 'sentiment'], 0],
-          'green',
-
-          ['<', ['get', 'sentiment'], 0],
+          'interpolate',
+          ['linear'],
+          ['get', 'sentiment'],
+          -0.2,
           'red',
-
-/* other */ '#FF0000'
-        ]
+          0,
+          'yellow',
+          0.2,
+          'green'
+        ],
+        'circle-opacity': 0.7
 
       }
 
@@ -141,7 +156,7 @@
   });
 
   map.on('click', (e) => {
-    var features = map.queryRenderedFeatures(e.point, {
+    let features = map.queryRenderedFeatures(e.point, {
       layers: ['tweet'] // replace this with the name of the layer
 
     });
@@ -175,16 +190,19 @@
   // Add zoom and rotation controls to the map.
   map.addControl(new mapboxgl.NavigationControl());
 
-
 </script>
+{{!-- 
+    // https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
+        //'circle-color': [
+        //  'case',
+       //   ['==', ['get', 'sentiment'], 0],
+         // 'yellow',
 
-{{!-- fetch('https://moodli.org:8443/geo')
-        .then(res => res.json())
-        .then(x => {
-          map.getSource('tweet').setData(x);
-        }) --}}
+      //    ['>', ['get', 'sentiment'], 0],
+        //  'green',
 
+        //  ['<', ['get', 'sentiment'], 0],
+         // 'red',
 
-{{!-- //Refresh on a 1 sec interval
-/*window.setInterval(() => {
-}, 1000);*/ --}}
+///* other */ '#FF0000'
+        //] --}}

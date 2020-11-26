@@ -22,7 +22,7 @@ const sentimentProccess = () => {
     mlOutput.on('exit', (code) => {
         MLlog.debug('ML Child process exited with exit code ' + code);
         // Log file checksum
-        MLlog.info('MD5: ' + md5File.sync('./productionData/dataset.json'));
+        MLlog.debug('MD5: ' + md5File.sync('./productionData/dataset.json'));
     });
 
 };
