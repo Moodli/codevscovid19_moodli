@@ -1,0 +1,3589 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "@BethRigby C4news. Next phase could see local flare-ups of COVID19 requiring local test and trace. Remember Germany\u2026 https://t.co/RFpdFWGdpH",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-65.50663",
+          "45.72266"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @loookatmeimkiad: saw that seaworld was trending got excited bc i thought that they were finally closing but no they\u2019re reopening and it\u2026",
+        "sentiment": 0.1875
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-4.89562",
+          "13.30335"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "He will be grasshopper...he will be",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-92.56658",
+          "38.62753"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @IRLPatricia: This is reprehensible. The most senior civil servant in the Depament of Health Instructed health trusts to admit Covid 1\u2026",
+        "sentiment": 0.5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-7.98333",
+          "53.66667"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @nkosi_milton: South Africa now has 58 568 confirmed cases of #COVID19 and for the very first time the country passes the 1 million mark\u2026",
+        "sentiment": 0.36250000000000004
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "28.18783",
+          "-25.74486"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @nathmunya: Thank you for your continual and concrete suppo to AIMS  Your Excellency.   The support of Rwanda and Canada has allowed m\u2026",
+        "sentiment": 0.15000000000000002
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "29.75667",
+          "-2.07444"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @NCDCgov: \ud83d\udce3 COMING UP!!!  Tonight at 7:30pm  our Head of Risk Communication Division  @ywoga live be on #WinningCovid with @ukeogah to d\u2026",
+        "sentiment": 0.13636363636363635
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "7.24334",
+          "5.68786"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @PoliticsJOE_UK: \u201cThis is the most serious epidemic since the end of WWI. You can use the police to enforce emergency measures  and call\u2026",
+        "sentiment": 0.08333333333333334
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-93.2152",
+          "42.8933"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @srivatsayb: 5 BIGGEST LIES of the last few months  \u274c India is not in community transmission stage  \u274c China hasn't occupied any Indian t\u2026",
+        "sentiment": -0.1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "74.79045",
+          "18.17241"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "@EmmyRichie_ I would get a pair of glasses...my sight has been an issue since this lockdown it gets blurry atimes I\u2026 https://t.co/jhKSwOElH5",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "3.5069",
+          "6.61526"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @JimMFelton: This is known as the Harold Shipman defence",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-6.52674",
+          "53.62754"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @CBS_Herridge: #COVID19 The National Geo-Spatial Intelligence Agency  or NGA  is the US government\u2019s \u201ceyes in the sky\u201d tracking terroris\u2026",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-74.15375",
+          "40.94926"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @brianschatz: We have 4 percent of the world population and 25 percent of the COVID19 deaths.",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-81.66317",
+          "32.37963"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "8th Wonder",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "3.39467",
+          "6.45407"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @sardesairajdeep: Every day  Qs are asked of one state govt or the other on their capacity building during the lockdown. About time to a\u2026",
+        "sentiment": -0.125
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "77.23149",
+          "28.65195"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @inzyrashid: EXCLUSIVE: I\u2019ve seen a 69 page doc which was \u201cheld back\u201d by the government which includes recommendations on how to protect\u2026",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-83.76186",
+          "37.1537"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "Covid-19  Coronavirus Donations/Fundraiser https://t.co/KgaEkaH0xz",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-121.21605",
+          "37.79743"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @maddow:  New coronavirus cases almost double after reopening  says Alabama expe    The number of tests in Alabama has held steady  so\u2026",
+        "sentiment": 0.101010101010101
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-72.15924",
+          "41.01621"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @MichaelH14: More evidence of Tory #coronavirusuk failure :   \u201cScientists believe 90 per cent of coronavirus cases in the UK can be trac\u2026",
+        "sentiment": 0.09166666666666665
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "85.30504",
+          "25.50958"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @sambitswaraj: This \u201cBaba\u201d is a man named ASLAM ..notoriously you hide his name ..call him Baba and have a representative picture of a \u201c\u2026",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "166.676",
+          "-77.846"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @spokaneschools: Happening TODAY at 12:30 p.m.! https://t.co/A1KuvnaD5K",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-91.69294",
+          "41.29918"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @KristenClarkeJD: Today in the US: POTUS schedules rally to be held on anniversary of Tulsa Race Massacre  OH state sen. says coronaviru\u2026",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-74.18042",
+          "39.6429"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "@Coops_tv @MrNishKumar Please don't get me wrong. I am bang on the message but there is some serious over-acting go\u2026 https://t.co/qQlpLIaQTi",
+        "sentiment": -0.41666666666666663
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-84.08326",
+          "37.12898"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @RailmitraaIndia: #IndianRailways is planning to make a big change in reservation #ticket services. After the #lockdown  Railways may st\u2026",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "72.92559",
+          "18.55363"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @UlsterUniLHS: \ud83d\udc47 Happy #BiomedicalScienceDay2020 to all our fantastic @UlsterUniBiomed students  staff  alumni and collaborators! #WeBel\u2026",
+        "sentiment": 0.6000000000000001
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-89.52536",
+          "34.36594"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "BBC News - Coronavirus: Zoos and safari parks set to reopen from 15 June - PM https://t.co/fzlxg4QpPe",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-81.23304",
+          "42.98339"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @TimOBrien: Mnuchin promised transparency about deploying taxpayer $ in the coronavirus bailout. But:  Officials responsible for spendin\u2026",
+        "sentiment": 0.2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-94.10218",
+          "43.63746"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @hiral4congress: Effos to #FlattenTheCurve were aimed at avoiding scenarios *exactly* like this.  Now  medical professionals will have\u2026",
+        "sentiment": 0.125
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "35.11402",
+          "32.7615"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "FRAUD GOD free up",
+        "sentiment": 0.4
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-77.28304",
+          "43.2209"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @Cernovich: If you're a conservative  these coronavirus shutdowns are just an unbelievably positive.  - Global warming debate is OVER. T\u2026",
+        "sentiment": 0.11363636363636363
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-84.86078",
+          "35.69201"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "Doing a Wednesday Stream on a Thursday! Madness you say? what week is it says I?   This lockdown is seriously messi\u2026 https://t.co/N3ZVPxZp1z",
+        "sentiment": -0.3333333333333333
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-77.58721",
+          "39.9687"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @WillBlackWriter: This is the Rory Stewa clip from early March that Boris Johnson and Dominic Cummings don't want you to see. On no ac\u2026",
+        "sentiment": 0.1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "0.90421",
+          "51.88921"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @mrjamesob: March 12th",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-0.613",
+          "50.8209"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @essel1: We understand the result of switching to Thara (instead of black label scotch whisky) #Fact NAB didn\u2019t tell Dramebaaz Sharif to\u2026",
+        "sentiment": -0.16666666666666666
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "71.67164",
+          "30.29184"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "The 2019-2020 #NBA season was paused due to #COVID19 / #coronavirus. The league announced today that the season wil\u2026 https://t.co/gutj7HyxM9",
+        "sentiment": -0.125
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-80.96723",
+          "43.7251"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @SaraGideon: Mitch McConnell is blocking additional funding for municipal governments  even though our local officials have stressed the\u2026",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-104.70081",
+          "38.68222"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @Amy_Siskind: Florida repos 1 698 new coronavirus cases  the state's highest numbers so far.  Oddly  the state has one of the lowest m\u2026",
+        "sentiment": 0.023232323232323233
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-80.69396",
+          "40.88839"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @Shamsher_IPS: Vaccine for stupidity urgently needed. #vaccine #corona   Godman\u2019 Aslam who \u2018cured\u2019 by kissing hands  dies of coronavirus\u2026",
+        "sentiment": -0.6
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "68.37366",
+          "25.39242"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @CaslerNoel: Trump never misses a chance to be a d*ckhead. In a week when the nation is roiling from centuries of racial injustice and N\u2026",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "151.66143",
+          "-32.87888"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @CNN: This dog groomer is working hard to keep New York City dogs clean and healthy by offering free services to  pet parents  financial\u2026",
+        "sentiment": 0.1852272727272727
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-97.09167",
+          "31.80238"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @colinbell: Jawdropping thread https://t.co/CwFQKEH0Sj",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-93.25296",
+          "35.32897"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @RichardLochhead: Scotland\u2019s First Minister @NicolaSturgeon has announced that a fuher \u00a311.4m is being brought forward to address stud\u2026",
+        "sentiment": 0.125
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-74.21195",
+          "4.71638"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @nicktolhurst: So here\u2019s what I think is happening inside Conservative pay  Telegraph/Spectator bubble right now.  Whatever their view\u2026",
+        "sentiment": 0.2857142857142857
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-0.74638",
+          "52.64317"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @sariebellsays: @theradardude @thespybrief https://t.co/M3sPPiNIBY.  Yeah our reopening is #winning.",
+        "sentiment": 0.5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-102.41075",
+          "34.23314"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @MSBSolicitors: The #Covid19 crisis has put directors\u2019 actions very much in the spotlight and exposed them to a new level of vulnerabili\u2026",
+        "sentiment": 0.19818181818181818
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "150.92588",
+          "-33.91938"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @CREWcrew: So Steve Mnuchin is claiming that recipients of $511 billion in coronavirus loans are  confidential.    We don't know about y\u2026",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-69.44254",
+          "44.53229"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @may_walsh: Thank you  @Boston_EMS for your help at our free pop-up testing site in #Roxbury. If you have been a part of a large gathe\u2026",
+        "sentiment": 0.30714285714285716
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-74.99517",
+          "39.68623"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @kjzzphoenix: Arizona hospitals that are expected to be able to treat new cases of coronavirus without going into crisis mode were above\u2026",
+        "sentiment": 0.1340909090909091
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-112.07404",
+          "33.44838"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "The lockdown version of @BBCSpringwatch is amazing.  I love watching @ChrisGPackham in his natural habitat \u2764 \ud83d\ude02 #Springwatch2020",
+        "sentiment": 0.4000000000000001
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-91.96903",
+          "34.54426"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @rohanrgupta: \ud835\udc0f\ud835\udc2b\ud835\udc28\ud835\udc1b\ud835\udc25\ud835\udc1e\ud835\udc26\ud835\udc2c \ud835\udc22\ud835\udc27 \ud835\udc08\ud835\udc27\ud835\udc1d\ud835\udc22\ud835\udc1a:  \ud83d\udd39COVID19 Crisis \ud83d\udd39China/Nepal Dispute \ud83d\udd39Terrorism \ud83d\udd39Zero GDP \ud83d\udd39Unemployment \ud83d\udd39Middle Class in crisis \ud83d\udd39Starv\u2026",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "91.61356",
+          "26.44931"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @GerMcK1976: @Telegraph @ProfKarolSikora Pure nonsense. Look at the 2020 deaths vs average deaths. If anything Coronavirus figures are u\u2026",
+        "sentiment": 0.03214285714285714
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-86.46415",
+          "38.3345"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @thatginamiller: Appears surprising to some that as a 80% service economy &amp; a country that's failed to invest in infrastructure &amp; modern\u2026",
+        "sentiment": 0.13333333333333333
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-0.12574",
+          "51.50853"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @drdavidsamadi: The WHO is now announcing that asymptomatic transfer of #COVID19 is rare.  This is a complete turnaround from their init\u2026",
+        "sentiment": 0.2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "31.09067",
+          "-28.6207"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @sardesairajdeep: Every day  Qs are asked of one state govt or the other on their capacity building during the lockdown. About time to a\u2026",
+        "sentiment": -0.125
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "93.77791",
+          "24.4975"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "Yes  America needs to brace itself for a second wave of coronavirus https://t.co/9iydI2OD2f https://t.co/xhUXpxuKEi",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-75.35271",
+          "9.49477"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "Over the last two months repos have poured in from across the country about the suffering of those who lost their\u2026 https://t.co/xWwdGhstnX",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "88.36304",
+          "22.56263"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "Some care homes and the dedication of staff have really impressed me and brought me to tears during this outbreak -\u2026 https://t.co/NAoscgw0HF",
+        "sentiment": 1.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-93.25296",
+          "35.32897"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "Second wave of coronavirus hits Florida  Texas  Arizona after reopenings https://t.co/ggdFzHscJ2 via @nypost",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "46.37889",
+          "40.93972"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @iankiko1: As a Youth where are you staying during the lockdown ??       #RENTSTRIKE               @KagutaMuseveni   @nbstv",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-2.24181",
+          "4.86641"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @steve_hanke: These countries are the  rotten apples  of #coronavirus data. These countries either do not repo #covid data or are repo\u2026",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-94.16435",
+          "33.11374"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @SpillerOfTea: I am still in full lockdown.  There will be no pubs  no rollercoasters  no suppo bubbles  no trips to River fucking Isl\u2026",
+        "sentiment": -0.125
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-0.61584",
+          "51.3201"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @couneymilan: Just want to point out that literally everyone in Asia knew this in January  but the US official response blew it all of\u2026",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-83.91577",
+          "40.312"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @atensnut: EXCLUSIVE: Bill Gates Negotiated $100 Billion Contact Tracing Deal With Democratic Congressman Sponsor of Bill Six Months BEF\u2026",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-94.12412",
+          "41.49193"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @piersmorgan: This is absolutely shameful.  How dare you spew such huful nonsense  \u2018Professor Positive\u2019 @ProfKarolSikora?  Why would y\u2026",
+        "sentiment": 0.14242424242424243
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-4.45418",
+          "50.35778"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @JamieDornan_Inc: Jamie talking about being at home during lockdown #PGATourWatchalong #JamieDornan https://t.co/0trHIWXRix",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "10.96745",
+          "52.13802"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @Karabo_03: Cele needs to focus on what more impoant hle bathong... Women are being raped  killed. Yena he wants another ban on alcoho\u2026",
+        "sentiment": 0.22499999999999998
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "27.6952",
+          "-31.52356"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "Corona virus in India.  12th of March: 81  12th of April: 9 211  12th of May: 74 330  12th of June: 2 98 283  #COVID19India #coronavirus",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "77.23149",
+          "28.65195"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @airnewsales: Punjab Chief Minister @capt_amarinder orders #lockdown on weekends and public holidays  with movement to be restricted t\u2026",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "78.67393",
+          "29.3937"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @KeeangaYamahtta: This guy is an emergency room doctor as well as a state senator in Ohio. This is why this revolt is not only about pol\u2026",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "145.19428",
+          "-37.83616"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @Channel4News: BAME coronavirus repo is a \u2018total shambles\u2019 and \u2018betrayal\u2019  former BMA leader tells @jonsnowC4  https://t.co/eFvylLPTLC",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-7.15278",
+          "53.01556"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "\u201cPeace to the lockdown\u201d Dope Girl asia4410perez  DM for promo \ud83d\udce5 Grab some Merch \ud83d\udce6 Link in\u2026 https://t.co/6Gn5NWM9j8",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-80.19366",
+          "25.77427"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "staaahp it. every time I\u2019ve seen someone NOT wash their hands.. they weren\u2019t black",
+        "sentiment": -0.16666666666666666
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "148.15784",
+          "-23.52296"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "We no longer accepting this as a gift as well https://t.co/l4vlelcrmX",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "28.18783",
+          "-25.74486"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "00:35 Lockdown: Private schools will be derecognised if they conduct admissions and collect fees  Coimbatore collector warns.",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "80.27847",
+          "13.08784"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @boshj: utterly haunted by this snap from branson  missouri  which is still doing live shows in the age of coronavirus https://t.co/uBDO\u2026",
+        "sentiment": 0.06818181818181818
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-56.21417",
+          "-34.09556"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @ggreenwald: The Abrupt  Radical Reversal in How Public Health Expes Now Speak About the Coronavirus and Mass Gatherings  https://t.co\u2026",
+        "sentiment": -0.0625
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-82.91186",
+          "42.38615"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "@buddmann @TekWhiz @ProjectLincoln Coronavirus has been around for decades. Covid19 is a strain of coronavirus. Cov\u2026 https://t.co/BATv4dxfEd",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-120.45794",
+          "34.63915"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "Can we please stop emphasising the achievement gap caused by the lockdown.  That gap has been opened by years of cu\u2026 https://t.co/yl0j9cKT4P",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-92.67354",
+          "45.12441"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @DanCrenshawTX: This media pivot is amazing. After encouraging mass protests  they immediately begin blaming GOP governors for new cases\u2026",
+        "sentiment": 0.3681818181818182
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "114.15846",
+          "22.28299"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @TheDailyShow: Imagine if Fox News was as upset about the lockdown protests as they are about BLM protests \ud83e\udd14 https://t.co/YzIDk2n0sC",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "143.97636",
+          "-38.54043"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @Haggis_UK: Simon Clarke(housing minister) - Britain was always going to be hugely exposed to the #coronavirus because we're a global tr\u2026",
+        "sentiment": 0.20000000000000004
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-2.90104",
+          "57.69735"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "4454 Jun 11  2020 11:25:47 AM EDT Q !!Hs1Jq13jV6 No. 9574203   https://t.co/MTaMyFDxIE",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "150.80644",
+          "-33.74411"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @catturd2: Trump announces rallies and the Chicken little Coronavirus clowns sta crawling out of the gutter with their  2nd Wave  BS .\u2026",
+        "sentiment": -0.39375
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-65.95739",
+          "18.38078"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "@CMichaelGibson Oh and there are states (red) that are not even repoing the #COVID19 cases for political reasons",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-93.41685",
+          "36.6334"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @JoyAnnReid: So about  looting...  can someone tell me  who do we repo Steve Mnuchin and the mega corporations looting our treasury to\u2026",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "26.79995",
+          "56.3428"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "ScotRail says it cannot guarantee social distancing at all stages of a journey https://t.co/diTXJ7hQbr\u2026 https://t.co/vDwBaxevYW",
+        "sentiment": 0.03333333333333333
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-3.97357",
+          "55.81669"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @TheRealDrKev: \u201cI\u2019m a GP working in the #NHS. This is my paner Chris and our moment is being on a cruise ship when this all ends with\u2026",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-119.44318",
+          "36.47606"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @happifydesign: About a month too late for my dead cousin  not that I'm bitter about not having a functional or competent state health d\u2026",
+        "sentiment": -0.024999999999999994
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "6.05981",
+          "50.87554"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @TheDemocrats: It\u2019s been nearly five months since the first case of coronavirus was detected in America  we\u2019ve surpassed 2 000 000 confi\u2026",
+        "sentiment": 0.175
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "6.68139",
+          "0.29667"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @RawStory: Wisconsin GOP assembly speaker blames \u2018culture\u2019 of immigrants for coronavirus outbreak in leaked recording https://t.co/5XZWe\u2026",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-97.7067",
+          "39.12194"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "Congressional funding for the Postal Service has yet to make it in the final draft of a coronavirus spending bill t\u2026 https://t.co/Q3z5RsHWeK",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-86.07943",
+          "35.2098"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "India surpasses UK to become fouh worst-hit country as coronavirus tally nears\u00a03 00 000 https://t.co/vxx8o8hiEb",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "76.36018",
+          "17.19986"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @himantabiswa: \ud83d\udcccAle ~ 111 new #COVID19+ cases reported by 11 pm.   \u2197\ufe0fTotal cases 3430 \u2197\ufe0fRecovered 1432 \u2197\ufe0fActive cases 1989 \u2197\ufe0fDeaths 06\u2026",
+        "sentiment": 0.0010101010101010073
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-74.91599",
+          "42.27814"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @MSBSolicitors: The #Coronavirus #JobRetentionScheme has been updated. Here  our #employment team shares everything you need to know.  h\u2026",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-2.97794",
+          "53.41058"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @GPAthinks: Good morning.  Black lives matter.  Arrest the cops who killed Breonna Taylor.  Declare the KKK a terrorist organization.  C\u2026",
+        "sentiment": 0.07083333333333333
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-90.32261",
+          "38.78922"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @Channel4News: Revealed: The key contribution withheld from BAME coronavirus review - @darshnasoni repos  https://t.co/sJENe0VcgA",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-7.3385",
+          "53.52466"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @CatharineHoey: Another must read from Brendan O\u2019Neill https://t.co/pyqQsXo29g",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-4.06551",
+          "55.52272"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "WHAT ABOUT HAIRDRESSERS?????",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "27.78022",
+          "-25.63473"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @NickCohen4: It's not just the British who are filled with self doubt after Coronavirus failures. Here's the New York Times on French hu\u2026",
+        "sentiment": 0.1340909090909091
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-1.08371",
+          "52.22955"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "Even if numbers keep rising or we see multiple waves of the coronavirus pandemic  some say they've had enough and w\u2026 https://t.co/1J5vK7tHmG",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-87.79728",
+          "41.68975"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "#Coronavirus #shutdown double standard:  Compliance for thee  but not for me  sayeth #NewJersey #Governor\u2026 https://t.co/gTKahhi9JV",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-82.57482",
+          "27.49893"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @UN_Disarmament: Amidst the ongoing effos by the #international community to fight the global #health crisis  read @UN_Disarmament Hig\u2026",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "86.48258",
+          "26.72022"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": ".@united Airlines will now require passengers to complete a  health self-assessment  as pa of its check-in proces\u2026 https://t.co/8LN3pX88cM",
+        "sentiment": 0.1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-84.38798",
+          "33.749"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @cameron_kasky: Now that we\u2019ve officially #cancelled coronavirus  what have your favorite cultural developments been since quarantine st\u2026",
+        "sentiment": 0.3
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-76.50745",
+          "38.3004"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": ".@RetractionWatch is currently tracking retractions of papers about #COVID19. Here\u2019s a running list of retracted co\u2026 https://t.co/89pEC3zwhT",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "7.44744",
+          "46.94809"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @NPTCGroup: \ud83d\udce2 We've updated our #COVID19 information.  We're reintroducing some face-to-face learning provision  for a limited group of\u2026",
+        "sentiment": -0.07142857142857142
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-71.18977",
+          "41.74816"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "@Jim_Jordan Let me get this straight..you\u2019re more upset about kneeling to the flag than the coronavirus and BLM mov\u2026 https://t.co/hcaxEGsKOL",
+        "sentiment": 0.5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "78.57429",
+          "29.32704"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "INSIDE ITUMELENG KHUNE'S HOUSE https://t.co/6FnQh2O5Yn #SkeemSaam #COVID19 #my2010memories #psl #khune\u2026 https://t.co/y4Bcr6ogYD",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "29.88175",
+          "-27.36541"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "No child wants to leave their home  but over half of refugees today are children  fleeing violence  war  and now a\u2026 https://t.co/BpOdF5X3Ck",
+        "sentiment": 0.016666666666666677
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "116.7678",
+          "-31.88809"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @KeeangaYamahtta: This guy is an emergency room doctor as well as a state senator in Ohio. This is why this revolt is not only about pol\u2026",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "115.84999",
+          "-32.14281"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @ashoswai: World's 4 countries with highest number of #COVID19 cases at present are headed by 4 Fascists! 1. USA - Trump 2. Brazil - Bol\u2026",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "74.63867",
+          "26.4521"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @Waterstones: We've missed you. So we're very happy to announce that the majority of our shops in England are reopening from Monday 15 J\u2026",
+        "sentiment": 1.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "0.25878",
+          "52.2228"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @expressionessd1: Is anyone else #NotMovinOn from #DominicCummings lack of accountability of breaking lockdown with #COVID__19   driving\u2026",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-91.96903",
+          "34.54426"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @NHSEngland: If you\u2019re a former healthcare scientist  #YourNHSNeedsYou during these extraordinary times. Your skills and understanding o\u2026",
+        "sentiment": 0.16666666666666666
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-91.96903",
+          "34.54426"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @CatharineHoey: Another must read from Brendan O\u2019Neill",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-75.19295",
+          "40.63566"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @boshj: utterly haunted by this snap from branson  missouri  which is still doing live shows in the age of coronavirus https://t.co/uBDO\u2026",
+        "sentiment": 0.06818181818181818
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-70.87116",
+          "42.89481"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "Constantly changing advice  endless complaints and no holidays: it's time we staed more publicly cheering on our\u2026 https://t.co/WAmXplTHA7",
+        "sentiment": 0.09375
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-1.07121",
+          "54.01422"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @JoyAnnReid: So about  looting...  can someone tell me  who do we repo Steve Mnuchin and the mega corporations looting our treasury to\u2026",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-84.68494",
+          "35.86563"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "Corona duties and Police  In Pakistan so far 1392 Police Officers have tested positive for corona virus where as 17\u2026 https://t.co/topG0KFSGl",
+        "sentiment": 0.16363636363636364
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "73.75187",
+          "33.14782"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @BoyceMathebula: Ladies the lockdown and the COVID 19 has afforded us men a chance to review your gifting. These type of gifts will no l\u2026",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "21.26755",
+          "-33.49331"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "Coronavirus yet to reach its peak \u2013 Buhari https://t.co/1JMwIv22qZ https://t.co/8Zi00GoFnD",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "8.86397",
+          "9.79399"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @paulcshipley: @joncoopeweets On Fox News:  \u27a1\ufe0fWhite protesters demanding haircuts are patriots \u27a1\ufe0fBlack protesters demanding an end to\u2026",
+        "sentiment": -0.08333333333333333
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-86.77585",
+          "41.21504"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @Saj_PakPassion: The reason why Haris Sohail has refused to travel to England for the upcoming series is due to fears over the Coronavir\u2026",
+        "sentiment": -0.125
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "73.04329",
+          "33.72148"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "A coronavirus vaccine in 2020? Maybe. Here's what has to go right: Can a coronavirus vaccine really be developed th\u2026 https://t.co/bQMRNBRZiA",
+        "sentiment": 0.19285714285714284
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-98.11666",
+          "26.35337"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @haris9499: Lockdown got me this lonely",
+        "sentiment": -0.09999999999999998
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-102.41075",
+          "34.23314"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @RepJeffries: It\u2019s official.  America is in recession.  Obama built a great economy.  The current President\u2019s incompetent response to #C\u2026",
+        "sentiment": 0.15000000000000002
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "166.4572",
+          "-22.15757"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @funder: Trump\u2019s The Coronavirus Liar https://t.co/qDFaCyHrAo",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-93.21578",
+          "31.0511"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @SenSchumer: To the Trump administration:    Dr. Fauci  Dr. Birx  and other members of the administration\u2019s Coronavirus Task Force must\u2026",
+        "sentiment": -0.125
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-2.74",
+          "51.12472"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "Coronavirus: An element of reality has caught up with financial markets \u2014 Sky News https://t.co/66zI8C4b1E",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-0.12574",
+          "51.50853"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @ScienceMagazine: Two separate studies in mice suggest that an interferon being evaluated in clinical trials as a therapy for #COVID19 m\u2026",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "72.88261",
+          "19.07283"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "Coronavirus chaos in Georgia  Wisconsin a 'warning sign' for Democrats https://t.co/socQBUvhmw https://t.co/u4Zi51fNJH",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-88.99923",
+          "33.89845"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @DanCrenshawTX: This media pivot is amazing. After encouraging mass protests  they immediately begin blaming GOP governors for new cases\u2026",
+        "sentiment": 0.3681818181818182
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-87.31667",
+          "15.63333"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "With #COVID19 restrictions in place across the country  DHS is allowing employers to accept a new worker\u2019s expired\u2026 https://t.co/W3vwbYi8M1",
+        "sentiment": 0.13636363636363635
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-78.79891",
+          "38.61317"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "Friday's #Jeopardy is the last episode filmed before the #coronavirus hiatus  but #AlexTrebek will be back https://t.co/8XRD2kQoqE",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-124.9467",
+          "49.64703"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "@Nomsa_mthethwa7 This lockdown should just finish let everybody be going their own way. Especially these consumers\u2026 https://t.co/MyXgOaF9NB",
+        "sentiment": 0.3
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "10.0462",
+          "7.1961"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "Coronavirus pandemic disrupts fight to save endangered animals and habitats https://t.co/wGyupmFlSE",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "116.7678",
+          "-31.88809"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @VirusesImmunity: Men are at higher risk of developing severe #COVID19 disease. We investigated whether this difference might be due to\u2026",
+        "sentiment": 0.0625
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "72.89809",
+          "32.26576"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "Outdoor weddings in NJ are allowed  but indoor receptions still banned  Murphy says https://t.co/4FI6BjObVC",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-2.06178",
+          "49.16823"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "#COVID19 Unrest | #Nepal police use water cannons &amp; tear gas to disperse protesters https://t.co/HSdzNxLshd",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-7.59833",
+          "54.87472"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "@ICMRDELHI Community spread already staed in india in month of April when #Dharavi has its first #COVID19 positiv\u2026 https://t.co/DZ9bOvdGa5",
+        "sentiment": 0.25
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "79.91178",
+          "24.88929"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @MikeEdward_TTG: So this is bad right? #coronavirus #COVID #StockMarket #stocks #trading https://t.co/jtQlQRHO9S",
+        "sentiment": -0.20714285714285707
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-84.14389",
+          "45.00473"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @Independent: No-deal Brexit in wake of Covid-19 pandemic would be 'catastrophic' for businesses  warns CBI boss https://t.co/fjJxXznCHa",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "0.10759",
+          "51.46246"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @UNFPAUganda: On Friday June 12 @UNFPAUganda &amp; @SafeBoda will launch the Personal Health e-shop to enable ordering and delivery of free\u2026",
+        "sentiment": 0.2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "30.90909",
+          "2.51355"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "\u201eIn the future  people\u2018s habits will become more digital and more location independent\u201c (by Carey Nieuwhof) Fully a\u2026 https://t.co/JLmziFFzce",
+        "sentiment": 0.2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "7.09549",
+          "50.73438"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @ESPNFC: These were the scenes last night at the Belgrade derby \ud83d\ude33  Nearly 25 000 fans attended as lockdown restrictions were eased in Se\u2026",
+        "sentiment": 0.05
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-0.12497",
+          "51.55237"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @AP_Spos: Premier League players will not need to wear face masks arriving at stadiums  in dressing rooms or on the substitutes\u2019 bench\u2026",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-91.95599",
+          "37.32616"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @Angellight4u: \u201cCoronavirus.\u201d just stop! You\u2019re just wanting division and hate between every American! STOP inciting RAGE! I\u2019ve about ha\u2026",
+        "sentiment": -0.4
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-103.37556",
+          "25.7609"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "Masks and social distancing work  new analysis finds via @abcnews #Coronavirus #FaceMasks #SocialDistancing\u2026 https://t.co/xezA8hqq0P",
+        "sentiment": 0.08484848484848484
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-89.23342",
+          "40.25948"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @CEPIvaccines: Over 100 #COVID19 vaccines are in development.   Vaccines typically require years of development  but scientists are adva\u2026",
+        "sentiment": -0.16666666666666666
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "5.97917",
+          "51.43667"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @TimOBrien: Mnuchin promised transparency about deploying taxpayer $ in the coronavirus bailout. But:  Officials responsible for spendin\u2026",
+        "sentiment": 0.2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "24.72439",
+          "56.7451"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @Weinsteinlaw: There are now more than two million cases of coronavirus in America. Remember  it didn\u2019t have to be this way.",
+        "sentiment": 0.5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "8.40873",
+          "45.67897"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @SenSchumer: To the Trump administration:    Dr. Fauci  Dr. Birx  and other members of the administration\u2019s Coronavirus Task Force must\u2026",
+        "sentiment": -0.125
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-122.33207",
+          "47.60621"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "NEW: Trump Admin Killed Rule Designed To Protect Health Workers From Pandemic Like #COVID19. READ:\u2026 https://t.co/cPEdyuFbA8",
+        "sentiment": -0.03181818181818183
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "5.97917",
+          "51.43667"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @catturd2: Reminder ...  Anyone who didn't mention the coronavirus during weeks of riots  protests  and public funerals - but is suddenl\u2026",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-78.01028",
+          "40.4848"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @JNJNursing: \u201cI saw firsthand the fear and trepidation of our healthcare workers due to the contagious nature of #COVID19 and wanted to\u2026",
+        "sentiment": -0.125
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-91.01209",
+          "38.55811"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @DanCrenshawTX: This media pivot is amazing. After encouraging mass protests  they immediately begin blaming GOP governors for new cases\u2026",
+        "sentiment": 0.3681818181818182
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "151.66143",
+          "-32.87888"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "My God the lung looks like a meatball it\u2019s been damaged so much \ud83d\ude31",
+        "sentiment": 0.2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-77.58721",
+          "39.9687"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "Fact of facts\ud83d\udcdd\ud83d\udcdd\u270f",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "30.64851",
+          "-0.60467"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @TremourKE: Covid19 song is now out. https://t.co/Hrm6HsmO4P @MikeSonko @KenyaRedCross @bonifacemwangi @iamedigathegi @MwalimChurchill @\u2026",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "36.83556",
+          "-1.17139"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @NHSMillion: The Governent has always claimed it has been following the science.  But according to Channel 4 News a leaked paper suggest\u2026",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-0.63437",
+          "51.49722"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @tes: An ambitious schools plan had to be dropped because it was rushed out by @10DowningStreet without any apparent attempt to consult.\u2026",
+        "sentiment": 0.15
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-78.59083",
+          "36.3107"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @JakeMadtown: @patrickdmarley Oh. So Robbin' is saying it wasn't the  regular folks of Racine County  that had #COVID19. Just  those peo\u2026",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-93.20188",
+          "44.42941"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @mrjamesob: March 12th",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-0.37538",
+          "50.81795"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "What??",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-104.80386",
+          "39.53082"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "@PTI_News Are we waiting to get things worst than this ? Community Transmission Stage will be too Dangerous which w\u2026 https://t.co/GNUEItFYtw",
+        "sentiment": -0.8
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "81.90267",
+          "26.05654"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "\ud83d\udea8  B.C. records deadliest-ever month for drug #overdoses: 'The toxic #drug supply continues to take the lives of ou\u2026 https://t.co/eWVhJWpnAz",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-117.55222",
+          "49.11654"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "Niger State spends N795m to fight coronavirus  legislators\u00a0kick https://t.co/SD5i6InbjD",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "8.58065",
+          "11.55684"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @omar_quraishi: Things IK said today  1. We didn\u2019t know so many people would die from COVID-19  2. The opposition wants more deaths so t\u2026",
+        "sentiment": 0.39999999999999997
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "73.03489",
+          "29.46799"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @ErfanBajwa: Maj Mushtaq (R) Ex IG   Ex DG FIA  died due to #Covid19.  May Almighty ALLAH rest him highest ranks in Jannat.  Lot of pray\u2026",
+        "sentiment": -0.125
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "73.04329",
+          "33.72148"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "\u00bb Carers deserve more than the pitiful allowance they\u2019re getting. This is how the government can give it to them |\u2026 https://t.co/1nmkdQVRKb",
+        "sentiment": 0.5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-73.04914",
+          "45.43338"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "Coronavirus update: U.S. case tally passes 2 million mark and 21 states are still seeing increases in infections\u2026 https://t.co/DfuZN3go86",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-75.43864",
+          "9.45082"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @davidsirota: There's a huge battle unfolding in Colorado:  House Dems are pushing a bill to close corporate tax loopholes &amp; use the mon\u2026",
+        "sentiment": 0.20000000000000004
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-90.82287",
+          "29.79576"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @JoyAnnReid: So about  looting...  can someone tell me  who do we repo Steve Mnuchin and the mega corporations looting our treasury to?",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "174.76257",
+          "-41.30586"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @TheDigitalLand1: cc @mikequindazzi @antgrasso @fisher85m Ethiopian government successfully stems COVID-19 outbreak https://t.co/LCF5aPq\u2026",
+        "sentiment": 0.75
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "78.32056",
+          "20.72204"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @RichardBuery: I wrote this aicle on NYC\u2019s continued reliance on admissions screens despite their impact on school segregation https:/\u2026",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-76.72774",
+          "39.9626"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "SHARE THIS WITH EVERYONE YOU KNOW...  THIS IS NOT A GAME!  YOU OR A FAMILY MEMBER COULD HAVE BEEN ONE OF THESE PEOP\u2026 https://t.co/GkHq0CjXJq",
+        "sentiment": 0.2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-90.31678",
+          "38.702"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @TabeenahAnjum: Jumbos undergo #Covid19 test in Jaipur 's haathi gaon (#Elephant Village).  #Rajasthan Forest Dept organises three day #\u2026",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "80.27847",
+          "13.08784"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "First 100 000 cases in 98 days  2nd 100 000 in 19 days. Things are accelerating Africa #COVID19 #Africa",
+        "sentiment": 0.25
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "39.35",
+          "8.15"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @ayeshaijazkhan: Only a mentally unstable man can tweet this at a time like this. https://t.co/MQun61A4mi",
+        "sentiment": -0.05
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "67.0104",
+          "24.8608"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @TheDailyShow: Imagine if Fox News was as upset about the lockdown protests as they are about BLM protests \ud83e\udd14 https://t.co/YzIDk2n0sC",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-75.24931",
+          "45.6001"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @vijai63: Classic @nytimes twist. @suhasiniraj conveniently deleted name of Baba because it happened to be  Aslam . If it would have bee\u2026",
+        "sentiment": 0.16666666666666666
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "72.88261",
+          "19.07283"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @carmindabrendel: Very   very Strange !!!  Navajo Nation Has Lost More Lives to COVID-19 Than 13 States Combined https://t.co/3GAZVs6BDN",
+        "sentiment": 0.2175
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-91.21904",
+          "38.60838"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "Coronavirus live news: Bahrain says 44% of asymptomatic cases are infectious https://t.co/YhLx0NQHcu",
+        "sentiment": 0.13636363636363635
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-81.82471",
+          "9.12111"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "@CharlesMBlow @nytopinion Let's be clear! Gov. Kemp is turning polling places in Georgia in urban areas into Covid-\u2026 https://t.co/uqLYB8XSGV",
+        "sentiment": 0.05000000000000001
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-88.18343",
+          "43.42528"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @Pastor__West: Coronavirus will end soon. In Jesus name.   RT  if you believe.",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-83.02764",
+          "30.70327"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @dhruv_rathee: Top 5 Countries with highest number of Coronavirus Cases now  1. USA (Trump) 2. Brazil (Bolsonaro) 3. Russia (Putin) 4. I\u2026",
+        "sentiment": 0.5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "77.96113",
+          "10.08481"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @SafetyPinDaily: It's not 'too early' for Boris Johnson to admit he's wrong - he's just too much of a coward | Via Independent https://t\u2026",
+        "sentiment": -0.05
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-101.72463",
+          "27.00264"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "Let's be responsible! #COVIDIDIOTS #COVID19 https://t.co/mS3slIHk27",
+        "sentiment": 0.2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "74.47605",
+          "19.88239"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @catturd2: Reminder ...  Anyone who didn't mention the coronavirus during weeks of riots  protests  and public funerals - but is suddenl\u2026",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-77.61388",
+          "38.79567"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @MarkieJP: Blame Trump &amp; lapdog Ron Desantis who stopped repoing the virus death toll numbers so he could give Floridians a false sens\u2026",
+        "sentiment": -0.4000000000000001
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-76.2348",
+          "3.3223"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @DanCrenshawTX: This media pivot is amazing. After encouraging mass protests  they immediately begin blaming GOP governors for new cases\u2026",
+        "sentiment": 0.3681818181818182
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-64.93169",
+          "44.97413"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @kprather88: Most deaths during Spanish flu occurred during 2nd and 3rd waves.20-50 million died when world population was 1/5 the size.\u2026",
+        "sentiment": 0.25
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-79.3892",
+          "40.29174"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @michaelharriot: If  You're About to Lose Your Job  isn't nominated for Song of the Year  I'm protesting.  Not saying it should win. Eve\u2026",
+        "sentiment": 0.8
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-4.89562",
+          "13.30335"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @Omojuwa: The most innovative COVID19 mask? \ud83d\ude02\ud83d\ude02\ud83d\ude02\ud83d\ude02\ud83d\ude02\ud83d\ude02\ud83d\ude02\ud83d\ude02\ud83d\ude02 https://t.co/hoq3wKPQ02",
+        "sentiment": 0.5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "8.15157",
+          "6.0954"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @A_Jafarzadeh: #Iran's destitute street children abused  blamed for coronavirus https://t.co/0Bu99h1Ops  According to accurate daily rep\u2026",
+        "sentiment": 0.20000000000000004
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-60.21767",
+          "46.23669"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "It\u2019s mixed message heaven. Every time Johnson opens his fat gob and announces another relaxing of the rules  the ar\u2026 https://t.co/C3BfKkBeEw",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-83.44825",
+          "39.88645"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @SenMcSallyAZ: I spoke to Arizonans during a telephone town hall earlier this week about what\u2019s happening in our country right now. (1/4\u2026",
+        "sentiment": 0.14285714285714285
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-122.3987",
+          "45.63651"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "#CoronaMeter | Egypt records 1455 COVID-19 cases  36 deaths.  #EgyptToday #Egypt #COVID19 #Coronavirus | #\u0643\u0648\u0631\u0648\u0646\u0627\u2026 https://t.co/D2DRhREZuQ",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "31.64313",
+          "31.12624"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "Leadership.",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "11.70949",
+          "48.47937"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "@opersson1986 @Maireadski1 @HelenOT60 @SineadOCarroll So any vaccines on market in next couple of years will not ha\u2026 https://t.co/JDxD6r1PgY",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-8.28944",
+          "55.08333"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @austintexasgov: Track &amp; Trace: #ATXCouncil ratifies an agreement with @CentralHealthTX to share data  manage and monitor individuals  t\u2026",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-97.74306",
+          "30.26715"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @TimOBrien: Mnuchin promised transparency about deploying taxpayer $ in the coronavirus bailout. But:  Officials responsible for spendin\u2026",
+        "sentiment": 0.2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-71.54117",
+          "42.01788"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "Collective dwellings &amp; poor health infrastructure already heighten the Yanomami\u2019s risk of contracting &amp; dying from\u2026 https://t.co/rfqWodfhIf",
+        "sentiment": -0.4
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-97.592",
+          "40.86807"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @WillBlackWriter: This is the Rory Stewa clip from early March that Boris Johnson and Dominic Cummings don't want you to see. On no ac\u2026",
+        "sentiment": 0.1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-93.78135",
+          "44.77163"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @JoyAnnReid: So about  looting...  can someone tell me  who do we repo Steve Mnuchin and the mega corporations looting our treasury to?",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-97.40167",
+          "30.87824"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "\ud83d\ude0d\ud83d\ude0d Living with this beaut has its perks. \ud83d\udc4f\ud83c\udffb",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-1.78333",
+          "51.41667"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "#CoronavirusDiary: accelerating #digitaltransformation from the epicentre  https://t.co/ZJi05f6pSp  @TheWrightView\u2026 https://t.co/5ZXcidQooZ",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-0.46131",
+          "53.78921"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @DrNausheenPTI: PTI govt has signed Memorandum of Understanding with leading private hospitals in country to combat #coronavirus pandemi\u2026",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "74.12286",
+          "30.76468"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @KibaVenisha: \ud83d\udd39Unlocking the lockdown is meant for transpoation of MLAs for BJP.   \ud83d\udd39BJP is risking crores of lives to satisfy their lu\u2026",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "79.45064",
+          "10.66626"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @SenSchumer: President Trump was too quick to sideline the Coronavirus Task Force  too eager to pretend that everything was back to norm\u2026",
+        "sentiment": 0.16666666666666666
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-84.06102",
+          "32.29377"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @LifeNewsHQ: DISGUSTING:  Democrat Rep. Carolyn Maloney (D-NY) defends Andrew Cuomo's order sending coronavirus patients to nursing home\u2026",
+        "sentiment": -1.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-82.08732",
+          "29.59191"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @JoeBiden: This pandemic isn't just going to go away because you want it to  Mr. President. Step up and do your job before your negligen\u2026",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-79.37116",
+          "34.41655"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "\u25b6\ufe0f LIVE: Governor to address more re-openings including gyms  movies  amusement parks - https://t.co/p4kCvxw1na",
+        "sentiment": 0.3181818181818182
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-88.53036",
+          "42.0978"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @OpIndia_com: Madhya Pradesh: One Aslam  who \u2018healed\u2019 people by kissing their hands dies of coronavirus  infects 19 others https://t.co/\u2026",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "72.88261",
+          "19.07283"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @aba_hlsmvhl: 230 000 veterans\u2019 disability ratings are stuck in limbo due to COVID-19 https://t.co/ccNjXWbuhX",
+        "sentiment": -0.125
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-90.85399",
+          "33.16901"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @clevelanddotcom: #Breaking: Dr. Amy Acton  Ohio\u2019s state health director who has become a household name in Ohio during the coronavirus\u2026",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "151.66143",
+          "-32.87888"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "Head of Santa Clara County's #COVID19 testing task force Dr. May Fenstersheib suggests the Palo Alto Medical Foun\u2026 https://t.co/HhPQxVOZc8",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "121.28554",
+          "14.18368"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @DogsTrust: Dog ownership is amazing  but it's a big responsibility. #ADogIsForLife\u00ae &amp; in this case  not just for lockdown!   We're here\u2026",
+        "sentiment": 0.30000000000000004
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-1.43333",
+          "54.75"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "@lionel_federer With lockdown in paicular. Can come anytime again.",
+        "sentiment": 0.16666666666666666
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "73.04329",
+          "33.72148"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "Market Snapshot: Dow plunges 1 700 points as U.S. coronavirus cases rise  amid Fed\u2019s grim economic outlook\u2026 https://t.co/Um38mPIa3A",
+        "sentiment": -0.4
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-76.20417",
+          "8.67611"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "The @AZDHS has recorded more than 8 300 new cases of the coronavirus so far this month  almost 30% of the total 28 \u2026 https://t.co/5F6TdVORkJ",
+        "sentiment": 0.18409090909090908
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-112.07404",
+          "33.44838"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "@rohini_sgh So what if everyone wears masks ? Are there enough hospitals for all ? No we can't afford a lockdown bu\u2026 https://t.co/1OV2yHTYTe",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "81.64372",
+          "17.24754"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "Amharic language information! Our volunteer Desta explains how to get in touch with RETAS while the office is close\u2026 https://t.co/Sf1JSLloqa",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-1.54785",
+          "53.79648"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @JoyAnnReid: So about  looting...  can someone tell me  who do we repo Steve Mnuchin and the mega corporations looting our treasury to\u2026",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-4.89562",
+          "13.30335"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "Amazon workers are asking for their \u00a32 an hour pandemic pay back. Please add your name in suppo: https://t.co/HkkwLSNWEQ",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-119.44318",
+          "36.47606"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @TheDailyShow: Imagine if Fox News was as upset about the lockdown protests as they are about BLM protests \ud83e\udd14 https://t.co/YzIDk2n0sC",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-72.61759",
+          "40.90343"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "Essex County Council is providing \u00a3250 000 of funding to the local Citizens Advice network in Essex to help it in i\u2026 https://t.co/pLlyKOmt76",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-82.82483",
+          "42.17509"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @Nicochan33: Dubai is using #AI to check how people behave and follow #COVID19 rules. Thank you @TheNationalUAE cc: @ipfconline1 @jblefe\u2026",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "86.72896",
+          "21.11974"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "#coronavirus  Remdesivir  made by U.S. Drugmaker / Stock $GILD has been cleared for emergency use in severely-ill p\u2026 https://t.co/vcOsdfQZYc",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-36.63444",
+          "-5.115"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @e_strategy: \ud83c\udf21\ufe0f\ud83d\ude37 Can Sma Thermometers Track COVID-19 Outbreaks?  Kinza Health makes smart thermometers that can see whether a particul\u2026",
+        "sentiment": 0.21428571428571427
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-83.88164",
+          "43.35947"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "Fantastic \ud83d\udc4d\ud83d\udc4d",
+        "sentiment": 0.4
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-3.19648",
+          "55.95206"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "@JamesBulpin @reillyusa Got in early on the coronavirus model tho.",
+        "sentiment": 0.1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-0.99057",
+          "52.13359"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @brianschatz: We have 4 percent of the world population and 25 percent of the COVID19 deaths.",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-73.96347",
+          "40.95732"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @SenSchumer: President Trump was too quick to sideline the Coronavirus Task Force  too eager to pretend that everything was back to norm\u2026",
+        "sentiment": 0.16666666666666666
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-96.06886",
+          "33.37067"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "\ud83e\udd26\ud83c\udffb\u200d\u2642\ufe0f. So what exactly do you want the world to believe now? \ud83e\udd23\ud83e\udd23\ud83e\udd23",
+        "sentiment": 0.25
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-4.77442",
+          "50.3425"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @wef: Sovereign wealth funds could increase equality in a post-COVID world https://t.co/UNJlqvypMJ #GreatReset #coronavirus https://t.co\u2026",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-77.58721",
+          "39.9687"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @SenSchumer: To the Trump administration:    Dr. Fauci  Dr. Birx  and other members of the administration\u2019s Coronavirus Task Force must\u2026",
+        "sentiment": -0.125
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-74.97934",
+          "40.75843"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "Get some rest I love you good night #COVID19 #lockdownSa https://t.co/2BOOW0fpg0",
+        "sentiment": 0.5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "30.48497",
+          "-22.94564"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "My normally passive and gentle 2yo had a monumental meltdown this evening. Kicking  head butting me and screaming a\u2026 https://t.co/8zncSKIC8q",
+        "sentiment": 0.175
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-6.1778",
+          "53.3015"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "@SandyMakesSense In medieval times u coulda been known as Sandy von Abs  or Sandy d'Abs en Fran\u00e7ais. See what focus\u2026 https://t.co/wtcPO8DivH",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-75.98264",
+          "46.50011"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @Amy_Siskind: Florida repos 1 698 new coronavirus cases  the state's highest numbers so far.  Oddly  the state has one of the lowest m\u2026",
+        "sentiment": 0.023232323232323233
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-102.41075",
+          "34.23314"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @TheDailyShow: Imagine if Fox News was as upset about the lockdown protests as they are about BLM protests \ud83e\udd14 https://t.co/YzIDk2n0sC",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-83.44825",
+          "39.88645"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "How is this happening when the Lockdown regulations explicitly prohibit evictions?",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "28.04363",
+          "-26.20227"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "Coronavirus and the Future of the Economy: 73.5 Million Americans Plan to Look for More Pandemic-Proof Job\u2026 https://t.co/S26jTrlZkQ",
+        "sentiment": 0.25
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-64.13204",
+          "44.98345"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @ltgrusselhonore: Don\u2019t Let the White House Normalize 1000 plus dead a day . The Covid19 is killing our people .",
+        "sentiment": -0.1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-89.27286",
+          "40.72143"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "@RyuVerse to /biz/",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-78.06667",
+          "-7.8"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @pghVlELQBO0LPyL: #Cyprus to make Israelis take coronavirus tests before arrival !   Initiative will help \u2066@Cyprus_Police\u2069 in any future\u2026",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-7.22594",
+          "40.55364"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @NicolaSturgeon: Having been through this in so-called \u2018normal\u2019 times  I can only imagine how much more difficult it must be during this\u2026",
+        "sentiment": 0.037500000000000006
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-4.25763",
+          "55.86515"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "In Jesus name",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "28.04363",
+          "-26.20227"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @DanCrenshawTX: This media pivot is amazing. After encouraging mass protests  they immediately begin blaming GOP governors for new cases\u2026",
+        "sentiment": 0.3681818181818182
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-109.58681",
+          "40.47718"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @UniteinHealth: We are proud to have #Doctors among our membership in the shape of @DoctorsInUnite They have written about the thousands\u2026",
+        "sentiment": 0.8
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-4.72399",
+          "51.65986"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @DanCrenshawTX: This media pivot is amazing. After encouraging mass protests  they immediately begin blaming GOP governors for new cases\u2026",
+        "sentiment": 0.3681818181818182
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-72.48241",
+          "45.88336"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": "Monroe Carell Jr. Children\u2019s Hospital Expe Offers COVID-19 \u201cSafe Play\u201d Tips for Parents | #covid19 | #kids |\u00a0\u2026 https://t.co/KijI5ImkEP",
+        "sentiment": 0.3
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-100.51987",
+          "36.81614"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @GulBukhari: What a fucking asshole! You suspended that excellent program in the middle of the pandemic and got poor people to come phys\u2026",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "67.0104",
+          "24.8608"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @zoo_bear:  Coronavirus is not a health emergency: officials   @PTI_News ( Mar 13  2020)",
+        "sentiment": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "92.61592",
+          "24.55418"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "textHuman": " @fifross: Latest lunchtime lockdown for @Jazzineu with @larr95 #womeninjazz #Jazz #lockdown https://t.co/6H3EcjosRo",
+        "sentiment": 0.5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-4.1689",
+          "51.77826"
+        ]
+      }
+    }
+  ]
+}

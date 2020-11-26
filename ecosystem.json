@@ -9,24 +9,22 @@
         "production": {
             "user": "ubuntu",
             "host": [
-                "tor"
+                "myservr"
             ],
             "ref": "origin/master",
             "repo": "https://github.com/Moodli/codevscovid19_moodli_backend.git",
             "path": "/var/www/moodli",
-            "key": "./torCH",
             "pre-setup": "rm -rf /var/www/moodli",
             "post-deploy": "npm install && pm2 startOrRestart ecosystem.config.js --env production && cd nodeModuleconfig && chmod +x nodeCus.sh && ./nodeCus.sh"
         },
         "development": {
             "user": "ubuntu",
             "host": [
-                "tor"
+                "myservr"
             ],
             "ref": "origin/master",
             "repo": "https://github.com/Moodli/codevscovid19_moodli_backend.git",
             "path": "/var/www/moodli",
-            "key": "./torCH",
             "pre-setup": "rm -rf /var/www/moodli",
             "post-deploy": "npm install && pm2 startOrRestart ecosystem.config.js --env production && cd nodeModuleconfig && chmod +x nodeCus.sh && ./nodeCus.sh"
         }
