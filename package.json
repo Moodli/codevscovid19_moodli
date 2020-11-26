@@ -4,7 +4,7 @@
   "description": "Backend for Moodli",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon --ignore ./productionData ../mlModel",
+    "start": "nodemon --signal SIGHUP app.js --ignore ./productionData ../mlModel",
     "test": "echo \"Error: no test specified\" && exit 1",
     "graph": "depcruise --exclude '^(node_modules|nonProduction|nodeModuleconfig)' --output-type dot * | dot -T svg > dependencygraph.svg"
   },

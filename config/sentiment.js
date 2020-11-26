@@ -17,7 +17,6 @@ const sentimentProccess = () => {
             subprocessLog.error('ML Signal received: ' + error.signal);
         }
         subprocessLog.debug('ML Child Process STDOUT: ' + stdout);
-        //  subprocessLog.info('ML Child Process STDERR: ' + stderr);
     });
 
     mlOutput.on('exit', (code) => {
