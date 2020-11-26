@@ -1,10 +1,7 @@
-
-/*eslint-env node*/
-
-//Dependencies
+// Dependencies
 const mongoose = require('mongoose');
 
-//Global Constant
+// Global Constant
 const Schema = mongoose.Schema;
 
 // Create Schema
@@ -13,7 +10,6 @@ const tweetSchema = new Schema({
         type: Date,
         default: Date.now(),
     },
-    // },
     text: {
         type: Array,
     },
