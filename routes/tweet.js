@@ -123,7 +123,7 @@ io.on('connection', socket => {
             try {
                 const dataPointCount = JSON.parse(geoJson).features.length;
                 // Send the data to the front end
-                socket.compress(true).emit('firstRenderPCounts', dataPointCount);
+                socket.compress(true).emit('firstRenderPCounts', `${dataPointCount} [Place Holder]`);
             } catch (error) {
                 jsonLog.error(error);
             }
