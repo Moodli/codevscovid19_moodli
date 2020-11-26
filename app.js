@@ -104,7 +104,7 @@ const io = require('socket.io')(app.listen(PORT, () => {
 
 setInterval(() => {
     sentimentProccess();
-}, 5000);
+}, 10000);
 
 
 // Export socket io Server before the route so it's
