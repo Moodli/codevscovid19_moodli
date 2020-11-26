@@ -23,7 +23,8 @@ const stream = T.stream('statuses/filter', { track: ['covid19', 'coronavirus', '
 
 // Tweet Stream On
 stream.on('tweet', (twt) => {
-    dataTransfer(twt);
+    console.log(twt);
+    // dataTransfer(twt);
 });
 
 // API endpoints

@@ -30,7 +30,7 @@ const inc = (n, poolName) => {
 const { DB_Connection: dbConnection, } = require('./dbConnection');
 require('../schema/tweetSchema');
 const tweetDB = dbConnection.model('tweet');
-const changeStream = tweetDB.watch();
+// const changeStream = tweetDB.watch();
 
 // Winston Loggers
 const logger = require('./logs');
@@ -119,15 +119,15 @@ workerText3.on('message', twitObj => {
 });
 
 // DB Monitoring
-let dbStats = 0;
-changeStream.on('change', () => {
-    dbStats += 1;
-});
+// let dbStats = 0;
+// changeStream.on('change', () => {
+//     dbStats += 1;
+// });
 
 // Porcessing Coverage Counter
 setInterval(() => {
     statsLog.debug(`In: ${inp} | Out: ${out}`);
-    statsLog.debug(`Tweet Processed: ${dbStats}`);
+    // statsLog.debug(`Tweet Processed: ${dbStats}`);
 }, 600 * 100);
 
 
