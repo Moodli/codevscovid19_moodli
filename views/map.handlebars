@@ -50,13 +50,13 @@
     socket.compress(true).emit('firstRender')
     setInterval(() => {
       socket.compress(true).emit('dataRequest')
-    }, 5000);
+    }, 3000);
 
     //Request the data from the backend
     socket.compress(true).emit('firstRenderPointCount')
     setInterval(() => {
       socket.compress(true).emit('dataPoint')
-    }, 5000);
+    }, 3000);
 
 
     //Listening for incoming data
