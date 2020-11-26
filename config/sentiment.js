@@ -6,7 +6,7 @@ const md5File = require('md5-file');
 const logger = require('./logs');
 const subprocessLog = logger.get('subprocessLog');
 
-const childSpawn3 = () => {
+const sentimentProccess = () => {
 
 
     // ML child process
@@ -28,4 +28,4 @@ const childSpawn3 = () => {
 
 };
 
-module.exports = { childSpawn, childSpawn1, childSpawn3, };
+module.exports = { sentimentProccess, };
