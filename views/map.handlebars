@@ -25,10 +25,11 @@
 
   //websocket connection
   const socket = io.connect('http://10.172.0.2:3005', {
+    upgrade: true, transports: ['websocket'],
     reconnection: true,
     forceNew: false
   });
-  //upgrade: true, transports: ['websocket'],
+
   mapboxgl.accessToken =
     'pk.eyJ1IjoiYWxnbzciLCJhIjoiY2s4anVka3NnMGt4cjNncGxiYWFzOHFvZiJ9.rZYHg8xF6QahGl0hOaa1cQ';
   var map = new mapboxgl.Map({
