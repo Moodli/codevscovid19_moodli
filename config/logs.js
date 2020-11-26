@@ -91,16 +91,19 @@ container.add('dbCon', {
 
 
 // Logging Category for child process
-container.add('subprocessLog', {
+container.add('MLlog', {
     format: winston.format.combine(
-        winston.format.label({ label: 'CHILD', }),
+        winston.format.label({ label: 'ML', }),
         logFormat
     ),
     transports: [
         new winston.transports
-            .File({ level: 'error', filename: `${logStore}/subProcess_error.log`, }),
+            .Console({ level: `${logLv}`, }),
         new winston.transports
-            .File({ level: 'info', filename: `${logStore}/subProcess_info.log`, })],
+            .File({ level: 'error', filename: `${logStore}/ML_error.log`, }),
+        new winston.transports
+            .File({ level: 'debug', filename: `${logStore}/ML_debug.log`, })
+    ],
 
     exitOnError: true,
 
