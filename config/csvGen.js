@@ -73,17 +73,3 @@ const csvFunc = (twt) => {
 parentPort.on('message', data => {
     csvFunc(data);
 });
-
-
- //  // Write to the disk
-    //  fs.writeFileSync('./x.csv', csv);
-    //  return csv
-
-     //  const csv = `${keys.join(',')}${'\n'}${textHumanArray}`;
-    //  const csv = `text,textHuman,location${'\n'}${textHumanArray}`;
-    //  const csv = `${'\n'}${textArray},${locationArray}`;
-
-    //  let elementx = twt[key];
-            //  let element = elementx.toString();
-            //  let elementClean = element.replace(/[^a-zA-Z\s]+/g, ' ')
-            //  textHumanArray.push(`"${elementClean}"`);
