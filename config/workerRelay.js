@@ -4,18 +4,18 @@ const { Worker, } = require('worker_threads');
 // Text Processing Workers
 const workerText = new Worker(`${__dirname}/textProcessWorker.js`);
 const workerText1 = new Worker(`${__dirname}/textProcessWorker.js`);
-// const workerText2 = new Worker(`${__dirname}/textProcessWorker.js`);
-// const workerText3 = new Worker(`${__dirname}/textProcessWorker.js`);
+const workerText2 = new Worker(`${__dirname}/textProcessWorker.js`);
+const workerText3 = new Worker(`${__dirname}/textProcessWorker.js`);
 
 // The worker pool
-// const workerPool = [workerText, workerText1, workerText2, workerText3];
-const workerPool = [workerText, workerText1];
+const workerPool = [workerText, workerText1, workerText2, workerText3];
+// const workerPool = [workerText, workerText1];
 
 // CSV Workers
 const workerCSV = new Worker(`${__dirname}/csvGen.js`);
 const workerCSV1 = new Worker(`${__dirname}/csvGen.js`);
-// const workerCSV2 = new Worker(`${__dirname}/csvGen.js`);
-// const workerCSV3 = new Worker(`${__dirname}/csvGen.js`);
+const workerCSV2 = new Worker(`${__dirname}/csvGen.js`);
+const workerCSV3 = new Worker(`${__dirname}/csvGen.js`);
 
 // Generate a number that corresponds to each index of the array. repeat.
 // Worker Rotation Function
@@ -84,33 +84,33 @@ workerText1.on('message', twitObj => {
         .catch(err => dblog.error(err));
 });
 
-// workerText2.on('message', twitObj => {
+workerText2.on('message', twitObj => {
 
-//     // Increase the output counter
-//     out += 1;
+    // Increase the output counter
+    out += 1;
 
-//     // Send raw tweets to the CSV workers
-//     workerCSV2.postMessage(twitObj);
+    // Send raw tweets to the CSV workers
+    workerCSV2.postMessage(twitObj);
 
-//     // Save the object into the db
-//     new tweetDB(twitObj)
-//         .save()
-//         .catch(err => dblog.error(err));
-// });
+    // Save the object into the db
+    new tweetDB(twitObj)
+        .save()
+        .catch(err => dblog.error(err));
+});
 
-// workerText3.on('message', twitObj => {
+workerText3.on('message', twitObj => {
 
-//     // Increase the output counter
-//     out += 1;
+    // Increase the output counter
+    out += 1;
 
-//     // Send raw tweets to the CSV workers
-//     workerCSV3.postMessage(twitObj);
+    // Send raw tweets to the CSV workers
+    workerCSV3.postMessage(twitObj);
 
-//     // Save the object into the db
-//     new tweetDB(twitObj)
-//         .save()
-//         .catch(err => dblog.error(err));
-// });
+    // Save the object into the db
+    new tweetDB(twitObj)
+        .save()
+        .catch(err => dblog.error(err));
+});
 
 // DB Monitoring
 // let dbStats = 0;
