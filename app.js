@@ -66,7 +66,6 @@ app.use('/', express.static(path.join(__dirname, '/assets')));
 // Handlebars Middleware
 app.engine('handlebars', exphbs({
     defaultLayout: 'main',
-
 }));
 
 // Set view engine
@@ -76,6 +75,7 @@ app.engine('handlebars', exphbs({
     defaultLayout: 'main',
 }));
 
+// Express config
 app.all('*', (req, res, next) => {
 
     //  Website you wish to allow to connect
