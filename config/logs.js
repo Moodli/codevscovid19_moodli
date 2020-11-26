@@ -166,8 +166,6 @@ container.add('workerLog', {
     ),
     transports: [
         new winston.transports
-            .Console({ level: `${logLv}`, }),
-        new winston.transports
             .File({ level: 'error', filename: `${logStore}/worker_error.log`, }),
         new winston.transports
             .File({ level: 'debug', filename: `${logStore}/worker_debug.log`, })
