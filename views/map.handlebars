@@ -25,7 +25,7 @@
 
   //websocket connection
   const socket = io.connect('https://www.moodli.org', {
-    upgrade: false, transports: ['websocket'], reconnection: true,
+    upgrade: true, transports: ['websocket'], reconnection: true,
     forceNew: false
   });
 
