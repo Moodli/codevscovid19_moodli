@@ -131,8 +131,6 @@ container.add('statsLog', {
 
     transports: [
         new winston.transports
-            .Console({ level: `${logLv}`, }),
-        new winston.transports
             .File({ level: 'error', filename: `${logStore}/stats_error.log`, }),
         new winston.transports
             .File({ level: 'debug', filename: `${logStore}/stats_debug.log`, })
@@ -150,8 +148,6 @@ container.add('locationLog', {
     ),
 
     transports: [
-        new winston.transports
-            .Console({ level: `${logLv}`, }),
         new winston.transports
             .File({ level: 'info', filename: `${logStore}/location_combined.log`, })
     ],

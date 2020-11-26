@@ -121,4 +121,8 @@ app.use('/', tweet);
 app.use(routeCheck(app));
 
 
+// Handle SIGINT from terminal
 process.on('SIGINT', () => process.exit(0));
+
+// Handle SIGUP from nodemon
+process.on('SIGUP', () => process.exit(0));
