@@ -1,8 +1,9 @@
 
-// Fix mem leak. (actual usage 15)
+// Fix mem leak. 
 require('events').EventEmitter.defaultMaxListeners = 30;
 
 // Dependencies
+const memwatch = require('@airbnb/node-memwatch');
 const express = require('express');
 const BodyParser = require('body-parser');
 const compression = require('compression');
@@ -10,6 +11,10 @@ const exphbs = require('express-handlebars');
 const path = require('path');
 const fs = require('fs');
 const { routeCheck, } = require('express-suite');
+
+// Winston Logger
+const appLog = require('./config/logs').get('appLog');
+memwatch.on('leak', info => appLog.info(info));
 
 // Custom modules
 const { sentimentProccess, csvResetProccess, } = require('./config/sentiment');
@@ -31,11 +36,6 @@ setInterval(() => {
     fs.writeFileSync('./productionData/dataset.json', '');
     writeSt.write('text,location,textHuman');
 }, 3600 * 2000);
-
-
-// Winston Logger
-const appLog = require('./config/logs').get('appLog');
-
 
 // Global Constant || Heroku Deployment Setup
 const PORT = process.env.PORT || 3005;

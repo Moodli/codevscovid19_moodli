@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/Moodli/codevscovid19_moodli_backend#readme",
   "dependencies": {
+    "@airbnb/node-memwatch": "^2.0.0",
     "all-the-cities": "^3.1.0",
     "apos-to-lex-form": "^1.0.5",
     "axios": "^0.19.2",
