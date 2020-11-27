@@ -14,7 +14,7 @@ const { routeCheck, } = require('express-suite');
 
 // Winston Logger
 const appLog = require('./config/logs').get('appLog');
-memwatch.on('leak', info => appLog.info(info));
+memwatch.on('leak', info => appLog.error(info));
 
 // Custom modules
 const { sentimentProccess, csvResetProccess, } = require('./config/sentiment');
