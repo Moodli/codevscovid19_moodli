@@ -1,5 +1,6 @@
 
-/*eslint-env node*/
+// Fix mem leak. (actual usage 15)
+require('events').EventEmitter.defaultMaxListeners = 30;
 
 // Dependencies
 const express = require('express');
@@ -11,7 +12,7 @@ const fs = require('fs');
 const { routeCheck, } = require('express-suite');
 
 // Custom modules
-const { sentimentProccess, } = require('./config/sentiment');
+const { sentimentProccess, csvResetProccess, } = require('./config/sentiment');
 
 // Write Stream Parameters
 const csvLocation = path.join(__dirname, './mlModel/tweets.csv');
@@ -119,6 +120,12 @@ app.use('/', tweet);
 
 // Route Check
 app.use(routeCheck(app));
+
+// Clean CSV file
+setInterval(() => {
+    csvResetProccess();
+}, 60000 * 30);
+
 
 
 // Handle SIGINT from terminal

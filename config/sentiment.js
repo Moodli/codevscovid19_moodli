@@ -27,4 +27,22 @@ const sentimentProccess = () => {
 
 };
 
-module.exports = { sentimentProccess, };
+const csvResetProccess = () => {
+
+
+    // ML child process
+    const mlOutput = exec('echo -n "text,location,textHuman" > ./mlModel/tweets.csv', (error, stdout) => {
+        if (error) {
+            MLlog.error(error.stack);
+            MLlog.error('ML Error code: ' + error.code);
+            MLlog.error('ML Signal received: ' + error.signal);
+        }
+    });
+
+    mlOutput.on('exit', (code) => {
+        MLlog.debug('CSV File Cleared' + code);
+    });
+
+};
+
+module.exports = { sentimentProccess, csvResetProccess, };
