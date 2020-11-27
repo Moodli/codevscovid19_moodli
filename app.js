@@ -120,9 +120,10 @@ app.use('/', tweet);
 // Route Check
 app.use(routeCheck(app));
 
-// Keep the size of the dataset.json small
+
+// Keep the size of the tweet.csv small
 setInterval(() => {
-    fs.writeFileSync('./productionData/dataset.json', '');
+    fs.writeFileSync('./mlModel/tweets.csv', '');
 }, 6000 * 30);
 
 
