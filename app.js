@@ -121,12 +121,6 @@ app.use('/', tweet);
 app.use(routeCheck(app));
 
 
-// Keep the size of the tweet.csv small
-setInterval(() => {
-    fs.writeFileSync('./mlModel/tweets.csv', '');
-}, 6000 * 30);
-
-
 // Handle SIGINT from terminal
 process.on('SIGINT', () => process.exit(0));
 
