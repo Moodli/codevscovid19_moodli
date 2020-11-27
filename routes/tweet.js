@@ -21,13 +21,15 @@ const T = new Twit(creds);
 // Create a readable stream 
 const stream = T.stream('statuses/filter', { track: ['covid19', 'coronavirus', 'CoronaVirusUpdates', 'COVIDー19', 'QuarantineLife', 'Quarantine', 'lockdown', 'self-isolate', 'social-distancing', 'masks', 'face masks', 'face mask', 'covid-19', 'covid', 'Vaccine', 'vaccine'], language: 'en', });
 
-// Tweet Stream On
-stream.on('tweet', (twt) => {
-    dataTransfer(twt);
-});
 
 // API endpoints
 io.on('connection', socket => {
+
+    // Tweet Stream On
+    stream.on('tweet', (twt) => {
+        dataTransfer(twt);
+    });
+
 
     // Listening for the data request
     socket.on('dataRequest', () => {
