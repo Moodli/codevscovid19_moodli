@@ -120,6 +120,11 @@ app.use('/', tweet);
 // Route Check
 app.use(routeCheck(app));
 
+// Keep the size of the dataset.json small
+setInterval(() => {
+    fs.writeFileSync('./productionData/dataset.json', '');
+}, 6000 * 30);
+
 
 // Handle SIGINT from terminal
 process.on('SIGINT', () => process.exit(0));
