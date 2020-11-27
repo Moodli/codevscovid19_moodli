@@ -100,7 +100,10 @@ app.all('*', (req, res, next) => {
 // Start the app with socket io;
 const io = require('socket.io')(app.listen(PORT, () => {
     appLog.info(`Server is listening on port ${PORT}`);
-}));
+}), {
+    allowUpgrades: true,
+    transports: ['websocket'],
+});
 
 
 setInterval(() => {
