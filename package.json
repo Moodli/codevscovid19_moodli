@@ -41,6 +41,7 @@
     "memory-cache": "^0.2.0",
     "mongoose": "^5.9.6",
     "natural": "^0.6.3",
+    "redis": "^3.0.2",
     "shelljs": "^0.8.3",
     "socket.io": "^2.3.0",
     "stopword": "^1.0.0",

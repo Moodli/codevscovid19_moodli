@@ -15,6 +15,13 @@ const creds = require('../creds/tweetapiKey');
 const { io, } = require('../app');
 const { dataTransfer, } = require('../config/workerRelay');
 
+// Redis
+const { client, } = require('../config/redisConnection');
+const { promisify, } = require('util');
+const getAsync = promisify(client.get).bind(client);
+
+
+
 // Create a new Twitter crawler instance
 const T = new Twit(creds);
 
@@ -31,54 +38,39 @@ stream.on('tweet', (twt) => {
 io.on('connection', socket => {
 
     // Listening for the data request
-    socket.on('dataRequest', () => {
+    socket.on('dataRequest', async () => {
 
-        // Read the json file
-        fs.readFile('./productionData/dataset.json', 'utf8', (err, geoJson) => {
+        const geoJson = await getAsync('dataset');
 
-            // Check for error
-            if (err) {
-                socket.compress(true).emit('dataOut', 'no');
-                return;
-            }
 
-            try {
-                // Minify JSONs
-                const minifyStep1 = JSON.parse(geoJson);
-                const minifyStep2 = JSON.stringify(minifyStep1, null, 0);
+        try {
+            // Minify JSONs
+            const minifyStep1 = JSON.parse(geoJson);
+            const minifyStep2 = JSON.stringify(minifyStep1, null, 0);
 
-                // Send the data to the front end
-                socket.compress(true).emit('dataOut', minifyStep2);
-            } catch (error) {
-                jsonLog.error(error);
-            }
+            // Send the data to the front end
+            socket.compress(true).emit('dataOut', minifyStep2);
+        } catch (error) {
+            jsonLog.error(error);
+        }
 
-        });
+
 
     });
 
     // Listening for data point count request
-    socket.on('dataPoint', () => {
+    socket.on('dataPoint', async () => {
 
-        // Read the json file and count the length
-        fs.readFile('./productionData/dataset.json', 'utf8', (err, geoJson) => {
+        const geoJson = await getAsync('dataset');
 
-            //Check for error
-            if (err) {
-                socket.compress(true).emit('dataPoints', 'no');
-                return;
-            }
+        try {
+            const dataPointCount = JSON.parse(geoJson).features.length;
+            //Send the data to the front end
+            socket.compress(true).emit('dataPoints', dataPointCount);
+        } catch (error) {
+            jsonLog.error(error);
+        }
 
-            try {
-                const dataPointCount = JSON.parse(geoJson).features.length;
-                //Send the data to the front end
-                socket.compress(true).emit('dataPoints', dataPointCount);
-            } catch (error) {
-                jsonLog.error(error);
-            }
-
-
-        });
 
     });
 
@@ -167,3 +159,47 @@ router.get('/', (req, res) => {
 
 // Export the Module
 module.exports = router;
+
+
+
+     // Read the json file and count the length
+        // fs.readFile('./productionData/dataset.json', 'utf8', (err, geoJson) => {
+
+        //     //Check for error
+        //     if (err) {
+        //         socket.compress(true).emit('dataPoints', 'no');
+        //         return;
+        //     }
+
+        //     try {
+        //         const dataPointCount = JSON.parse(geoJson).features.length;
+        //         //Send the data to the front end
+        //         socket.compress(true).emit('dataPoints', dataPointCount);
+        //     } catch (error) {
+        //         jsonLog.error(error);
+        //     }
+
+
+        // });
+
+            // // Read the json file
+        // fs.readFile('./productionData/dataset.json', 'utf8', (err, geoJson) => {
+
+        //     // Check for error
+        //     if (err) {
+        //         socket.compress(true).emit('dataOut', 'no');
+        //         return;
+        //     }
+
+        //     try {
+        //         // Minify JSONs
+        //         const minifyStep1 = JSON.parse(geoJson);
+        //         const minifyStep2 = JSON.stringify(minifyStep1, null, 0);
+
+        //         // Send the data to the front end
+        //         socket.compress(true).emit('dataOut', minifyStep2);
+        //     } catch (error) {
+        //         jsonLog.error(error);
+        //     }
+
+        // });
