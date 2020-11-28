@@ -52,7 +52,7 @@
     socket.compress(true).emit('firstRender')
     setInterval(() => {
       socket.compress(true).emit('dataRequest')
-    }, 2000);
+    }, 3000);
 
     // The live data
     socket.on('data', data => {
