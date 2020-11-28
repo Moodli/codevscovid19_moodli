@@ -121,8 +121,6 @@ setInterval(() => {
     csvResetProccess();
 }, 60000 * 30);
 
-
-
 // Handle SIGINT from terminal
 process.on('SIGINT', () => process.exit(0));
 
