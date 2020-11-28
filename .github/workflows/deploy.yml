@@ -1,0 +1,49 @@
+name: Deployment
+
+on: [push]
+
+jobs:
+  # Arbitrary Job Section Name (Won't be Displayed)
+  deploy:
+    # Operating System to Run the Script On
+    runs-on: ubuntu-latest
+    # Job Name (Will be Displayed)
+    name: Deploy to Production
+    steps:
+      # Step Name
+      - name: Set up SSH
+        # Run Miltiline Bash Script
+        run: |
+          mkdir -p ~/.ssh
+          echo "$SSH_PROFILE" > ~/.ssh/config
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/moodli.key
+          sudo chmod 600 ~/.ssh/moodli.key
+          echo "$KNOWN_HOSTS" > ~/.ssh/known_hosts
+        # Shell Type
+        shell: bash
+        # Environmental Variables (Use on GitHub Runners)
+        env:
+          SSH_PRIVATE_KEY: ${{secrets.Moodli_SERVER_SSH_PRIVATE_KEY}}
+          SSH_PROFILE: ${{secrets.SSH_PROFILE}}
+          KNOWN_HOSTS: ${{secrets.KNOWN_HOSTS}}
+
+      # Step Name
+      - name: Install PM2
+        # Single-Line Bash Script
+        run: sudo npm i -g pm2 &>/dev/null
+        # Shell Type
+        shell: bash
+
+      # Step Name
+      - name: Running Deployment Script
+        # Run Miltiline Bash Script
+        run: |
+          git clone git@github.com:algo7/aviv_portifolio_arlo.git
+          cd aviv_portifolio_arlo
+          echo "$ECOF" > ./ecosystem.json
+          npm run deploy
+        # Shell Type
+        shell: bash
+        # Environmental Variables (Use on GitHub Runners)
+        env:
+          ECOF: ${{secrets.ECOSYSTEM_FILE}}
