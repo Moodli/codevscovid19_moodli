@@ -53,37 +53,24 @@
       socket.compress(true).emit('dataRequest')
     }, 5000);
 
-    //Request the data from the backend
-    socket.compress(true).emit('firstRenderPointCount')
-    setInterval(() => {
-      socket.compress(true).emit('dataPoint')
-    }, 5000);
-
-
-    //Listening for incoming data
-    socket.on('dataOut', data => {
-      //Set the map source
+    socket.on('data', data => {
       try {
-        map.getSource('tweet').setData(JSON.parse(data));
+        map.getSource('tweet').setData(JSON.parse(data[0]));
+        document.getElementById("dataPointCount").innerHTML = 'Data Points Displayed:' + ' ' + data[1];
       }
       catch (err) {
         console.log(err)
       }
-
     })
 
-    socket.on('dataPoints', data => {
-      //Set the map source
-      document.getElementById("dataPointCount").innerHTML = 'Data Points Displayed:' + ' ' + data;
-    })
 
     //Initialization
     socket.once('firstRenderData', data => {
 
-
       //Set the map source
       try {
-        map.getSource('tweet').setData(JSON.parse(data));
+        map.getSource('tweet').setData(JSON.parse(data[0]));
+        document.getElementById("dataPointCount").innerHTML = 'Data Points Displayed:' + ' ' + data[1];
       }
       catch (err) {
         console.log(err)
@@ -91,20 +78,17 @@
 
     });
 
-    socket.once('firstRenderPCounts', data => {
-      //Set the map source
-      document.getElementById("dataPointCount").innerHTML = 'Data Points Displayed:' + ' ' + data;
-    })
 
+    // The map source
     map.addSource('tweet',
       {
         type: 'geojson',
         data: url
       });
 
+    // Add the source to the map layer
     map.addLayer({
       'id': 'tweet',
-      // 'type': 'symbol',
       'type': 'circle',
       'source': 'tweet',
       'paint': {

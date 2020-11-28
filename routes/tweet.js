@@ -47,33 +47,19 @@ io.on('connection', socket => {
 
 
         try {
+            // Get the length of the json
+            const dataPointCount = JSON.parse(geoJson).features.length;
+
             // Minify JSONs
             const minifyStep1 = JSON.parse(geoJson);
             const minifyStep2 = JSON.stringify(minifyStep1, null, 0);
 
             // Send the data to the front end
-            socket.compress(true).emit('dataOut', minifyStep2);
+            socket.compress(true).emit('data', [minifyStep2, dataPointCount]);
         } catch (error) {
             jsonLog.error(error);
         }
 
-
-
-    });
-
-    // Listening for data point count request
-    socket.on('dataPoint', async () => {
-
-        // Get the json from redis
-        const geoJson = await getAsync('dataset');
-
-        try {
-            const dataPointCount = JSON.parse(geoJson).features.length;
-            //Send the data to the front end
-            socket.compress(true).emit('dataPoints', dataPointCount);
-        } catch (error) {
-            jsonLog.error(error);
-        }
 
 
     });
@@ -84,14 +70,18 @@ io.on('connection', socket => {
         // Get the sample dataset from redis
         const geoJson = await getAsync('sample_dataset');
 
+
         try {
+
+            // Get the length of the json
+            const dataPointCount = JSON.parse(geoJson).features.length;
 
             // Minify JSONs
             const minifyStep1 = JSON.parse(geoJson);
             const minifyStep2 = JSON.stringify(minifyStep1, null, 0);
 
             // Send the data to the front end
-            socket.compress(true).emit('firstRenderData', minifyStep2);
+            socket.compress(true).emit('firstRenderData', [minifyStep2, dataPointCount]);
 
         } catch (error) {
             jsonLog.error(error);
@@ -99,21 +89,7 @@ io.on('connection', socket => {
 
     });
 
-    socket.on('firstRenderPointCount', async () => {
 
-        // Get the sample dataset from redis
-        const geoJson = await getAsync('sample_dataset');
-
-        // Parse the json and get the length
-        try {
-            const dataPointCount = JSON.parse(geoJson).features.length;
-            // Send the data to the front end
-            socket.compress(true).emit('firstRenderPCounts', `${dataPointCount}`);
-        } catch (error) {
-            jsonLog.error(error);
-        }
-
-    });
 });
 
 // Realtime data set
@@ -139,58 +115,3 @@ router.get('/', (req, res) => {
 
 // Export the Module
 module.exports = router;
-
-
-
-    // //  Read from dataset.json the serve so it detects the file change
-    // // Setting fix vars. will only read the file once upon startup
-    // fs.readFile('./productionData/dataset.json', 'utf8', (err, data) => {
-
-    //     if (err) {
-    //         res.statusCode(500);
-    //         return;
-    //     }
-    //     res.send(data);
-    // });
-
-     // Read the json file and count the length
-        // fs.readFile('./productionData/dataset.json', 'utf8', (err, geoJson) => {
-
-        //     //Check for error
-        //     if (err) {
-        //         socket.compress(true).emit('dataPoints', 'no');
-        //         return;
-        //     }
-
-        //     try {
-        //         const dataPointCount = JSON.parse(geoJson).features.length;
-        //         //Send the data to the front end
-        //         socket.compress(true).emit('dataPoints', dataPointCount);
-        //     } catch (error) {
-        //         jsonLog.error(error);
-        //     }
-
-
-        // });
-
-            // // Read the json file
-        // fs.readFile('./productionData/dataset.json', 'utf8', (err, geoJson) => {
-
-        //     // Check for error
-        //     if (err) {
-        //         socket.compress(true).emit('dataOut', 'no');
-        //         return;
-        //     }
-
-        //     try {
-        //         // Minify JSONs
-        //         const minifyStep1 = JSON.parse(geoJson);
-        //         const minifyStep2 = JSON.stringify(minifyStep1, null, 0);
-
-        //         // Send the data to the front end
-        //         socket.compress(true).emit('dataOut', minifyStep2);
-        //     } catch (error) {
-        //         jsonLog.error(error);
-        //     }
-
-        // });
