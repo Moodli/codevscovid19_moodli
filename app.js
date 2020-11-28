@@ -1,5 +1,5 @@
 
-// Fix mem leak. 
+// Fix mem leak 
 require('events').EventEmitter.defaultMaxListeners = 30;
 
 // Dependencies
