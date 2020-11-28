@@ -97,7 +97,7 @@ const io = require('socket.io')(app.listen(PORT, () => {
     transports: ['websocket'],
 });
 
-
+// Run the model every 2 sec
 setInterval(() => {
     sentimentProccess();
 }, 2000);
