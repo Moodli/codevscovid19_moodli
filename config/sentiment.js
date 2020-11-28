@@ -28,7 +28,7 @@ const sentimentProccess = () => {
         MLlog.debug('ML Child process exited with exit code ' + code);
         // Log file checksum
         MLlog.debug('MD5: ' + md5File.sync('./productionData/dataset.json'));
-        client.set('dataset', fs.readFileSync('./productionData/dataset.json'));
+        // client.set('dataset', fs.readFileSync('./productionData/dataset.json'));
     });
 
 };
@@ -37,7 +37,7 @@ const csvResetProccess = () => {
 
 
     // ML child process
-    const mlOutput = exec('echo -n "text,location,textHuman" > ./mlModel/tweets.csv', (error, stdout) => {
+    const mlOutput = exec('echo -n "text,location,textHuman" > ./mlModel/tweets.csv', (error) => {
         if (error) {
             MLlog.error(error.stack);
             MLlog.error('ML Error code: ' + error.code);

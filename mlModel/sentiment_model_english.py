@@ -3,11 +3,11 @@ import os
 from textblob import TextBlob
 from textblob.sentiments import NaiveBayesAnalyzer
 import json
-import csv
 import pandas as pd
 import geojson
-import numpy as np
-import sys
+import redis
+r = redis.Redis()
+
 
 dirname = os.path.dirname(__file__)
 incoming_path = os.path.join(dirname, '../mlModel/tweets.csv')
@@ -15,11 +15,8 @@ incoming_path = os.path.join(dirname, '../mlModel/tweets.csv')
 output_filename = 'dataset.js'
 
 
-
-
 class blobclass:
     blob = TextBlob("")
-
 
     def write_text_get_sentiment(self, text):
         self.blob = TextBlob(text)
@@ -39,7 +36,6 @@ def df_to_geojson(df, properties, lat='latitude', lon='longitude'):
     return geojson
 
 
-
 data = pd.read_csv(incoming_path)
 
 model_sentiment = blobclass()
@@ -49,7 +45,7 @@ for index, row in data.iterrows():
 
     dict1 = {}
     this_sentiment = model_sentiment.write_text_get_sentiment(row["text"])
-  
+
     d = {"sentiment": this_sentiment.polarity}
     dict1.update(d)
 
@@ -99,7 +95,7 @@ data = dummydata
 # make geojson
 cols = ['textHuman', 'sentiment']  # text
 geojson = df_to_geojson(data, cols)
-
+r.set('dataset', json.dumps(geojson, indent=4))
 # save geojson
 with open('./productionData/dataset.json', 'w') as output_file:
 
