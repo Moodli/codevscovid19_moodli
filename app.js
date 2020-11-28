@@ -119,7 +119,7 @@ app.use(routeCheck(app));
 // Clean the CSV file every half an hour
 setInterval(() => {
     csvResetProccess();
-}, 60000 * 30);
+}, 60000 * 15);
 
 // Handle SIGINT from terminal
 process.on('SIGINT', () => process.exit(0));
