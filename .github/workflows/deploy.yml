@@ -40,10 +40,6 @@ jobs:
         run: |
           git clone https://github.com/Moodli/codevscovid19_moodli.git
           cd codevscovid19_moodli
-          echo "$ECOF" > ./ecosystem.json
           npm run deploy
         # Shell Type
         shell: bash
-        # Environmental Variables (Use on GitHub Runners)
-        env:
-          ECOF: ${{secrets.ECOSYSTEM_FILE}}
