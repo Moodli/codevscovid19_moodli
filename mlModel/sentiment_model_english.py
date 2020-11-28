@@ -12,7 +12,6 @@ r = redis.Redis()
 dirname = os.path.dirname(__file__)
 incoming_path = os.path.join(dirname, '../mlModel/tweets.csv')
 # outgoing geojson with sentiment,datetime, humanText, coordinates
-output_filename = 'dataset.js'
 
 
 class blobclass:
