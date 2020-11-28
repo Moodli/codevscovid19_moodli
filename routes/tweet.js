@@ -20,6 +20,8 @@ const { client, } = require('../config/redisConnection');
 const { promisify, } = require('util');
 const getAsync = promisify(client.get).bind(client);
 
+// Store the sample dataset in redis
+client.set('sample_dataset', fs.readFileSync('./productionData/sampledataset.json'));
 
 
 // Create a new Twitter crawler instance
@@ -40,6 +42,7 @@ io.on('connection', socket => {
     // Listening for the data request
     socket.on('dataRequest', async () => {
 
+        // Get the json from redis
         const geoJson = await getAsync('dataset');
 
 
@@ -61,6 +64,7 @@ io.on('connection', socket => {
     // Listening for data point count request
     socket.on('dataPoint', async () => {
 
+        // Get the json from redis
         const geoJson = await getAsync('dataset');
 
         try {
@@ -75,80 +79,56 @@ io.on('connection', socket => {
     });
 
     // Starting Data
-    socket.on('firstRender', () => {
-        // Read the json file and count the length
-        // Read the json file
-        fs.readFile('./productionData/sampledataset.json', 'utf8', (err, geoJson) => {
+    socket.on('firstRender', async () => {
 
-            // Check for error
-            if (err) {
-                socket.compress(true).emit('firstRenderData', 'no');
-                return;
-            }
+        // Get the sample dataset from redis
+        const geoJson = await getAsync('sample_dataset');
 
+        try {
 
-            try {
+            // Minify JSONs
+            const minifyStep1 = JSON.parse(geoJson);
+            const minifyStep2 = JSON.stringify(minifyStep1, null, 0);
 
-                // Minify JSONs
-                const minifyStep1 = JSON.parse(geoJson);
-                const minifyStep2 = JSON.stringify(minifyStep1, null, 0);
+            // Send the data to the front end
+            socket.compress(true).emit('firstRenderData', minifyStep2);
 
-                // Send the data to the front end
-                socket.compress(true).emit('firstRenderData', minifyStep2);
+        } catch (error) {
+            jsonLog.error(error);
+        }
 
-            } catch (error) {
-                jsonLog.error(error);
-            }
-
-        });
     });
 
-    socket.on('firstRenderPointCount', () => {
-        // Read the json file and count the length
-        fs.readFile('./productionData/sampledataset.json', 'utf8', (err, geoJson) => {
+    socket.on('firstRenderPointCount', async () => {
 
-            // Check for error
-            if (err) {
-                socket.compress(true).emit('firstRenderPCounts', 'no');
-                return;
-            }
+        // Get the sample dataset from redis
+        const geoJson = await getAsync('sample_dataset');
 
-            try {
-                const dataPointCount = JSON.parse(geoJson).features.length;
-                // Send the data to the front end
-                socket.compress(true).emit('firstRenderPCounts', `${dataPointCount}`);
-            } catch (error) {
-                jsonLog.error(error);
-            }
-        });
+        // Parse the json and get the length
+        try {
+            const dataPointCount = JSON.parse(geoJson).features.length;
+            // Send the data to the front end
+            socket.compress(true).emit('firstRenderPCounts', `${dataPointCount}`);
+        } catch (error) {
+            jsonLog.error(error);
+        }
+
     });
 });
 
 // Realtime data set
-router.get('/geo', (req, res) => {
+router.get('/geo', async (req, res) => {
 
-    //  Read from dataset.json the serve so it detects the file change
-    // Setting fix vars. will only read the file once upon startup
-    fs.readFile('./productionData/dataset.json', 'utf8', (err, data) => {
-
-        if (err) {
-            res.statusCode(500);
-            return;
-        }
-        res.send(data);
-    });
+    // Get the dataset from redis and send it to the front end
+    res.send(await getAsync('dataset'));
 
 });
 
 // Sample data set
-router.get('/geo1', (req, res) => {
-    fs.readFile('./productionData/sampledataset.json', 'utf8', (err, data) => {
-        if (err) {
-            res.statusCode(400);
-            return;
-        }
-        res.send(data);
-    });
+router.get('/geo1', async (req, res) => {
+
+    // Get the sample dataset from redis and send it to the front end
+    res.send(await getAsync('sample_dataset'));
 
 });
 
@@ -161,6 +141,17 @@ router.get('/', (req, res) => {
 module.exports = router;
 
 
+
+    // //  Read from dataset.json the serve so it detects the file change
+    // // Setting fix vars. will only read the file once upon startup
+    // fs.readFile('./productionData/dataset.json', 'utf8', (err, data) => {
+
+    //     if (err) {
+    //         res.statusCode(500);
+    //         return;
+    //     }
+    //     res.send(data);
+    // });
 
      // Read the json file and count the length
         // fs.readFile('./productionData/dataset.json', 'utf8', (err, geoJson) => {
