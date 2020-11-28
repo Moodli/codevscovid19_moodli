@@ -25,7 +25,6 @@ const writeSt = fs.createWriteStream(csvLocation, { flags: 'a', });
 
 // Flush the Files
 fs.writeFileSync('./mlModel/tweets.csv', '');
-fs.writeFileSync('./productionData/dataset.json', '');
 
 // CSV Column Names
 writeSt.write('text,location,textHuman');

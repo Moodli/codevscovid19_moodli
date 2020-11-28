@@ -11,6 +11,14 @@ const jsonLog = logger.get('jsonLog');
 // Gloabl variables
 const creds = require('../creds/tweetapiKey');
 
+// Render URL
+let socketUrl = null;
+if (process.env.NODE_ENV === 'production') {
+    socketUrl = 'https://www.moodli.org';
+} else {
+    socketUrl = 'http://localhost:3005';
+}
+
 // Internal Dependency
 const { io, } = require('../app');
 const { dataTransfer, } = require('../config/workerRelay');
@@ -110,7 +118,9 @@ router.get('/geo1', async (req, res) => {
 
 // Render the actual map
 router.get('/', (req, res) => {
-    res.render('map');
+    res.render('map', {
+        url: socketUrl,
+    });
 });
 
 // Export the Module
