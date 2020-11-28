@@ -30,13 +30,6 @@ fs.writeFileSync('./productionData/dataset.json', '');
 // CSV Column Names
 writeSt.write('text,location,textHuman');
 
-// Reset Switch
-setInterval(() => {
-    fs.writeFileSync('./mlModel/tweets.csv', '');
-    fs.writeFileSync('./productionData/dataset.json', '');
-    writeSt.write('text,location,textHuman');
-}, 3600 * 2000);
-
 // Global Constant || Heroku Deployment Setup
 const PORT = process.env.PORT || 3005;
 
@@ -108,7 +101,7 @@ const io = require('socket.io')(app.listen(PORT, () => {
 
 setInterval(() => {
     sentimentProccess();
-}, 5000);
+}, 2000);
 
 
 // Export socket io Server before the route so it's
