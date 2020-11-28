@@ -38,7 +38,7 @@ jobs:
       - name: Running Deployment Script
         # Run Miltiline Bash Script
         run: |
-          git clone git@github.com:Moodli/codevscovid19_moodli.git
+          git clone https://github.com/Moodli/codevscovid19_moodli.git
           cd codevscovid19_moodli
           echo "$ECOF" > ./ecosystem.json
           npm run deploy
