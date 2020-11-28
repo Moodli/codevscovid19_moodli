@@ -28,11 +28,10 @@ Backend for Moodli
 3. PM2 (Install via NPM)
 4. Git
 5. /var/www/\* must be owned not by root but the default [or specified user]
-6. MongoDB (default creds)
-7. Redis (default creds)
-8. Twitter API Keys
-9. Python3 and pip3
-10. Python Library: textblob,geojson,pandas,redis (except for textblob, rest of the package can be installed via apt)
+6. Redis (default creds)
+7. Twitter API Keys
+8. Python3 and pip3
+9. Python Library: textblob,geojson,pandas,redis (except for textblob, rest of the package can be installed via apt)
 
 ```javascript
 //Initialize the Remote Folder:
