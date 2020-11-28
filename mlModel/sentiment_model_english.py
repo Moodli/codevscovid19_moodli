@@ -95,9 +95,7 @@ data = dummydata
 # make geojson
 cols = ['textHuman', 'sentiment']  # text
 geojson = df_to_geojson(data, cols)
-r.set('dataset', json.dumps(geojson, indent=4))
-# save geojson
-with open('./productionData/dataset.json', 'w') as output_file:
 
-    json.dump(geojson, output_file, indent=2)
-    print("Damn look at this!!! Model Finished!!", end='')
+# Save the json data into redis
+r.set('dataset', json.dumps(geojson, indent=4))
+print("Damn look at this!!! Model Finished!!", end='')
