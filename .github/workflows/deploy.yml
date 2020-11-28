@@ -38,8 +38,8 @@ jobs:
       - name: Running Deployment Script
         # Run Miltiline Bash Script
         run: |
-          git clone git@github.com:algo7/aviv_portifolio_arlo.git
-          cd aviv_portifolio_arlo
+          git clone git@github.com:Moodli/codevscovid19_moodli.git
+          cd codevscovid19_moodli
           echo "$ECOF" > ./ecosystem.json
           npm run deploy
         # Shell Type
