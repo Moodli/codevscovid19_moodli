@@ -23,24 +23,16 @@ Backend for Moodli
 
 ### Requirements:
 
-##### Local:
-
-1. Node (LTS)
-2. NPM
-3. PM2 (Install via NPM)
-4. Server SSH KEY
-
-##### Server:
-
 1. Node (LTS)
 2. NPM
 3. PM2 (Install via NPM)
 4. Git
 5. /var/www/\* must be owned not by root but the default [or specified user]
-6. MongoDB
-7. Credentials (API KEY)
-8. Python3 and pip3
-9. Python Library: textblob,geojson,pandas
+6. MongoDB (default creds)
+7. Redis (default creds)
+8. Twitter API Keys
+9. Python3 and pip3
+10. Python Library: textblob,geojson,pandas,redis (except for textblob, rest of the package can be installed via apt)
 
 ```javascript
 //Initialize the Remote Folder:
