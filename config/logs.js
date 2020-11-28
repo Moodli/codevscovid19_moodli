@@ -81,7 +81,7 @@ container.add('appLog', {
 });
 
 
-// Logging Category for dbConnection.js
+// Logging Category for db connection
 container.add('dbCon', {
     format: winston.format.combine(
         winston.format.label({ label: 'dbConnection', }),

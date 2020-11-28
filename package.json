@@ -40,7 +40,6 @@
     "handlebars": "^4.7.6",
     "md5-file": "^4.0.0",
     "memory-cache": "^0.2.0",
-    "mongoose": "^5.9.6",
     "natural": "^0.6.3",
     "redis": "^3.0.2",
     "shelljs": "^0.8.3",

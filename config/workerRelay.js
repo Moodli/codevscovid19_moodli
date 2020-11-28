@@ -28,15 +28,9 @@ const inc = (n, poolName) => {
     return 0;
 };
 
-// DB Connection
-const { DB_Connection: dbConnection, } = require('./dbConnection');
-require('../schema/tweetSchema');
-const tweetDB = dbConnection.model('tweet');
-// const changeStream = tweetDB.watch();
 
 // Winston Loggers
 const logger = require('./logs');
-const dblog = logger.get('dbCon');
 const statsLog = logger.get('statsLog');
 
 // Initialize Porcessing Coverage Counter
@@ -62,11 +56,6 @@ workerText.on('message', twitObj => {
 
     // Send raw tweets to the CSV workers
     workerCSV.postMessage(twitObj);
-
-    // Save the object into the db
-    new tweetDB(twitObj)
-        .save()
-        .catch(err => dblog.error(err));
 });
 
 // Listening for messages from the worker1
@@ -77,11 +66,6 @@ workerText1.on('message', twitObj => {
 
     // Send raw tweets to the CSV workers
     workerCSV1.postMessage(twitObj);
-
-    // Save the object into the db
-    new tweetDB(twitObj)
-        .save()
-        .catch(err => dblog.error(err));
 });
 
 workerText2.on('message', twitObj => {
@@ -91,11 +75,6 @@ workerText2.on('message', twitObj => {
 
     // Send raw tweets to the CSV workers
     workerCSV2.postMessage(twitObj);
-
-    // Save the object into the db
-    new tweetDB(twitObj)
-        .save()
-        .catch(err => dblog.error(err));
 });
 
 workerText3.on('message', twitObj => {
@@ -105,23 +84,11 @@ workerText3.on('message', twitObj => {
 
     // Send raw tweets to the CSV workers
     workerCSV3.postMessage(twitObj);
-
-    // Save the object into the db
-    new tweetDB(twitObj)
-        .save()
-        .catch(err => dblog.error(err));
 });
-
-// DB Monitoring
-// let dbStats = 0;
-// changeStream.on('change', () => {
-//     dbStats += 1;
-// });
 
 // Porcessing Coverage Counter
 setInterval(() => {
     statsLog.debug(`In: ${inp} | Out: ${out}`);
-    // statsLog.debug(`Tweet Processed: ${dbStats}`);
 }, 600 * 100);
 
 
