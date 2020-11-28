@@ -124,7 +124,7 @@ app.use('/', tweet);
 // Route Check
 app.use(routeCheck(app));
 
-// Clean CSV file
+// Clean the CSV file every half an hour
 setInterval(() => {
     csvResetProccess();
 }, 60000 * 30);
