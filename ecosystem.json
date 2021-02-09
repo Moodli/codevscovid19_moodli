@@ -29,3 +29,4 @@
             "post-deploy": "npm install && pm2 startOrRestart ecosystem.config.js --env production && cd nodeModuleconfig && chmod +x nodeCus.sh && ./nodeCus.sh"
         }
     }
+}
