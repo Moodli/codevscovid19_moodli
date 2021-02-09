@@ -11,7 +11,7 @@
             "host": [
                 "moodli"
             ],
-            "ref": "origin/master",
+            "ref": "origin/main",
             "repo": "https://github.com/Moodli/codevscovid19_moodli_backend.git",
             "path": "/var/www/moodli",
             "pre-setup": "rm -rf /var/www/moodli",
@@ -22,7 +22,7 @@
             "host": [
                 "moodli"
             ],
-            "ref": "origin/master",
+            "ref": "origin/main",
             "repo": "https://github.com/Moodli/codevscovid19_moodli_backend.git",
             "path": "/var/www/moodli",
             "pre-setup": "rm -rf /var/www/moodli",
