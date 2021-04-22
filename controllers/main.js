@@ -1,7 +1,12 @@
+// Dependencies
 const fs = require('fs');
 const Twit = require('twit');
 
+// Custom modules
 const { dataTransfer, } = require('../config/textProcessors/workerRelay');
+
+// Load socket io
+require('../config/socketio');
 
 // Redis
 const { setAsync, } = require('../config/database/redisConnection');

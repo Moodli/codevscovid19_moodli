@@ -12,6 +12,7 @@ env:
   SERVER_SSH_KEY: ${{ secrets.SERVER_SSH_KEY }}
   SERVER_IP: ${{ secrets.SERVER_IP }}
   SERVER_USER_NAME: ${{ secrets.SERVER_USER_NAME }}
+  REPOSITORY: ${{ GITHUB_REPOSITORY }}
 
 # Jobs
 jobs:
@@ -34,8 +35,9 @@ jobs:
           echo $SERVER_IPX
           VERSION=$(echo "${GITHUB_SHA:0:6}")
           echo $VERSION
-          echo "IMAGE_NAME=ghcr.io/${{ github.repository_owner }}/survey_distro:$VERSION" > docker.env
+          echo "IMAGE_NAME=ghcr.io/$REPOSITORY/survey_distro:$VERSION" > docker.env
           docker-compose --env-file=docker.env build && docker images
+          env
 
     # Login to GitHub's container registry
       - name: Registry Login

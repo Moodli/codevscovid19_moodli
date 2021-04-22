@@ -1,12 +1,11 @@
 // Redis
-const { getAsync, } = require('./redisConnection');
+const { getAsync, } = require('./database/redisConnection');
 
 // Internal Dependency
 const { io, } = require('../app');
 
 // Winston Logger
 const jsonLog = require('./system/logs').get('jsonLog');
-
 
 // API endpoints
 io.on('connection', socket => {
@@ -29,6 +28,7 @@ io.on('connection', socket => {
 
             // Send the data to the front end
             socket.compress(true).emit('data', [minifyStep2, dataPointCount]);
+
         } catch (error) {
             jsonLog.error(error);
         }
