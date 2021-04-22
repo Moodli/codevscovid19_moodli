@@ -62,8 +62,8 @@ const locationFilter = (location) => {
     // Normalize (remove accent)
     let normalized = location.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
-    if (normalized.match(/[,\/]/g)) {
-        normalized = normalized.replace(/[,\/]/g, ' ');
+    if (normalized.match(/[,/]/g)) {
+        normalized = normalized.replace(/[,/]/g, ' ');
     }
 
     // Remove numbers and punctuations
