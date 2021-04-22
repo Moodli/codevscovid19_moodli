@@ -5,8 +5,7 @@ const fs = require('fs');
 const Twit = require('twit');
 
 // Winston Logger
-const logger = require('../config/logs');
-const jsonLog = logger.get('jsonLog');
+const jsonLog = require('../config/logs').get('jsonLog');
 
 // Gloabl variables
 const creds = require('../creds/tweetapiKey');
@@ -30,7 +29,6 @@ const getAsync = promisify(client.get).bind(client);
 
 // Store the sample dataset in redis
 client.set('sample_dataset', fs.readFileSync('./productionData/sampledataset.json'));
-
 
 // Create a new Twitter crawler instance
 const T = new Twit(creds);

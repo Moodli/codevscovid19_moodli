@@ -29,7 +29,7 @@ fs.writeFileSync('./mlModel/tweets.csv', '');
 // CSV Column Names
 writeSt.write('text,location,textHuman');
 
-// Global Constant || Heroku Deployment Setup
+// Global Constant
 const PORT = process.env.PORT || 3005;
 
 // Initialize the App
@@ -43,12 +43,12 @@ app.set('etag', false);
 app.set('x-powered-by', false);
 
 // BodyParser Middleware
-app.use(BodyParser.urlencoded({
+app.use(express.urlencoded({
     extended: true,
     limit: '5mb',
 }));
 
-app.use(BodyParser.json({
+app.use(express.json({
     limit: '5mb',
     extended: true,
 }));
