@@ -3,19 +3,19 @@ const fs = require('fs');
 const Twit = require('twit');
 
 // Custom modules
-const { dataTransfer, } = require('../config/textProcessors/workerRelay');
+const { dataTransfer, } = require('./textProcessors/workerRelay');
 
 // Load socket io
-require('../config/socketio');
+require('./socketio');
 
 // Redis
-const { setAsync, } = require('../config/database/redisConnection');
+const { setAsync, } = require('./database/redisConnection');
 
 // Extract env vars
 const { CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET, NODE_ENV, } = process.env;
 
 // Winston Logger
-const dbLog = require('../config/system/logs').get('dbCon');
+const dbLog = require('./system/logs').get('dbCon');
 
 // Twit creds
 let creds = {};
@@ -32,7 +32,7 @@ if (NODE_ENV === 'production') {
 } else {
 
     // eslint-disable-next-line global-require
-    creds = require('../creds/tweetapiKey');
+    creds = require('../creds/tweetapiKey.js.local');
 }
 
 
