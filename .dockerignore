@@ -1,6 +1,6 @@
 **node_modules
 **docker.env
-**.eslintrc.js⏎
+**.eslintrc.js
 **Dockerfile
 **docker-compose.yml
 **.gitignore
