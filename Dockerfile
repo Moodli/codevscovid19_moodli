@@ -10,7 +10,7 @@ COPY package*.json ./
 
 
 # Install dependencies
-RUN apt -qq update && apt -qq upgrade -y && apt -qq install python3 python3-pip python3-geojson python3-pandas python3-redis -y && pip3 install -U textblob && npm i -g npm && npm i -g pm2@latest
+RUN apt -qq update && apt -qq upgrade -y && apt -qq install python3 python3-pip python3-geojson python3-pandas python3-redis -y && pip3 install -U textblob && npm i -g npm@latest && npm i -g pm2@latest
 
 
 

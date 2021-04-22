@@ -34,12 +34,10 @@ jobs:
     # Build the image 
       - name: Build Image
         run: |
-          echo $USER_NAME
           VERSION=$(echo "${GITHUB_SHA:0:6}")
           REPO_LOWER=$(echo $REPOSITORY | tr '[A-Z]' '[a-z]')
           echo "IMAGE_NAME=ghcr.io/$REPO_LOWER/moodli_app:$VERSION" > docker.env
-          echo $TWITTER_API_CRED >> docker.env
-          cat docker.env
+          echo $TWITTER_API_CRED | base64 -d >> docker.env
           docker-compose --env-file=docker.env build && docker images
 
     # Login to GitHub's container registry
@@ -50,12 +48,12 @@ jobs:
       - name: Push Image
         run: docker-compose --env-file=docker.env push
     
-    # Archive artifacts
-      - name: Archive Docker env file
-        uses: actions/upload-artifact@v2
-        with:
-          name: docker.env
-          path: docker.env
+    # # Archive artifacts
+    #   - name: Archive Docker env file
+    #     uses: actions/upload-artifact@v2
+    #     with:
+    #       name: docker.env
+    #       path: docker.env
 
 # Continuous deployment 
   CD:
@@ -70,11 +68,11 @@ jobs:
       - name: Check Out Repo 
         uses: actions/checkout@v2
 
-    # Download artifacts from the last job
-      - name: Download artifacts from the CI stage
-        uses: actions/download-artifact@v2
-        with:
-          name: docker.env
+    # # Download artifacts from the last job
+    #   - name: Download artifacts from the CI stage
+    #     uses: actions/download-artifact@v2
+    #     with:
+    #       name: docker.env
 
     # Setup SSH
       - name: Setup SSH
@@ -89,7 +87,10 @@ jobs:
     # Deployment prep.
       - name: Deployment Preparation
         run: |
-          cat docker.env
+          VERSION=$(echo "${GITHUB_SHA:0:6}")
+          REPO_LOWER=$(echo $REPOSITORY | tr '[A-Z]' '[a-z]')
+          echo "IMAGE_NAME=ghcr.io/$REPO_LOWER/moodli_app:$VERSION" > docker.env
+          echo $TWITTER_API_CRED | base64 -d >> docker.env
           echo "echo $GITHUB_TOKEN | docker login -u $USER_NAME --password-stdin ghcr.io" | ssh $SERVER_USER_NAME@$SERVER_IP
           sed -e "s/build\: .//" -i ./docker-compose.yml
           scp docker-compose.yml docker.env $SERVER_USER_NAME@$SERVER_IP:~
