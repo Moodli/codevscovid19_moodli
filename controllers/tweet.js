@@ -10,7 +10,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 // Load tweet stream
-require('../config/tweet');
+require('../config/tweet_stream');
 
 // @desc The home page with the map
 // @route GET /

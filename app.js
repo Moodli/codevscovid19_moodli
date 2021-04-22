@@ -2,6 +2,13 @@
 // Fix mem leak.
 require('events').EventEmitter.defaultMaxListeners = 30;
 
+// Load env vars
+const { NODE_ENV, } = process.env;
+if (NODE_ENV !== 'production') {
+    // eslint-disable-next-line global-require
+    require('./creds/env');
+}
+
 // Dependencies
 const memwatch = require('@airbnb/node-memwatch');
 const express = require('express');
@@ -90,7 +97,7 @@ app.all('*', (req, res, next) => {
 
 // Start the app with socket io;
 const io = require('socket.io')(app.listen(PORT, () => {
-    appLog.info(`Server is listening on port ${PORT}`);
+    appLog.info(`Server is running in ${NODE_ENV} mode on port ${PORT}`);
 }), {
     allowUpgrades: true,
     transports: ['websocket'],

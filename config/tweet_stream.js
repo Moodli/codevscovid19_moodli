@@ -12,29 +12,22 @@ require('./socketio');
 const { setAsync, } = require('./database/redisConnection');
 
 // Extract env vars
-const { CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET, NODE_ENV, } = process.env;
+const { CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET, } = process.env;
 
 // Winston Logger
 const dbLog = require('./system/logs').get('dbCon');
 
 // Twit creds
-let creds = {};
+const creds = {
+    'consumer_key': CONSUMER_KEY,
+    'consumer_secret': CONSUMER_SECRET,
+    'access_token': ACCESS_TOKEN,
+    'access_token_secret': ACCESS_TOKEN_SECRET,
+    'timeout_ms': 60 * 1000,
+    'strictSSL': true,
+};
 
-if (NODE_ENV === 'production') {
-    creds = {
-        'consumer_key': CONSUMER_KEY,
-        'consumer_secret': CONSUMER_SECRET,
-        'access_token': ACCESS_TOKEN,
-        'access_token_secret': ACCESS_TOKEN_SECRET,
-        'timeout_ms': 60 * 1000,
-        'strictSSL': true,
-    };
-} else {
-
-    // eslint-disable-next-line global-require
-    creds = require('../creds/tweetapiKey.js');
-}
-
+console.log(creds);
 
 // Load the sample dataset
 setAsync('sample_dataset', fs.readFileSync('./productionData/sampledataset.json'))
