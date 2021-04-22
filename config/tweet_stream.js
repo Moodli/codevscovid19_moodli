@@ -27,7 +27,6 @@ const creds = {
     'strictSSL': true,
 };
 
-console.log(creds);
 
 // Load the sample dataset
 setAsync('sample_dataset', fs.readFileSync('./productionData/sampledataset.json'))
