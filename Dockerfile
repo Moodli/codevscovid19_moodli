@@ -10,7 +10,7 @@ COPY package*.json ./
 
 
 # Install dependencies
-RUN apt -qq update && apt -qq upgrade -y && apt -qq install python3 python3-pip python3-geojson python3-pandas python3-redis -y && pip3 install -U textblob && npm i -g npm@latest && npm i -g pm2@latest
+RUN apt -qq update && apt -qq upgrade -y && apt -qq install python3 python3-pip python3-geojson python3-pandas python3-redis -y && pip3 install -U textblob && npm i -g npm@7.10.0&& npm i -g pm2@latest
 
 
 
@@ -28,8 +28,6 @@ COPY --from=DEPENDENCIES /usr/src/app/node_modules ./node_modules
 
 # Copy rest of the files [from local to RELEASE]
 COPY . .
-
-
 
 # Node module tweaks + Grant permission to non-root user
 RUN cd nodeModuleconfig && chmod +x nodeCus.sh && ./nodeCus.sh && chown -R 1000:1000 /usr/src/app
