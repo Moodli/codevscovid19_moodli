@@ -32,7 +32,7 @@ if (NODE_ENV === 'production') {
 } else {
 
     // eslint-disable-next-line global-require
-    creds = require('../creds/tweetapiKey.js.local');
+    creds = require('../creds/tweetapiKey.js');
 }
 
 
