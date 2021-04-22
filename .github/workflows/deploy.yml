@@ -13,7 +13,8 @@ env:
   SERVER_SSH_KEY: ${{ secrets.SERVER_SSH_KEY }}
   SERVER_IP: ${{ secrets.SERVER_IP }}
   SERVER_USER_NAME: ${{ secrets.SERVER_USER_NAME }}
-  REPOSITORY: ${{ github.GITHUB_REPOSITORY }}
+  REPOSITORY: ${{ github.GITHUB_REPOSITORY_OWNER }}
+  TWITTER_API_CRED: ${{ secrets.TWITTER_API_CRED }}
 
 # Jobs
 jobs:
@@ -37,6 +38,7 @@ jobs:
           VERSION=$(echo "${GITHUB_SHA:0:6}")
           echo $VERSION
           echo "IMAGE_NAME=ghcr.io/$REPOSITORY/survey_distro:$VERSION" > docker.env
+          echo $TWITTER_API_CRED >> docker.env
           docker-compose --env-file=docker.env build && docker images
           env
 
