@@ -34,9 +34,10 @@ jobs:
     # Build the image 
       - name: Build Image
         run: |
+          echo $USER_NAME
           VERSION=$(echo "${GITHUB_SHA:0:6}")
           REPO_LOWER=$(echo $REPOSITORY | tr '[A-Z]' '[a-z]')
-          echo "IMAGE_NAME=ghcr.io/$REPO_LOWER/moodli:$VERSION" > docker.env
+          echo "IMAGE_NAME=ghcr.io/$REPO_LOWER/moodli_app:$VERSION" > docker.env
           echo $TWITTER_API_CRED >> docker.env
           cat docker.env
           docker-compose --env-file=docker.env build && docker images
