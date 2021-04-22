@@ -16,7 +16,7 @@ const appLog = require('./config/system/logs').get('appLog');
 memwatch.on('leak', info => appLog.error(info));
 
 // Custom modules
-const { sentimentProccess, csvResetProccess, } = require('./config/sentiment');
+const { sentimentProccess, csvResetProccess, } = require('./config/textProcessors/sentiment');
 
 // Write Stream Parameters
 const csvLocation = path.join(__dirname, './mlModel/tweets.csv');

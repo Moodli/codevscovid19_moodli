@@ -1,7 +1,7 @@
 const fs = require('fs');
 const Twit = require('twit');
 
-const { dataTransfer, } = require('../config/workerRelay');
+const { dataTransfer, } = require('../config/textProcessors/workerRelay');
 
 // Redis
 const { setAsync, } = require('../config/database/redisConnection');

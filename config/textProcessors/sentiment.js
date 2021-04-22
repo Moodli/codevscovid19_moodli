@@ -2,7 +2,7 @@
 const { exec, } = require('child_process');
 
 // Winston Logger
-const MLlog = require('./system/logs').get('MLlog');
+const MLlog = require('../system/logs').get('MLlog');
 
 const sentimentProccess = () => {
 
