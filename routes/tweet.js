@@ -23,12 +23,11 @@ const { io, } = require('../app');
 const { dataTransfer, } = require('../config/workerRelay');
 
 // Redis
-const { client, } = require('../config/redisConnection');
-const { promisify, } = require('util');
-const getAsync = promisify(client.get).bind(client);
+const { getAsync, setAsync, } = require('../config/redisConnection');
+
 
 // Store the sample dataset in redis
-client.set('sample_dataset', fs.readFileSync('./productionData/sampledataset.json'));
+setAsync('sample_dataset', fs.readFileSync('./productionData/sampledataset.json'));
 
 // Create a new Twitter crawler instance
 const T = new Twit(creds);
@@ -48,11 +47,12 @@ io.on('connection', socket => {
     // Listening for the data request
     socket.on('dataRequest', async () => {
 
-        // Get the json from redis
-        const geoJson = await getAsync('dataset');
-
 
         try {
+
+            // Get the json from redis
+            const geoJson = await getAsync('dataset');
+
             // Get the length of the json
             const dataPointCount = JSON.parse(geoJson).features.length;
 
@@ -65,8 +65,6 @@ io.on('connection', socket => {
         } catch (error) {
             jsonLog.error(error);
         }
-
-
 
     });
 
