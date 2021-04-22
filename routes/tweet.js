@@ -1,14 +1,9 @@
 // Dependencies
 const express = require('express');
 const router = express.Router();
-const fs = require('fs');
-const Twit = require('twit');
 
-// Winston Logger
-const jsonLog = require('../config/logs').get('jsonLog');
-
-// Gloabl variables
-const creds = require('../creds/tweetapiKey');
+// Redis
+const { getAsync, } = require('../config/database/redisConnection');
 
 // Render URL
 let socketUrl = null;
@@ -18,83 +13,8 @@ if (process.env.NODE_ENV === 'production') {
     socketUrl = 'http://localhost:3005';
 }
 
-// Internal Dependency
-const { io, } = require('../app');
-const { dataTransfer, } = require('../config/workerRelay');
-
-// Redis
-const { getAsync, setAsync, } = require('../config/redisConnection');
-
-
-// Store the sample dataset in redis
-setAsync('sample_dataset', fs.readFileSync('./productionData/sampledataset.json'));
-
-// Create a new Twitter crawler instance
-const T = new Twit(creds);
-
-// Create a readable stream 
-const stream = T.stream('statuses/filter', { track: ['covid19', 'coronavirus', 'CoronaVirusUpdates', 'COVIDー19', 'QuarantineLife', 'Quarantine', 'lockdown', 'self-isolate', 'social-distancing', 'masks', 'face masks', 'face mask', 'covid-19', 'covid', 'Vaccine', 'vaccine'], language: 'en', });
-
-// Tweet Stream On
-stream.on('tweet', (twt) => {
-    dataTransfer(twt);
-});
-
-
-// API endpoints
-io.on('connection', socket => {
-
-    // Listening for the data request
-    socket.on('dataRequest', async () => {
-
-
-        try {
-
-            // Get the json from redis
-            const geoJson = await getAsync('dataset');
-
-            // Get the length of the json
-            const dataPointCount = JSON.parse(geoJson).features.length;
-
-            // Minify JSONs
-            const minifyStep1 = JSON.parse(geoJson);
-            const minifyStep2 = JSON.stringify(minifyStep1, null, 0);
-
-            // Send the data to the front end
-            socket.compress(true).emit('data', [minifyStep2, dataPointCount]);
-        } catch (error) {
-            jsonLog.error(error);
-        }
-
-    });
-
-    // Starting Data
-    socket.on('firstRender', async () => {
-
-        // Get the sample dataset from redis
-        const geoJson = await getAsync('sample_dataset');
-
-
-        try {
-
-            // Get the length of the json
-            const dataPointCount = JSON.parse(geoJson).features.length;
-
-            // Minify JSONs
-            const minifyStep1 = JSON.parse(geoJson);
-            const minifyStep2 = JSON.stringify(minifyStep1, null, 0);
-
-            // Send the data to the front end
-            socket.compress(true).emit('firstRenderData', [minifyStep2, dataPointCount]);
-
-        } catch (error) {
-            jsonLog.error(error);
-        }
-
-    });
-
-
-});
+// Controllers
+const { } = require('../controllers/main');
 
 // Realtime data set
 router.get('/geo', async (req, res) => {

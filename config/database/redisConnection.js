@@ -2,7 +2,7 @@
 const redis = require('redis');
 
 // Winston Logger
-const dbLog = require('./logs').get('dbCon');
+const dbLog = require('../system/logs').get('dbCon');
 
 //Connect to Redis
 const redisClient = redis.createClient({
@@ -16,7 +16,6 @@ const redisClient = redis.createClient({
 const { promisify, } = require('util');
 const setAsync = promisify(redisClient.SET).bind(redisClient);
 const getAsync = promisify(redisClient.GET).bind(redisClient);
-
 
 // Export the Module
 module.exports = { setAsync, getAsync, };

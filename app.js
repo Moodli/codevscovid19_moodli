@@ -5,7 +5,6 @@ require('events').EventEmitter.defaultMaxListeners = 30;
 // Dependencies
 const memwatch = require('@airbnb/node-memwatch');
 const express = require('express');
-const BodyParser = require('body-parser');
 const compression = require('compression');
 const exphbs = require('express-handlebars');
 const path = require('path');
@@ -13,7 +12,7 @@ const fs = require('fs');
 const { routeCheck, } = require('express-suite');
 
 // Winston Logger
-const appLog = require('./config/logs').get('appLog');
+const appLog = require('./config/system/logs').get('appLog');
 memwatch.on('leak', info => appLog.error(info));
 
 // Custom modules
