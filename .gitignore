@@ -101,8 +101,6 @@ dist
 
 # TernJS port file
 .tern-port
-creds/mongoKey.js
-package-lock.json
 dep.sh
 creds/tweetapiKey.js
 node_modules
