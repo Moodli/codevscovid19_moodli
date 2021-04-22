@@ -33,6 +33,10 @@ services:
       - REDIS_HOST=redis-local
       - PORT=3003
       - NODE_ENV=production
+      - CONSUMER_KEY=${CONSUMER_KEY}
+      - CONSUMER_SECRET=${CONSUMER_SECRET}
+      - ACCESS_TOKEN=${ACCESS_TOKEN}
+      - ACCESS_TOKEN_SECRET=${ACCESS_TOKEN_SECRET}
 
     # Set up a dedicated network
     networks:
