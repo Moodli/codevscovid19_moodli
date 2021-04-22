@@ -106,7 +106,7 @@ const io = require('socket.io')(app.listen(PORT, () => {
 // Run the model every 2 sec
 setInterval(() => {
     sentimentProccess();
-}, 9000);
+}, 5000 * 4);
 
 
 // Export socket io Server before the route so it's
