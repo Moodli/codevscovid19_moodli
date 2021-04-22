@@ -52,7 +52,7 @@ app.use(express.json({
     extended: true,
 }));
 
-// Set Static Folder (Absolute)
+// Set Static Folder (Absolute) 
 app.use('/', express.static(path.join(__dirname, '/assets')));
 
 // Handlebars Middleware
