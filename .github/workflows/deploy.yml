@@ -13,7 +13,7 @@ env:
   SERVER_SSH_KEY: ${{ secrets.SERVER_SSH_KEY }}
   SERVER_IP: ${{ secrets.SERVER_IP }}
   SERVER_USER_NAME: ${{ secrets.SERVER_USER_NAME }}
-  REPOSITORY: ${{ GITHUB_REPOSITORY }}
+  REPOSITORY: ${{ github.GITHUB_REPOSITORY }}
 
 # Jobs
 jobs:
