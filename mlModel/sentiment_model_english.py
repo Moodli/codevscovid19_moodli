@@ -6,7 +6,9 @@ import json
 import pandas as pd
 import geojson
 import redis
-r = redis.Redis()
+
+# Connect to redis
+r = redis.Redis(host=os.environ['REDIS_HOST'], port=6379)
 
 
 dirname = os.path.dirname(__file__)

@@ -1,6 +1,6 @@
 ### Multistage build
 # Base image
-FROM node:lts-alpine AS BASE
+FROM node:latest AS BASE
 
 # Switch the working directory
 WORKDIR /usr/src/app
@@ -8,8 +8,10 @@ WORKDIR /usr/src/app
 # Copy the package.json and package-lock.json first
 COPY package*.json ./
 
+
 # Install dependencies
-RUN apk update && apk upgrade && apk add python3 && pip3 install --upgrade pip && pip3 install -U textblob geojson pandas redis &&npm i -g npm && npm i -g pm2@latest
+RUN apt -qq update && apt -qq upgrade -y && apt -qq install python3 python3-pip python3-geojson python3-pandas python3-redis -y && pip3 install -U textblob && npm i -g npm && npm i -g pm2@latest
+
 
 
 ### 2nd Stage: Install dependencies
