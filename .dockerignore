@@ -8,3 +8,4 @@
 **.git
 **.dockerignore
 **nonProduction
+**dependencygraph.svg
