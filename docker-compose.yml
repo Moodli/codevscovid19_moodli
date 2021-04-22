@@ -24,7 +24,7 @@ services:
     image: ${IMAGE_NAME}
     # Map the ports | bind to localhost
     ports:
-      - '80:3003'
+      - '127.0.0.1:3003:3003'
     #  Link it to another service
     depends_on:
       - redis_storage
