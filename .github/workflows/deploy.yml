@@ -88,6 +88,7 @@ jobs:
     # Deployment prep.
       - name: Deployment Preparation
         run: |
+          cat docker.env
           echo "echo $GITHUB_TOKEN | docker login -u $USER_NAME --password-stdin ghcr.io" | ssh $SERVER_USER_NAME@$SERVER_IP
           sed -e "s/build\: .//" -i ./docker-compose.yml
           scp docker-compose.yml docker.env $SERVER_USER_NAME@$SERVER_IP:~
