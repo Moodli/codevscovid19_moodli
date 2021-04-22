@@ -17,7 +17,7 @@ const tokenizer = new WordTokenizer;
 const { threadId, parentPort, } = require('worker_threads');
 
 // Winston Loggers
-const logger = require('./logs');
+const logger = require('../system/logs');
 const locationLog = logger.get('locationLog');
 const workerLog = logger.get('workerLog');
 

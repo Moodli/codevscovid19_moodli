@@ -22,28 +22,23 @@ Backend for Moodli
 ### https://moodli.org/geo
 
 ### Requirements:
-
-1. Node (LTS)
-2. NPM
-3. PM2 (Install via NPM)
-4. Git
-5. /var/www/\* must be owned not by root but the default [or specified user]
-6. Redis (default creds)
-7. Twitter API Keys
-8. Python3 and pip3
-9. Python Library: textblob,geojson,pandas,redis (except for textblob, rest of the package can be installed via apt)
-
-```javascript
-//Initialize the Remote Folder:
-//Syntax: pm2 deploy <configuration_file> <environment> setup
-//Example:
-pm2 deploy ecosystem.json development setup
-
-//Deploy your code:
-//Syntax: pm2 deploy <configuration_file> development
-//Example:
-pm2 deploy ecosystem.json development
-
-//Update your code:
-pm2 deploy ecosystem.json development update
+#### Development
+- Configure Twitter's API credentials in the `cred.env` file in the `creds` folder
+- You can use `cred.env.example` as a reference 
+#### Docker
+- Configure `docker.env` in the project's root directory
+- You can use `docker.env.example` as a reference 
+- 
+### Start:
+#### Development
+```bash
+npm i && npm start
 ```
+#### Docker
+```bash
+# Build the images
+docker-compose --env-file=docker.env build
+# Start the stack
+docker-compose --env-file=docker.env up
+```
+

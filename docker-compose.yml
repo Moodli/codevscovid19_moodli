@@ -1,0 +1,48 @@
+version: '3.7'
+services:
+# List of services
+  redis_storage:
+    container_name: redis-local
+    restart: always
+    image: redis:alpine
+    
+    # Map the ports | bind to localhost
+    ports:
+     - '127.0.0.1:6374:6374'
+
+    # Set up a dedicated network
+    networks:
+     - moodli
+
+  main_app: 
+    container_name: moodli
+    env_file: docker.env
+    restart: always
+    # Directory of the dockerfile
+    build: .
+    # Name of the image, not the image to pull
+    image: ${IMAGE_NAME}
+    # Map the ports | bind to localhost
+    ports:
+      - '127.0.0.1:3003:3003'
+    #  Link it to another service
+    depends_on:
+      - redis_storage
+    # Set env vars
+    environment:
+      - REDIS_HOST=redis-local
+      - PORT=3003
+      - NODE_ENV=production
+      - CONSUMER_KEY=${CONSUMER_KEY}
+      - CONSUMER_SECRET=${CONSUMER_SECRET}
+      - ACCESS_TOKEN=${ACCESS_TOKEN}
+      - ACCESS_TOKEN_SECRET=${ACCESS_TOKEN_SECRET}
+
+    # Set up a dedicated network
+    networks:
+      - moodli
+
+# Define the network type
+networks:
+  moodli:
+    driver: bridge

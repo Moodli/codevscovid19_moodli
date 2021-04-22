@@ -1,0 +1,9 @@
+{
+    "name": "moodli",
+    "script": "app.js",
+    "autorestart": true,
+    "watch": false,
+    "max_memory_restart": "1G",
+    "exec_mode": "fork",
+    "instances": 1
+}

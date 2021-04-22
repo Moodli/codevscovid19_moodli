@@ -2,10 +2,16 @@
 // Fix mem leak.
 require('events').EventEmitter.defaultMaxListeners = 30;
 
+// Load env vars
+const { NODE_ENV, } = process.env;
+if (NODE_ENV !== 'production') {
+    // eslint-disable-next-line global-require
+    require('./creds/env');
+}
+
 // Dependencies
 const memwatch = require('@airbnb/node-memwatch');
 const express = require('express');
-const BodyParser = require('body-parser');
 const compression = require('compression');
 const exphbs = require('express-handlebars');
 const path = require('path');
@@ -13,11 +19,11 @@ const fs = require('fs');
 const { routeCheck, } = require('express-suite');
 
 // Winston Logger
-const appLog = require('./config/logs').get('appLog');
+const appLog = require('./config/system/logs').get('appLog');
 memwatch.on('leak', info => appLog.error(info));
 
 // Custom modules
-const { sentimentProccess, csvResetProccess, } = require('./config/sentiment');
+const { sentimentProccess, csvResetProccess, } = require('./config/textProcessors/sentiment');
 
 // Write Stream Parameters
 const csvLocation = path.join(__dirname, './mlModel/tweets.csv');
@@ -29,7 +35,7 @@ fs.writeFileSync('./mlModel/tweets.csv', '');
 // CSV Column Names
 writeSt.write('text,location,textHuman');
 
-// Global Constant || Heroku Deployment Setup
+// Global Constant
 const PORT = process.env.PORT || 3005;
 
 // Initialize the App
@@ -43,17 +49,17 @@ app.set('etag', false);
 app.set('x-powered-by', false);
 
 // BodyParser Middleware
-app.use(BodyParser.urlencoded({
+app.use(express.urlencoded({
     extended: true,
     limit: '5mb',
 }));
 
-app.use(BodyParser.json({
+app.use(express.json({
     limit: '5mb',
     extended: true,
 }));
 
-// Set Static Folder (Absolute)
+// Set Static Folder (Absolute) 
 app.use('/', express.static(path.join(__dirname, '/assets')));
 
 // Handlebars Middleware
@@ -91,7 +97,7 @@ app.all('*', (req, res, next) => {
 
 // Start the app with socket io;
 const io = require('socket.io')(app.listen(PORT, () => {
-    appLog.info(`Server is listening on port ${PORT}`);
+    appLog.info(`Server is running in ${NODE_ENV} mode on port ${PORT}`);
 }), {
     allowUpgrades: true,
     transports: ['websocket'],
@@ -100,7 +106,7 @@ const io = require('socket.io')(app.listen(PORT, () => {
 // Run the model every 2 sec
 setInterval(() => {
     sentimentProccess();
-}, 3000);
+}, 9000);
 
 
 // Export socket io Server before the route so it's

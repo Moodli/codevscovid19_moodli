@@ -101,15 +101,9 @@ dist
 
 # TernJS port file
 .tern-port
-creds/mongoKey.js
-package-lock.json
 dep.sh
-creds/tweetapiKey.js
+creds/cred.env
+**docker.env
 node_modules
-productionData/dataset.json
-mlModel/tweets.csv
-mlModel/tweets.csv
-mlModel/tweets.csv
-x.html
 productionData/dataset.json
 mlModel/tweets.csv

@@ -5,12 +5,13 @@ const fs = require('fs');
 const path = require('path');
 
 // Winston Loggers
-const logger = require('./logs');
-const workerLog = logger.get('workerLog');
+const workerLog = require('../system/logs').get('workerLog');
+
+
 workerLog.info(`CSV ${threadId} Started`);
 
 // Write Stream Parameters
-const csvLocation = path.join(__dirname, '../mlModel/tweets.csv');
+const csvLocation = path.join(__dirname, '../../mlModel/tweets.csv');
 const writeSt = fs.createWriteStream(csvLocation, { flags: 'a', });
 
 const csvFunc = (twt) => {

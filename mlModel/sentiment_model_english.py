@@ -6,10 +6,20 @@ import json
 import pandas as pd
 import geojson
 import redis
-r = redis.Redis()
+
+
+# Use local host if no env var is passed
+try:
+    host = os.environ['REDIS_HOST']
+except:
+    host = '127.0.0.1'
+
+# Connect to redis
+r = redis.Redis(host=host, port=6379)
 
 
 dirname = os.path.dirname(__file__)
+
 incoming_path = os.path.join(dirname, '../mlModel/tweets.csv')
 # outgoing geojson with sentiment,datetime, humanText, coordinates
 

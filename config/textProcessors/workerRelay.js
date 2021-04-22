@@ -30,8 +30,8 @@ const inc = (n, poolName) => {
 
 
 // Winston Loggers
-const logger = require('./logs');
-const statsLog = logger.get('statsLog');
+const statsLog = require('../system/logs').get('statsLog');
+
 
 // Initialize Porcessing Coverage Counter
 let inp = 0;
