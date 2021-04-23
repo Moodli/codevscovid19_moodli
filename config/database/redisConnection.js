@@ -19,6 +19,7 @@ const getAsync = promisify(redisClient.GET).bind(redisClient);
 const lpushAsync = promisify(redisClient.LPUSH).bind(redisClient);
 const rpopAsync = promisify(redisClient.RPOP).bind(redisClient);
 const appendAsync = promisify(redisClient.APPEND).bind(redisClient);
+const delAsync = promisify(redisClient.DEL).bind(redisClient);
 
 // Export the Module
-module.exports = { setAsync, getAsync, lpushAsync, rpopAsync, appendAsync, };
+module.exports = { setAsync, getAsync, lpushAsync, rpopAsync, appendAsync, delAsync, };

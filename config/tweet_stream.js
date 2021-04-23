@@ -55,7 +55,6 @@ stream.on('tweet', async (twt) => {
     const stringified = JSON.stringify(twt);
     await lpushAsync('twt', stringified);
     await dispatcher();
-
 });
 
 

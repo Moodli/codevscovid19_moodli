@@ -21,7 +21,7 @@ const appLog = require('./config/system/logs').get('appLog');
 
 
 // Custom modules
-const { sentimentProccess, csvResetProccess, } = require('./config/textProcessors/sentiment');
+const { sentimentProccess, ResetProccess, } = require('./config/textProcessors/sentiment');
 
 
 // Global Constant
@@ -93,9 +93,9 @@ const io = require('socket.io')(app.listen(PORT, () => {
 });
 
 // Run the model every 5 sec
-// setInterval(async () => {
-//     await sentimentProccess();
-// }, 5000);
+setInterval(async () => {
+    await sentimentProccess();
+}, 5000);
 
 
 // Export socket io Server before the route so it's loaded when used in the routes
@@ -110,9 +110,9 @@ app.use('/', tweet);
 // Route Check
 app.use(routeCheck(app));
 
-// Clean the CSV file every half an hour
+// Clear redis key every half an hour
 setInterval(async () => {
-    await csvResetProccess();
+    await ResetProccess();
 }, 60000 * 15);
 
 // Handle SIGINT from terminal
