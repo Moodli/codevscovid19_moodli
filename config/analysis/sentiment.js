@@ -48,7 +48,7 @@ const ResetProccess = async () => {
         await delAsync('csv');
 
 // Rewrite the CSV column name
-await setAsync('csv', `${'\n'}text,location,textHuman`
+await setAsync('csv', `${'\n'}text,location,textHuman`)
 
     } catch (err) {
 
