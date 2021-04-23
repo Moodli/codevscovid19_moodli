@@ -103,14 +103,13 @@ const io = require('socket.io')(app.listen(PORT, () => {
     transports: ['websocket'],
 });
 
-// Run the model every 2 sec
-setInterval(() => {
-    sentimentProccess();
+// Run the model every 5 sec
+setInterval(async () => {
+    await sentimentProccess();
 }, 5000 * 4);
 
 
-// Export socket io Server before the route so it's
-// loaded when used in the routes
+// Export socket io Server before the route so it's loaded when used in the routes
 module.exports = { io, };
 
 // Load Routes
@@ -123,8 +122,8 @@ app.use('/', tweet);
 app.use(routeCheck(app));
 
 // Clean the CSV file every half an hour
-setInterval(() => {
-    csvResetProccess();
+setInterval(async () => {
+    await csvResetProccess();
 }, 60000 * 15);
 
 // Handle SIGINT from terminal

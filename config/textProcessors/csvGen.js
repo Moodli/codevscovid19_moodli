@@ -53,7 +53,10 @@ const csvFunc = (twt) => {
             let elementx = twt[key];
 
             // Remove csv sensitive characters
-            let elementy = elementx.replace(/\n/g, ' ').replace(/,/g, ' ').replace(/"/g, ' ');
+            let elementy = elementx
+                .replace(/\n/g, ' ')
+                .replace(/,/g, ' ')
+                .replace(/"/g, ' ');
 
             // Push the processed text to the array
             textHumanArray.push(`"${elementy}"`);
