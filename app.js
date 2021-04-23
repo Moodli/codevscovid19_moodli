@@ -114,10 +114,10 @@ app.use('/', tweet);
 // Route Check
 app.use(routeCheck(app));
 
-// Clear redis key every half an hour
+// Clear redis key every 5min
 setInterval(async () => {
     await ResetProccess();
-}, 60000 * 15);
+}, 60000 * 5);
 
 // Handle SIGINT from terminal
 process.on('SIGINT', () => process.exit(0));
