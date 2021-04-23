@@ -1,6 +1,6 @@
 
 // Fix mem leak.
-require('events').EventEmitter.defaultMaxListeners = 30;
+require('events').EventEmitter.defaultMaxListeners = 60;
 
 // Load env vars
 const { NODE_ENV, } = process.env;

@@ -29,6 +29,8 @@ class workerPool {
      * @returns {Array<Promise>} An array of promises of unresolved tasks
      */
     assignTask(task) {
+        console.log(this.availableWorkers);
+        console.log(this.backLog.length);
         // Only assign new tasks when there are available workers 
         if (this.availableWorkers.length !== 0) {
 
@@ -73,6 +75,14 @@ class workerPool {
         if (this.backLog.length !== 0) {
             this.backLog.shift();
         }
+    }
+
+    /**
+     * Get current available workers
+     * @returns {Number}
+     */
+    getWorkers() {
+        return this.availableWorkers;
     }
 }
 

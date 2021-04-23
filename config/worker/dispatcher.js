@@ -1,20 +1,12 @@
 // Dependencies
-const fs = require('fs');
-const path = require('path');
 const os = require('os');
 const { Worker, } = require('worker_threads');
 
 // Worker pool
 const { workerPool, } = require('./pool');
 
-
-// Write Stream Parameters
-const csvLocation = path.join(__dirname, '../../mlModel/tweets.csv');
-const writeSt = fs.createWriteStream(csvLocation, { flags: 'a', });
-
 // Redis
-const { setAsync, rpopAsync, } = require('../database/redisConnection');
-
+const { rpopAsync, appendAsync, } = require('../database/redisConnection');
 
 // Create a map to hold the workers
 const totalWorkers = new Map();
@@ -42,11 +34,18 @@ const nwp = new workerPool(totalWorkers);
 
 const dispatcher = async () => {
 
-
+    // Get the raw tweets from redis
     const data = await rpopAsync('twt');
     const parsedData = JSON.parse(data);
+
+
+    // Don't assign tasks when there is no available workers
+    if (nwp.availableWorkers === 0) {
+        return;
+    }
+
     /**
-    * Assign the task to the worker
+    * Assign the task to workers
     */
     const tasks = nwp.assignTask(parsedData);
 
@@ -58,11 +57,18 @@ const dispatcher = async () => {
         tasks.map(async (task) => {
 
             // Wait for the task to resolved 
-            return await task;
+            const resolved = await task;
+
+            // Remove the tasks from the back log
+            nwp.release();
+
+            // Return the processed task
+            return resolved;
         })
     );
-    // Write to the file
-    await setAsync('csv', result[0]);
+
+    // Write to redis
+    await appendAsync('csv', result[0]);
 };
 
 module.exports = { dispatcher, };

@@ -37,7 +37,15 @@ setAsync('sample_dataset', readFileSync(dataSetPath))
 const T = new Twit(creds);
 
 // Create a readable stream 
-const stream = T.stream('statuses/filter', { track: ['covid19', 'coronavirus', 'CoronaVirusUpdates', 'COVIDー19', 'QuarantineLife', 'Quarantine', 'lockdown', 'self-isolate', 'social-distancing', 'masks', 'face masks', 'face mask', 'covid-19', 'covid', 'Vaccine', 'vaccine'], language: 'en', });
+const stream = T.stream('statuses/filter', {
+    track:
+        ['covid19', 'coronavirus', 'CoronaVirusUpdates',
+            'COVIDー19', 'QuarantineLife', 'Quarantine',
+            'lockdown', 'self-isolate', 'social-distancing',
+            'masks', 'face masks', 'face mask',
+            'covid-19', 'covid', 'Vaccine', 'vaccine'],
+    language: 'en',
+});
 
 
 
@@ -47,6 +55,7 @@ stream.on('tweet', async (twt) => {
     const stringified = JSON.stringify(twt);
     await lpushAsync('twt', stringified);
     await dispatcher();
+
 });
 
 
