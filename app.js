@@ -10,30 +10,19 @@ if (NODE_ENV !== 'production') {
 }
 
 // Dependencies
-const memwatch = require('@airbnb/node-memwatch');
 const express = require('express');
 const compression = require('compression');
 const exphbs = require('express-handlebars');
 const path = require('path');
-const fs = require('fs');
 const { routeCheck, } = require('express-suite');
 
 // Winston Logger
 const appLog = require('./config/system/logs').get('appLog');
-memwatch.on('leak', info => appLog.error(info));
+
 
 // Custom modules
 const { sentimentProccess, csvResetProccess, } = require('./config/textProcessors/sentiment');
 
-// Write Stream Parameters
-const csvLocation = path.join(__dirname, './mlModel/tweets.csv');
-const writeSt = fs.createWriteStream(csvLocation, { flags: 'a', });
-
-// Flush the Files
-fs.writeFileSync('./mlModel/tweets.csv', '');
-
-// CSV Column Names
-writeSt.write('text,location,textHuman');
 
 // Global Constant
 const PORT = process.env.PORT || 3005;
@@ -104,9 +93,9 @@ const io = require('socket.io')(app.listen(PORT, () => {
 });
 
 // Run the model every 5 sec
-setInterval(async () => {
-    await sentimentProccess();
-}, 5000 * 4);
+// setInterval(async () => {
+//     await sentimentProccess();
+// }, 5000);
 
 
 // Export socket io Server before the route so it's loaded when used in the routes

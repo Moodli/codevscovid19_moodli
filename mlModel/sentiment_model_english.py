@@ -6,7 +6,7 @@ import json
 import pandas as pd
 import geojson
 import redis
-
+from io import StringIO
 
 # Use local host if no env var is passed
 try:
@@ -45,21 +45,35 @@ def df_to_geojson(df, properties, lat='latitude', lon='longitude'):
     return geojson
 
 
-data = pd.read_csv(incoming_path)
+# Get data from redis
+data_source = r.get('csv').decode("utf-8")
 
+# Convert it to dataframe
+data = pd.read_csv(StringIO(data_source))
+
+# The model
 model_sentiment = blobclass()
 
+# Empty array to hold the sentiment dict instance
 rows_list = []
-for index, row in data.iterrows():
 
+for index, row in data.iterrows():
+    # The sentiment dict
     dict1 = {}
+
+    # Get the sentiment score
     this_sentiment = model_sentiment.write_text_get_sentiment(row["text"])
 
+    # Sentiment score format
     d = {"sentiment": this_sentiment.polarity}
+
+    # Update the dict
     dict1.update(d)
 
+    # Append the dict instance to the array
     rows_list.append(dict1)
 
+# Turn the array of sentiment dicts into a dataframe
 data1 = pd.DataFrame(rows_list)
 
 data["sentiment"] = data1
@@ -90,16 +104,6 @@ except:
     data['latitude'] = lon
     data['longitude'] = lat
 
-
-'''
-dummydata = pd.DataFrame(np.random.randint(0,100,size=(10000, 2)), columns=list(['latitude','longitude']))
-dummydata["text"]="some text"
-dummydata["date"]="2020-03-27T18:25:43.511Z"
-random_sentiment = np.random.uniform(low=-1.0, high=1.0, size=(10000))
-dummydata["sentiment"]=random_sentiment
-print(dummydata)
-data = dummydata
-'''
 
 # make geojson
 cols = ['textHuman', 'sentiment']  # text
