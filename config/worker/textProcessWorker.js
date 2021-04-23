@@ -249,6 +249,64 @@ const locationFilter = (location) => {
 };
 
 
+// Function that converts raw tweets to csv
+const csvFunc = (twt) => {
+
+    // Create arrays to hold processed texts
+    const textHumanArray = [];
+    const textArray = [];
+    const locationArray = [];
+
+    // Iterate through the twitObject
+    for (const key in twt) {
+
+        if (key === 'text') {
+
+            // Get the column name
+            let element = twt[key];
+
+            // Add double quotes to escape the string
+            element = element.map(x => `""${x}""`);
+
+            // Push the processed text to the array
+            textArray.push(`"[${element}]"`);
+        }
+
+        // Get the coordinates
+        if (key === 'location') {
+
+            // Get the column name
+            let element = twt[key];
+
+            // Push the processed text to the array
+            locationArray.push(`"[${element}]"`);
+        }
+
+
+        if (key === 'textHuman') {
+
+            // Get the column name
+            let elementx = twt[key];
+
+            // Remove csv sensitive characters
+            let elementy = elementx
+                .replace(/\n/g, ' ')
+                .replace(/,/g, ' ')
+                .replace(/"/g, ' ');
+
+            // Push the processed text to the array
+            textHumanArray.push(`"${elementy}"`);
+
+        }
+    }
+
+    // Join the the rows
+    // const csv = `${'\n'}text,location,textHuman${'\n'}${textArray},${locationArray},${textHumanArray}`;
+    const csv = `${'\n'}${textArray},${locationArray},${textHumanArray}`;
+    return csv;
+};
+
+
 // Initialize Porcessing Coverage Counter
 let inp = 0;
 let out = 0;
@@ -276,8 +334,10 @@ parentPort.on('message', twt => {
                 location: locationFilter(twt.user.location),
             };
 
+
             // Send the processed tweets back to the parent
-            parentPort.postMessage(twitObj);
+            parentPort.postMessage(csvFunc(twitObj));
+
         }
     }
 });

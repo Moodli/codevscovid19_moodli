@@ -1,6 +1,5 @@
-
 // Fix mem leak.
-require('events').EventEmitter.defaultMaxListeners = 30;
+require('events').EventEmitter.defaultMaxListeners = 0;
 
 // Load env vars
 const { NODE_ENV, } = process.env;
@@ -10,30 +9,24 @@ if (NODE_ENV !== 'production') {
 }
 
 // Dependencies
-const memwatch = require('@airbnb/node-memwatch');
 const express = require('express');
 const compression = require('compression');
 const exphbs = require('express-handlebars');
 const path = require('path');
-const fs = require('fs');
 const { routeCheck, } = require('express-suite');
 
 // Winston Logger
 const appLog = require('./config/system/logs').get('appLog');
-memwatch.on('leak', info => appLog.error(info));
 
 // Custom modules
-const { sentimentProccess, csvResetProccess, } = require('./config/textProcessors/sentiment');
+const { sentimentProccess, ResetProccess, } = require('./config/analysis/sentiment');
 
-// Write Stream Parameters
-const csvLocation = path.join(__dirname, './mlModel/tweets.csv');
-const writeSt = fs.createWriteStream(csvLocation, { flags: 'a', });
+// Redis
+const { setAsync, } = require('./config/database/redisConnection');
+setAsync('csv', `${'\n'}text,location,textHuman`)
+    .then(() => appLog.info('csv key initialized'))
+    .catch(err => appLog.error(err));
 
-// Flush the Files
-fs.writeFileSync('./mlModel/tweets.csv', '');
-
-// CSV Column Names
-writeSt.write('text,location,textHuman');
 
 // Global Constant
 const PORT = process.env.PORT || 3005;
@@ -103,10 +96,10 @@ const io = require('socket.io')(app.listen(PORT, () => {
     transports: ['websocket'],
 });
 
-// Run the model every 5 sec
+// Run the model every 15 sec
 setInterval(async () => {
     await sentimentProccess();
-}, 5000 * 4);
+}, 15);
 
 
 // Export socket io Server before the route so it's loaded when used in the routes
@@ -121,9 +114,9 @@ app.use('/', tweet);
 // Route Check
 app.use(routeCheck(app));
 
-// Clean the CSV file every half an hour
+// Clear redis key every half an hour
 setInterval(async () => {
-    await csvResetProccess();
+    await ResetProccess();
 }, 60000 * 15);
 
 // Handle SIGINT from terminal

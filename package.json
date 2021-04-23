@@ -5,7 +5,9 @@
   "main": "app.js",
   "scripts": {
     "start": "NODE_ENV=development nodemon --signal SIGHUP app.js --ignore ../mlModel",
-    "graph": "depcruise --exclude '^(node_modules|nonProduction|nodeModuleconfig)' --output-type dot * | dot -T svg > dependencygraph.svg"
+    "graph": "depcruise --exclude '^(node_modules|nonProduction|nodeModuleconfig)' --output-type dot * | dot -T svg > dependencygraph.svg",
+    "debug": "NODE_ENV=development node --inspect app.js",
+    "war": "NODE_ENV=development node --trace-warnings app.js"
   },
   "repository": {
     "type": "git",
@@ -26,7 +28,6 @@
   },
   "homepage": "https://github.com/Moodli/codevscovid19_moodli_backend#readme",
   "dependencies": {
-    "@airbnb/node-memwatch": "^2.0.0",
     "all-the-cities": "^3.1.0",
     "apos-to-lex-form": "^1.0.5",
     "axios": "^0.21.1",
@@ -49,6 +50,7 @@
     "winston": "^3.3.3"
   },
   "devDependencies": {
-    "eslint": "^7.24.0"
+    "eslint": "^7.24.0",
+    "heapdump": "^0.3.15"
   }
 }

@@ -4,6 +4,9 @@ const util = require('util');
 // Pmoisify execFile
 const execFile = util.promisify(require('child_process').execFile);
 
+// Redis
+const { delAsync, } = require('../database/redisConnection');
+
 // Winston Logger
 const MLlog = require('../system/logs').get('MLlog');
 
@@ -34,16 +37,15 @@ const sentimentProccess = async () => {
  * Function for clearing the CSV file
  * @returns {Promise<undefined>}
  */
-const csvResetProccess = async () => {
+const ResetProccess = async () => {
 
     try {
-        // The command to pass into execFile
-        const command = 'echo -n "text,location,textHuman" > ./mlModel/tweets.csv';
 
-        // Run execFile with the shell option set to true so the command in executed using sh
-        await execFile(command, { shell: true, });
+        // Clear the twt key in redis
+        await delAsync('twt');
 
-        MLlog.debug('CSV File Cleared');
+        // Clear the csv key in redis
+        await delAsync('csv');
 
     } catch (err) {
 
@@ -51,4 +53,4 @@ const csvResetProccess = async () => {
     }
 };
 
-module.exports = { sentimentProccess, csvResetProccess, };
+module.exports = { sentimentProccess, ResetProccess, };
