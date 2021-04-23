@@ -1,6 +1,5 @@
-
 // Fix mem leak.
-require('events').EventEmitter.defaultMaxListeners = 60;
+require('events').EventEmitter.defaultMaxListeners = 0;
 
 // Load env vars
 const { NODE_ENV, } = process.env;
@@ -97,10 +96,10 @@ const io = require('socket.io')(app.listen(PORT, () => {
     transports: ['websocket'],
 });
 
-// Run the model every 5 sec
+// Run the model every 15 sec
 setInterval(async () => {
     await sentimentProccess();
-}, 3000);
+}, 15);
 
 
 // Export socket io Server before the route so it's loaded when used in the routes
