@@ -44,6 +44,9 @@ const ResetProccess = async () => {
         // Clear the twt key in redis
         await delAsync('twt');
 
+        // Clear the csv key in redis
+        await delAsync('csv');
+
     } catch (err) {
 
         MLlog.error(err);

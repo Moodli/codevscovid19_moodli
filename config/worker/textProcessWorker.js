@@ -301,8 +301,8 @@ const csvFunc = (twt) => {
     }
 
     // Join the the rows
-    const csv = `${'\n'}text,location,textHuman${'\n'}${textArray},${locationArray},${textHumanArray}`;
-
+    // const csv = `${'\n'}text,location,textHuman${'\n'}${textArray},${locationArray},${textHumanArray}`;
+    const csv = `${'\n'}${textArray},${locationArray},${textHumanArray}`;
     return csv;
 };
 

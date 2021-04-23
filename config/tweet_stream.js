@@ -51,6 +51,7 @@ const stream = T.stream('statuses/filter', {
 
 // Send tweet stream to the datatransfer function
 stream.on('tweet', async (twt) => {
+
     // Push the incoming tweets into redis
     const stringified = JSON.stringify(twt);
     await lpushAsync('twt', stringified);

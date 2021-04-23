@@ -19,9 +19,14 @@ const { routeCheck, } = require('express-suite');
 // Winston Logger
 const appLog = require('./config/system/logs').get('appLog');
 
-
 // Custom modules
-const { sentimentProccess, ResetProccess, } = require('./config/textProcessors/sentiment');
+const { sentimentProccess, ResetProccess, } = require('./config/analysis/sentiment');
+
+// Redis
+const { setAsync, } = require('./config/database/redisConnection');
+setAsync('csv', `${'\n'}text,location,textHuman`)
+    .then(() => appLog.info('csv key initialized'))
+    .catch(err => appLog.error(err));
 
 
 // Global Constant
@@ -95,7 +100,7 @@ const io = require('socket.io')(app.listen(PORT, () => {
 // Run the model every 5 sec
 setInterval(async () => {
     await sentimentProccess();
-}, 5000);
+}, 10000);
 
 
 // Export socket io Server before the route so it's loaded when used in the routes

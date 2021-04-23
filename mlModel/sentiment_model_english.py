@@ -109,6 +109,8 @@ except:
 cols = ['textHuman', 'sentiment']  # text
 geojson = df_to_geojson(data, cols)
 
+
 # Save the json data into redis
 r.set('dataset', json.dumps(geojson, indent=4))
+
 print("Damn look at this!!! Model Finished!!", end='')
