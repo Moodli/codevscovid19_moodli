@@ -100,7 +100,7 @@ const io = require('socket.io')(app.listen(PORT, () => {
 // Run the model every 5 sec
 setInterval(async () => {
     await sentimentProccess();
-}, 10000);
+}, 3000);
 
 
 // Export socket io Server before the route so it's loaded when used in the routes

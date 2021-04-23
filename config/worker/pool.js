@@ -52,7 +52,7 @@ class workerPool {
                 // Wait for the response from the worker thread
                 this.totalWorkers.get(assignedWorkerId).on('message', resolve);
                 // Check for error
-                this.totalWorkers.get(assignedWorkerId).on('merror', reject);
+                this.totalWorkers.get(assignedWorkerId).on('error', reject);
 
             }));
 
