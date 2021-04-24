@@ -96,10 +96,10 @@ const io = require('socket.io')(app.listen(PORT, () => {
     transports: ['websocket'],
 });
 
-// Run the model every 15 sec
+// Run the model every 13 sec
 setInterval(async () => {
     await sentimentProccess();
-}, 15000);
+}, 13000);
 
 
 // Export socket io Server before the route so it's loaded when used in the routes

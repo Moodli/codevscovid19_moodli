@@ -5,7 +5,7 @@ const util = require('util');
 const execFile = util.promisify(require('child_process').execFile);
 
 // Redis
-const { delAsync, setAsync,} = require('../database/redisConnection');
+const { delAsync, setAsync, } = require('../database/redisConnection');
 
 // Winston Logger
 const MLlog = require('../system/logs').get('MLlog');
@@ -47,8 +47,8 @@ const ResetProccess = async () => {
         // Clear the csv key in redis
         await delAsync('csv');
 
-// Rewrite the CSV column name
-await setAsync('csv', `${'\n'}text,location,textHuman`);
+        // Rewrite the CSV column name
+        await setAsync('csv', `${'\n'}text,location,textHuman`);
 
     } catch (err) {
 
