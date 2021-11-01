@@ -63,7 +63,6 @@
     socket.on('data', data => {
       try {
         map.getSource('tweet').setData(JSON.parse(data[0]));
-        console.log(JSON.parse(data[0]))
         document.getElementById("dataPointCount").innerHTML = 'Data Points Displayed:' + ' ' + data[1];
       }
       catch (err) {
