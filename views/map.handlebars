@@ -30,7 +30,7 @@
 
 <script>
 
-  //websocket connection
+  // websocket connection
   const socket = io.connect("{{url}}", {
     uprade: true,
     transports: ['websocket'],
@@ -50,12 +50,10 @@
 
 
 
-  //Default data
-  let url = 'https://wanderdrone.appspot.com/';
-  //When the map loads
+  // When the map loads
   map.on('load', (e) => {
 
-    //Request the data from the backend
+    // Request the data from the backend
     socket.compress(true).emit('firstRender')
     setInterval(() => {
       socket.compress(true).emit('dataRequest')
@@ -65,6 +63,7 @@
     socket.on('data', data => {
       try {
         map.getSource('tweet').setData(JSON.parse(data[0]));
+        console.log(JSON.parse(data[0]))
         document.getElementById("dataPointCount").innerHTML = 'Data Points Displayed:' + ' ' + data[1];
       }
       catch (err) {
@@ -91,8 +90,18 @@
     map.addSource('tweet',
       {
         type: 'geojson',
-        data: url
+        data: {
+          "type": "FeatureCollection",
+          "features": [
+            {
+              "type": "Feature",
+              "geometry": { "type": "Point", "coordinates": [102.0, 0.5] },
+              "properties": { "prop0": "value0" }
+            },
+          ]
+        }
       });
+
 
     // Add the source to the map layer
     map.addLayer({

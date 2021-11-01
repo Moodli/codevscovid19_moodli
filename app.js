@@ -71,7 +71,6 @@ app.engine('handlebars', exphbs({
 app.all('*', (req, res, next) => {
 
     //  Website you wish to allow to connect
-    //  res.setHeader('Access-Control-Allow-Origin', 'https:// moodli.xx');
     res.setHeader('Access-Control-Allow-Origin', '*');
     //  Set to true if you need the website to include cookies in the requests sent
     //  to the API (e.g. in case you use sessions)
@@ -117,7 +116,7 @@ app.use(routeCheck(app));
 // Clear redis key every 5min
 setInterval(async () => {
     await ResetProccess();
-}, 60000 * 5);
+}, 60000 * 10);
 
 // Handle SIGINT from terminal
 process.on('SIGINT', () => process.exit(0));
